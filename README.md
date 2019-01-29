@@ -1,8 +1,7 @@
-# ssm-shop 基于https://github.com/tiankong0310/my-shop修改了一些bug的二次开发项目
+# ssm-shop 基于https://github.com/tiankong0310/my-shop
+修改了一些bug的二次开发项目
 
 ![输入图片说明](https://gitee.com/uploads/images/2018/0608/123315_a538a655_1951565.png "微信图片_20180608123202.png")
-
-官方QQ群1：711281203 ,群2:685261895  欢迎大家fork,star,有兴趣的可一起参与开发，谢谢！
  1. 前言
 
    my-shop项目不仅仅是一个开发架构，前后分离，而是努力打造一套从 前端模板 - 基础框架 - 分布式架构 - 开源项目 - 持续集成 - 自动化部署 - 系统监测 - 无缝升级 的全方位J2EE企业级开发解决方案。
