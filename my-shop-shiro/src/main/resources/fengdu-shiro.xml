@@ -43,6 +43,7 @@
 	    <property name="filterChainDefinitions">  
 	        <value>
 	        	/statics/**=anon
+				/assets/**=anon
 				/api/**=anon
 	        	/login.html=anon
 	        	/sys/login=anon
