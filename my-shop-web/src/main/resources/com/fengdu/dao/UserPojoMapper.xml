@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fengdu.dao.UserPojoMapper">
+
+    <select id="selectByAccount" resultType="com.fengdu.pojo.UserPojo">
+        SELECT * FROM  nideshop_user WHERE username = #{account} OR mobile = #{account}
+    </select>
+
+    <select id="selectByUserName" resultType="com.fengdu.pojo.UserPojo">
+        SELECT * FROM  nideshop_user WHERE username = #{username}
+    </select>
+
+    <select id="selectByUserPhone" resultType="com.fengdu.pojo.UserPojo">
+        SELECT * FROM  nideshop_user WHERE  mobile = #{phone}
+    </select>
+
+
+    <insert id="save" parameterType="com.fengdu.pojo.UserPojo">
+		insert into nideshop_user
+		(
+			`username`,
+			`password`,
+			`mobile`,
+			`register_time`
+		)
+		values
+		(
+			#{username},
+			#{password},
+			#{mobile},
+			#{registerTime}
+		)
+	</insert>
+</mapper>

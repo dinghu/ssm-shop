@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fengdu.dao.UserLevelPojoMapper">
+    <resultMap id="BaseResultMap" type="com.fengdu.pojo.UserLevelPojo">
+        <id column="id" property="id" jdbcType="TINYINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, name, description
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Byte">
+        select
+        <include refid="Base_Column_List"/>
+        from nideshop_user_level
+        where id = #{id,jdbcType=TINYINT}
+    </select>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.fengdu.pojo.UserLevelPojo">
+        update nideshop_user_level
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=TINYINT}
+    </update>
+</mapper>
