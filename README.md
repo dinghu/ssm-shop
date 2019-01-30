@@ -1,8 +1,7 @@
-# my-shop
+# ssm-shop 基于https://github.com/tiankong0310/my-shop
+修改了一些bug的二次开发项目
 
 ![输入图片说明](https://gitee.com/uploads/images/2018/0608/123315_a538a655_1951565.png "微信图片_20180608123202.png")
-
-官方QQ群1：711281203 ,群2:685261895  欢迎大家fork,star,有兴趣的可一起参与开发，谢谢！
  1. 前言
 
    my-shop项目不仅仅是一个开发架构，前后分离，而是努力打造一套从 前端模板 - 基础框架 - 分布式架构 - 开源项目 - 持续集成 - 自动化部署 - 系统监测 - 无缝升级 的全方位J2EE企业级开发解决方案。
@@ -239,30 +238,4 @@ SQL监控
 系统日志
 文件上传
 通用字典表
-
-演示地址
-http://118.24.189.247:8080/my-shop-manager/login.html
-用户名：admin 123456
-
-
-项目部门来源于网络，在基础上做了增加扩展，欢迎大家交流，拍砖，反馈，共同进步，共同学习，共同成长；
-不足的地方望大家多多包涵，后期会越做越好。
-
-警告
-本项目仅用于学习练习
-部分数据库数据来自网络（platform）
-项目代码目前还不完善，仍处在开发中
-项目开源（MIT），但不承担任何使用后果
-
-qq官方群1:711281203, 群2:685261895 （如有问题，请联系，小天qq：2366307000）
-感谢！
-
-gitee：https://gitee.com/tiankong0310/my-shop
-
-github:https://github.com/tiankong0310/my-shop
-
-通用商城支付springboot2：https://gitee.com/tiankong0310/springboot-weixin-alipay
-
-如需获取项目最新源码，请fork、Star项目，感谢大家的支持！
-
     
