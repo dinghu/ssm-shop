@@ -2333,6 +2333,7 @@
         var loginoutmenu = $("#loginoutmenu");
         var myaccount = $("#myaccount");
         var loginmenu = $("#login-menu");
+        //登陆信息
         if (username != null && username != "") {
             loginmenu.find("a").remove();
             loginmenu.append("  <a class=\"dropdown-item\" href=\"user/logout\">退出登陆</a>");
@@ -2343,6 +2344,8 @@
             loginmenu.append("<a class=\"dropdown-item\" href=\"login.html\">注册</a>");
             myaccount.html("您好,请登陆" +  + " <i class=\"fa fa-angle-down\"></i>");
         }
+
+        //获取流行分类
     });
 </script>
 

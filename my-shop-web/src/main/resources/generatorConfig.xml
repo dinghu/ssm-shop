@@ -34,8 +34,8 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.fengdu.dao" targetProject="src/main/java"/>
 
         <!-- 配置表信息 -->
-        <table schema="nideshop_user_level" tableName="nideshop_user_level"
-               domainObjectName="UserLevelPojo" enableCountByExample="false"
+        <table schema="nideshop_category" tableName="nideshop_category"
+               domainObjectName="ShopCategory" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
         </table>
