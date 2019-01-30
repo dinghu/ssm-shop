@@ -77,9 +77,9 @@
             </list>
         </property>
     </bean>
-    <aop:config>
-        <aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut"/>
-    </aop:config>
+    <!--<aop:config>-->
+        <!--<aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut"/>-->
+    <!--</aop:config>-->
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager"
@@ -124,7 +124,7 @@
         class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
         <property name="hostName" value="${redis.host}" />
         <property name="port" value="${redis.port}" />
-        <!-- <property name="password" value="${redis.pass}" /> -->
+        <property name="password" value="${redis.pass}" />
         <property name="database" value="${redis.dbIndex}" />
         <property name="poolConfig" ref="poolConfig" />
     </bean>

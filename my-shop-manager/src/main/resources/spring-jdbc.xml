@@ -124,7 +124,7 @@
         class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
         <property name="hostName" value="${redis.host}" />
         <property name="port" value="${redis.port}" />
-        <!-- <property name="password" value="${redis.pass}" /> -->
+        <property name="password" value="${redis.pass}" />
         <property name="database" value="${redis.dbIndex}" />
         <property name="poolConfig" ref="poolConfig" />
     </bean>

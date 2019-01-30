@@ -28,13 +28,13 @@ public class R extends HashMap<String, Object> {
     public static R error(int code, String msg) {
         R r = new R();
         r.put("code", code);
-        r.put("msg", msg);
+        r.put("message", msg);
         return r;
     }
 
     public static R ok(String msg) {
         R r = new R();
-        r.put("msg", msg);
+        r.put("message", msg);
         return r;
     }
 

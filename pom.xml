@@ -191,14 +191,14 @@
 			<version>${shiro-version}</version>
 		</dependency>
 		           <!-- 阿里短信 -->
-         <!-- 阿里短信 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>alisms</artifactId>
-            <version>1.0</version>
-            	 <scope>system</scope>  
-			<systemPath>C:\repository\com\alibaba\alisms\1.0\alisms-1.0.jar</systemPath>  
-        </dependency>
+         <!--&lt;!&ndash; 阿里短信 &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>com.alibaba</groupId>-->
+            <!--<artifactId>alisms</artifactId>-->
+            <!--<version>1.0</version>-->
+            	 <!--<scope>system</scope>  -->
+			<!--<systemPath>C:\repository\com\alibaba\alisms\1.0\alisms-1.0.jar</systemPath>  -->
+        <!--</dependency>-->
 		
 		
 		<!-- Velocity视图所需jar -->

@@ -48,20 +48,7 @@
                         <div class="header-top-left">
                             <nav>
                                 <ul class="d-flex justify-content-center">
-                                    <li>
-                                        <div class="dropdown header-top-dropdown">
-                                            <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
-                                               aria-haspopup="true" aria-expanded="false">
-                                                my account
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="myaccount">
-                                                <a class="dropdown-item" href="my-account.html">my account</a>
-                                                <a class="dropdown-item" href="login.html"> login</a>
-                                                <a class="dropdown-item" href="login.html">register</a>
-                                            </div>
-                                        </div>
-                                    </li>
+
                                     <li>
                                         <div class="dropdown header-top-dropdown">
                                             <span>Language:</span>
@@ -312,13 +299,15 @@
                     <!-- Login Content Start -->
                     <div class="col-lg-6">
                         <div class="login-reg-form-wrap  pr-lg-50">
-                            <h2>Sign In</h2>
-                            <form action="#" method="post">
+                            <h2>登录</h2>
+                            <form id="loginForm">
                                 <div class="single-input-item">
-                                    <input type="email" placeholder="Email or Username" required/>
+                                    <input type="text" name="username" id="loginInputUsername" placeholder="账号/手机号"
+                                           required/>
                                 </div>
                                 <div class="single-input-item">
-                                    <input type="password" placeholder="Enter your Password" required/>
+                                    <input type="password" name="password" id="loginInputPassword" placeholder="请输入密码"
+                                           required/>
                                 </div>
                                 <div class="single-input-item">
                                     <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
@@ -331,10 +320,13 @@
                                         <a href="#" class="forget-pwd">Forget Password?</a>
                                     </div>
                                 </div>
-                                <div class="single-input-item">
-                                    <button class="btn btn__bg btn__sqr">Login</button>
-                                </div>
+
+                                <span id="login-error" style="margin-top: 10px"></span>
                             </form>
+
+                            <div class="single-input-item">
+                                <button class="btn btn__bg btn__sqr" id="loginButton">Login</button>
+                            </div>
                         </div>
                     </div>
                     <!-- Login Content End -->
@@ -342,23 +334,27 @@
                     <!-- Register Content Start -->
                     <div class="col-lg-6">
                         <div class="login-reg-form-wrap mt-md-60 mt-sm-60">
-                            <h2>Singup Form</h2>
-                            <form action="#" method="post">
+                            <h2>注册</h2>
+                            <form id="registerForm">
                                 <div class="single-input-item">
-                                    <input type="text" placeholder="Full Name" required/>
+                                    <input type="text" name="username" placeholder="帐户名" id="registerInputUsername"
+                                           required/>
                                 </div>
                                 <div class="single-input-item">
-                                    <input type="email" placeholder="Enter your Email" required/>
+                                    <input type="phone" name="phone" placeholder="请输入手机号" id="registerInputPhone"
+                                           required/>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="single-input-item">
-                                            <input type="password" placeholder="Enter your Password" required/>
+                                            <input type="password" name="password" placeholder="请输入密码"
+                                                   id="registerInputPassword" required/>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="single-input-item">
-                                            <input type="password" placeholder="Repeat your Password" required/>
+                                            <input type="password" placeholder="请再次输入密码"
+                                                   id="registerInputPasswordConfirm" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -373,10 +369,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="single-input-item">
-                                    <button class="btn btn__bg btn__sqr">Register</button>
-                                </div>
+
+                                <span id="regi-error" style="margin-top: 10px"></span>
                             </form>
+                            <div class="single-input-item">
+                                <button class="btn btn__bg btn__sqr" id="registerButton">注册</button>
+                            </div>
                         </div>
                     </div>
                     <!-- Register Content End -->
@@ -622,6 +620,104 @@
 <!-- Scroll to Top End -->
 
 <!--=======================Javascript============================-->
+<script type="text/javascript" src="assets/js/jquery-1.10.2.min.js"></script>
+<script>
+
+    $(function () {
+        /* 注册处理 */
+        var registerButton = $("#registerButton");
+        var registerForm = $("#registerForm");
+        var registerInputUsername = $("#registerInputUsername");
+        var registerInputPhone = $("#registerInputPhone");
+        var registerInputPassword = $("#registerInputPassword");
+        var registerInputPasswordConfirm = $("#registerInputPasswordConfirm");
+        // /*	注册校验*/
+        // registerInputUsername.blur(function () {
+        //     var value = $(this).val();
+        //     if (value.length() < 1 || value.length() > 10) {
+        //         $("#regi-username-error").text("用户名长度须在1-10个字符");
+        //     } else {
+        //         $("#regi-username-error").text("");
+        //     }
+        // });
+        // registerInputPassword.blur(function () {
+        //     var value = $(this).val();
+        //     if (!/[a-zA-Z0-9]{6,10}/.test(value)) {
+        //         $("#regi-password-error").text("密码长度须在6-20个字符");
+        //     } else {
+        //         $("#regi-password-error").text("");
+        //     }
+        // });
+
+        /* 注册处理 */
+        registerButton.on("click", function () {
+            alert("注册处理");
+            var form = new FormData();
+            form.append("username", registerInputUsername.val());
+            form.append("phone", registerInputPhone.val());
+            form.append("password", registerInputPassword.val());
+            $.ajax({
+                url: "user/regist",
+                type: "post",
+                data: form,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    var rep = $.parseJSON(response);
+                    if (rep.code == 0) {
+                        registerInputUsername.val("");
+                        registerInputPhone.val("");
+                        registerInputPassword.val("");
+                        registerInputPasswordConfirm.val("");
+                        $("#regi-error").text("");
+                    } else {
+                        $("#regi-error").text("注册失败");
+                    }
+                }
+            });
+        });
+
+
+        /* 登录 */
+        var loginButton = $("#loginButton");
+        var loginForm = $("#loginForm");
+        var loginInputUsername = $("#loginInputUsername");
+        var loginInputPassword = $("#loginInputPassword");
+
+        /* 登录处理 */
+        loginButton.on("click", function () {
+            var form = new FormData();
+            form.append("username", loginInputUsername.val());
+            form.append("password", loginInputPassword.val());
+            $.ajax({
+                url: "user/login",
+                type: "post",
+                data: form,
+                processData: false,
+                contentType: false,
+                error: function (e) {
+                    var ret = JSON.parse(e.responseText); //可以将json字符串转换成json对象
+                    $("#login-password-error").text(ret.error);
+                },
+                success: function (response) {
+                    var rep = $.parseJSON(response);
+                    if (rep.code == 0) {
+                        localStorage.setItem("userId", rep.user.id);
+                        localStorage.setItem("username", rep.user.username);
+                        localStorage.setItem("avatar", rep.user.avatar);
+                        // localStorage.setItem("simpleDesc", response.data.userInfo.simpleDesc);
+                        $("#login-error").text("");
+                        window.location.href = "index.html";
+                    } else {
+                        $("#login-error").text(rep.message);
+                    }
+                }
+            });
+        });
+    });
+
+</script>
+
 <!--=== All Vendor Js ===-->
 <script src="assets/js/vendor.js"></script>
 <!--=== All Plugins Js ===-->

@@ -40,18 +40,18 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <!-- 为了加载拦截器 需要 日志拦截器 （登录拦截和权限拦截已在shiro实现，看实现 情况处理） -->
-    <mvc:interceptors>
-        <!-- 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 -->
-        <!--<bean class="com.fengdu.interceptor.LogInterceptor"/>-->
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/statics/**"/>
-            <mvc:exclude-mapping path="/**/**.html"/>
-            <mvc:exclude-mapping path="/**/**.js"/>
-            <bean class="com.fengdu.interceptor.LogInterceptor"/><!--  -->
-        </mvc:interceptor>
-    </mvc:interceptors>
+    <!--&lt;!&ndash; 为了加载拦截器 需要 日志拦截器 （登录拦截和权限拦截已在shiro实现，看实现 情况处理） &ndash;&gt;-->
+    <!--<mvc:interceptors>-->
+        <!--&lt;!&ndash; 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 &ndash;&gt;-->
+        <!--&lt;!&ndash;<bean class="com.fengdu.interceptor.LogInterceptor"/>&ndash;&gt;-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<mvc:exclude-mapping path="/statics/**"/>-->
+            <!--<mvc:exclude-mapping path="/**/**.html"/>-->
+            <!--<mvc:exclude-mapping path="/**/**.js"/>-->
+            <!--<bean class="com.fengdu.interceptor.LogInterceptor"/>&lt;!&ndash;  &ndash;&gt;-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 
     <!-- Velocity视图解析器    默认视图  -->
     <bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">

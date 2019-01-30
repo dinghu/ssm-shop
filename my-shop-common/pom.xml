@@ -1,16 +1,17 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.fengdu</groupId>
-    <artifactId>my-shop</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>my-shop-common</artifactId>
-  <name>my-shop-common</name>
-  <url>http://maven.apache.org</url>
-   <properties>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.fengdu</groupId>
+        <artifactId>my-shop</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>my-shop-common</artifactId>
+    <name>my-shop-common</name>
+    <url>http://maven.apache.org</url>
+    <properties>
         <qiniu-version>[7.2.0, 7.2.99]</qiniu-version>
         <aliyun-oss-version>2.5.0</aliyun-oss-version>
         <qcloud-cos-version>5.2.4</qcloud-cos-version>
@@ -120,19 +121,19 @@
         </dependency>
         <!-- POI依赖 ，处理EXCEL WORD  PDF-->
         <dependency>
-        	<groupId>org.json</groupId>
-        	<artifactId>json</artifactId>
-        	<version>${org-json-version}</version>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${org-json-version}</version>
         </dependency>
-        
-          <!-- 阿里短信 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>alisms</artifactId>
-            <version>1.0</version>
-            	 <scope>system</scope>  
-						<systemPath>C:\repository\com\alibaba\alisms\1.0\alisms-1.0.jar</systemPath>  
-        </dependency>
-        
+
+        <!-- 阿里短信 -->
+        <!--<dependency>-->
+        <!--<groupId>com.alibaba</groupId>-->
+        <!--<artifactId>alisms</artifactId>-->
+        <!--<version>1.0</version>-->
+        <!--<scope>system</scope>  -->
+        <!--<systemPath>C:\repository\com\alibaba\alisms\1.0\alisms-1.0.jar</systemPath>  -->
+        <!--</dependency>-->
+
     </dependencies>
 </project>
