@@ -16,4 +16,9 @@ public class ShopCategoryServiceImpl implements ShopCategoryService {
     public List<ShopCategory> getPopularCategory() {
         return shopCategoryMapper.getPopularCategory();
     }
+
+    @Override
+    public List<ShopCategory> getRecommendCategory() {
+        return shopCategoryMapper.getRecommendCategory();
+    }
 }

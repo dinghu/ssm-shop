@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ShopCategoryMapper {
     List<ShopCategory> getPopularCategory();
+    List<ShopCategory> getRecommendCategory();
 }

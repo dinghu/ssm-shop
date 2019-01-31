@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ShopCategoryService {
     List<ShopCategory> getPopularCategory();
+    List<ShopCategory> getRecommendCategory();
 }
