@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2019-01-31 09:15:43
+Date: 2019-01-31 14:56:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -222,13 +222,13 @@ CREATE TABLE `nideshop_category` (
 -- ----------------------------
 -- Records of nideshop_category
 -- ----------------------------
-INSERT INTO `nideshop_category` VALUES ('1008014', '糖巧', '', '优选健康原料，甜食也吃得放心', '1005002', '3', '3', '1', 'http://yanxuan.nosdn.127.net/db48a1db4daab74233656caaea4a06f3.png', '', '', 'http://yanxuan.nosdn.127.net/c12cf29b574c7e9d1fcff6a57a12eea2.png', 'L2', '0', '糖心蜜意，甜而不腻', null);
-INSERT INTO `nideshop_category` VALUES ('1008015', '糕点', '', '无人工添加香精、防腐剂', '1005002', '1', '1', '1', 'http://yanxuan.nosdn.127.net/93168242df456b5f7bf3c89653b3db76.png', '', '', 'http://yanxuan.nosdn.127.net/66ea1d6ad602a8e441af7cada93bdc7a.png', 'L2', '0', '四季糕点，用心烘焙', null);
-INSERT INTO `nideshop_category` VALUES ('1008016', '灯具', '', '极简主义，贴近生活的设计', '1005000', '8', '6', '1', 'http://yanxuan.nosdn.127.net/c48e0d9dcfac01499a437774a915842b.png', '', '', 'http://yanxuan.nosdn.127.net/f702dc399d14d4e1509d5ed6e57acd19.png', 'L2', '0', '一盏灯，温暖一个家', null);
-INSERT INTO `nideshop_category` VALUES ('1008017', '收纳', '', '智慧收纳，抗菌防霉，便利拆卸，小空间的大智慧', '1012000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/fdc048e1bf4f04d1c20b32eda5d1dc6e.png', '', '', 'http://yanxuan.nosdn.127.net/2a62f6c53f4ff089fa6a210c7a0c2e63.png', 'L2', '0', '选自古驰竹柄原料供应商', null);
-INSERT INTO `nideshop_category` VALUES ('1008018', '单肩包', '', '匠心制版，立体有型', '1008000', '3', '3', '1', 'http://yanxuan.nosdn.127.net/2f71c7710f0bf857e787e1adb449c8a2.png', '', '', 'http://yanxuan.nosdn.127.net/55f34f23ed31f31e1313ff33602f90cc.png', 'L2', '0', '单肩装上惬意心情', null);
-INSERT INTO `nideshop_category` VALUES ('1009000', '日用清洁', '', '天然材料，温和去除污垢', '1013001', '6', '6', '1', 'http://yanxuan.nosdn.127.net/e071686c212e93aa2fcafd0062a9c613.png', '', '', 'http://yanxuan.nosdn.127.net/729638bb13997f9c4c435b41ce6ed910.png', 'L2', '0', '洁净才能带来清爽心情', null);
-INSERT INTO `nideshop_category` VALUES ('1010001', '内衣', '', '自然染料，亲肤舒适', '1010000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/20279e1753e4eedc6e347857acda9681.png', '', '', 'http://yanxuan.nosdn.127.net/02fede55aba1bc6c9d7f7c01682f9e2d.png', 'L2', '0', '给你贴身的关怀', null);
+INSERT INTO `nideshop_category` VALUES ('1008014', '糖巧', '', '优选健康原料，甜食也吃得放心', '1005002', '3', '3', '1', 'http://yanxuan.nosdn.127.net/db48a1db4daab74233656caaea4a06f3.png', '', '', 'http://yanxuan.nosdn.127.net/c12cf29b574c7e9d1fcff6a57a12eea2.png', 'L2', '0', '糖心蜜意，甜而不腻', '1');
+INSERT INTO `nideshop_category` VALUES ('1008015', '糕点', '', '无人工添加香精、防腐剂', '1005002', '1', '1', '1', 'http://yanxuan.nosdn.127.net/93168242df456b5f7bf3c89653b3db76.png', '', '', 'http://yanxuan.nosdn.127.net/66ea1d6ad602a8e441af7cada93bdc7a.png', 'L2', '0', '四季糕点，用心烘焙', '1');
+INSERT INTO `nideshop_category` VALUES ('1008016', '灯具', '', '极简主义，贴近生活的设计', '1005000', '8', '6', '1', 'http://yanxuan.nosdn.127.net/c48e0d9dcfac01499a437774a915842b.png', '', '', 'http://yanxuan.nosdn.127.net/f702dc399d14d4e1509d5ed6e57acd19.png', 'L2', '0', '一盏灯，温暖一个家', '1');
+INSERT INTO `nideshop_category` VALUES ('1008017', '收纳', '', '智慧收纳，抗菌防霉，便利拆卸，小空间的大智慧', '1012000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/fdc048e1bf4f04d1c20b32eda5d1dc6e.png', '', '', 'http://yanxuan.nosdn.127.net/2a62f6c53f4ff089fa6a210c7a0c2e63.png', 'L2', '0', '选自古驰竹柄原料供应商', '1');
+INSERT INTO `nideshop_category` VALUES ('1008018', '单肩包', '', '匠心制版，立体有型', '1008000', '3', '3', '1', 'http://yanxuan.nosdn.127.net/2f71c7710f0bf857e787e1adb449c8a2.png', '', '', 'http://yanxuan.nosdn.127.net/55f34f23ed31f31e1313ff33602f90cc.png', 'L2', '0', '单肩装上惬意心情', '1');
+INSERT INTO `nideshop_category` VALUES ('1009000', '日用清洁', '', '天然材料，温和去除污垢', '1013001', '6', '6', '1', 'http://yanxuan.nosdn.127.net/e071686c212e93aa2fcafd0062a9c613.png', '', '', 'http://yanxuan.nosdn.127.net/729638bb13997f9c4c435b41ce6ed910.png', 'L2', '0', '洁净才能带来清爽心情', '1');
+INSERT INTO `nideshop_category` VALUES ('1010001', '内衣', '', '自然染料，亲肤舒适', '1010000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/20279e1753e4eedc6e347857acda9681.png', '', '', 'http://yanxuan.nosdn.127.net/02fede55aba1bc6c9d7f7c01682f9e2d.png', 'L2', '0', '给你贴身的关怀', '1');
 INSERT INTO `nideshop_category` VALUES ('1010002', '内裤', '', '透气洁净，环保染制', '1010000', '1', '1', '1', 'http://yanxuan.nosdn.127.net/364269344ed69adafe1b70ab7998fc50.png', '', '', 'http://yanxuan.nosdn.127.net/0a7fe0a08c195ca2cf55d12cd3c30f09.png', 'L2', '0', '来自李维斯、爱慕等制造商', null);
 INSERT INTO `nideshop_category` VALUES ('1010003', '地垫', '', '手工编织，时尚环保', '1005000', '5', '4', '1', 'http://yanxuan.nosdn.127.net/83d4c87f28c993af1aa8d3e4d30a2fa2.png', '', '', 'http://yanxuan.nosdn.127.net/1611ef6458e244d1909218becfe87c4d.png', 'L2', '0', '家里的第“五”面墙', null);
 INSERT INTO `nideshop_category` VALUES ('1010004', '双肩包', '', '精巧设计，严选全程监制', '1008000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/5197c44b610d786796f955334b55c7a5.png', '', '', 'http://yanxuan.nosdn.127.net/506d19510c967ba137283035a93738a1.png', 'L2', '0', '背上的时髦', null);
