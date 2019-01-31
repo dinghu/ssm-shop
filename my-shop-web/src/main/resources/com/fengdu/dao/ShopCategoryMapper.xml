@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fengdu.dao.ShopCategoryMapper">
-
     <select id="getPopularCategory" resultType="com.fengdu.pojo.ShopCategory">
         SELECT * FROM  nideshop_category WHERE is_popular = #{isPopular} limit 0,4
     </select>

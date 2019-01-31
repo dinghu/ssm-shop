@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2019-01-29 17:54:14
+Date: 2019-01-31 09:15:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -215,30 +215,31 @@ CREATE TABLE `nideshop_category` (
   `level` varchar(255) DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
   `front_name` varchar(255) DEFAULT NULL,
+  `is_popular` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1013002 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1013001 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of nideshop_category
 -- ----------------------------
-INSERT INTO `nideshop_category` VALUES ('1008014', '糖巧', '', '优选健康原料，甜食也吃得放心', '1005002', '3', '3', '1', 'http://yanxuan.nosdn.127.net/db48a1db4daab74233656caaea4a06f3.png', '', '', 'http://yanxuan.nosdn.127.net/c12cf29b574c7e9d1fcff6a57a12eea2.png', 'L2', '0', '糖心蜜意，甜而不腻');
-INSERT INTO `nideshop_category` VALUES ('1008015', '糕点', '', '无人工添加香精、防腐剂', '1005002', '1', '1', '1', 'http://yanxuan.nosdn.127.net/93168242df456b5f7bf3c89653b3db76.png', '', '', 'http://yanxuan.nosdn.127.net/66ea1d6ad602a8e441af7cada93bdc7a.png', 'L2', '0', '四季糕点，用心烘焙');
-INSERT INTO `nideshop_category` VALUES ('1008016', '灯具', '', '极简主义，贴近生活的设计', '1005000', '8', '6', '1', 'http://yanxuan.nosdn.127.net/c48e0d9dcfac01499a437774a915842b.png', '', '', 'http://yanxuan.nosdn.127.net/f702dc399d14d4e1509d5ed6e57acd19.png', 'L2', '0', '一盏灯，温暖一个家');
-INSERT INTO `nideshop_category` VALUES ('1008017', '收纳', '', '智慧收纳，抗菌防霉，便利拆卸，小空间的大智慧', '1012000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/fdc048e1bf4f04d1c20b32eda5d1dc6e.png', '', '', 'http://yanxuan.nosdn.127.net/2a62f6c53f4ff089fa6a210c7a0c2e63.png', 'L2', '0', '选自古驰竹柄原料供应商');
-INSERT INTO `nideshop_category` VALUES ('1008018', '单肩包', '', '匠心制版，立体有型', '1008000', '3', '3', '1', 'http://yanxuan.nosdn.127.net/2f71c7710f0bf857e787e1adb449c8a2.png', '', '', 'http://yanxuan.nosdn.127.net/55f34f23ed31f31e1313ff33602f90cc.png', 'L2', '0', '单肩装上惬意心情');
-INSERT INTO `nideshop_category` VALUES ('1009000', '日用清洁', '', '天然材料，温和去除污垢', '1013001', '6', '6', '1', 'http://yanxuan.nosdn.127.net/e071686c212e93aa2fcafd0062a9c613.png', '', '', 'http://yanxuan.nosdn.127.net/729638bb13997f9c4c435b41ce6ed910.png', 'L2', '0', '洁净才能带来清爽心情');
-INSERT INTO `nideshop_category` VALUES ('1010001', '内衣', '', '自然染料，亲肤舒适', '1010000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/20279e1753e4eedc6e347857acda9681.png', '', '', 'http://yanxuan.nosdn.127.net/02fede55aba1bc6c9d7f7c01682f9e2d.png', 'L2', '0', '给你贴身的关怀');
-INSERT INTO `nideshop_category` VALUES ('1010002', '内裤', '', '透气洁净，环保染制', '1010000', '1', '1', '1', 'http://yanxuan.nosdn.127.net/364269344ed69adafe1b70ab7998fc50.png', '', '', 'http://yanxuan.nosdn.127.net/0a7fe0a08c195ca2cf55d12cd3c30f09.png', 'L2', '0', '来自李维斯、爱慕等制造商');
-INSERT INTO `nideshop_category` VALUES ('1010003', '地垫', '', '手工编织，时尚环保', '1005000', '5', '4', '1', 'http://yanxuan.nosdn.127.net/83d4c87f28c993af1aa8d3e4d30a2fa2.png', '', '', 'http://yanxuan.nosdn.127.net/1611ef6458e244d1909218becfe87c4d.png', 'L2', '0', '家里的第“五”面墙');
-INSERT INTO `nideshop_category` VALUES ('1010004', '双肩包', '', '精巧设计，严选全程监制', '1008000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/5197c44b610d786796f955334b55c7a5.png', '', '', 'http://yanxuan.nosdn.127.net/506d19510c967ba137283035a93738a1.png', 'L2', '0', '背上的时髦');
-INSERT INTO `nideshop_category` VALUES ('1011001', '妈咪', '', '孕育生命的你更值得被爱', '1011000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/720aebaa529df9391b95a078dfb2fd5c.png', '', '', 'http://yanxuan.nosdn.127.net/844e2f4dce94f71283840c141d4ca71b.png', 'L2', '0', '犬印、Harvest Hills制造商');
-INSERT INTO `nideshop_category` VALUES ('1011002', '海外', '', '海外供应商直供，零关税、零风险、即时达', '1012000', '5', '5', '1', 'http://yanxuan.nosdn.127.net/da884ff3b9e9d5276986c99e85722461.png', '', '', 'http://yanxuan.nosdn.127.net/fd1de05d274222f1e56d057d2f2c20c6.png', 'L2', '0', '来自海外制造商的好物');
-INSERT INTO `nideshop_category` VALUES ('1011003', '床垫', '', '助你拥有舒眠好梦', '1005000', '3', '3', '1', 'http://yanxuan.nosdn.127.net/316afeb3948b295dfe073e4c51f77a42.png', '', '', 'http://yanxuan.nosdn.127.net/d6e0e84961032fc70fd52a8d4d0fb514.png', 'L2', '0', '承托你的好时光');
-INSERT INTO `nideshop_category` VALUES ('1011004', '家饰', '', '点缀美好生活，品质在于细节', '1005000', '9', '7', '1', 'http://yanxuan.nosdn.127.net/ab0df9445d985bf6719ac415313a8e88.png', '', '', 'http://yanxuan.nosdn.127.net/79275db76b5865e6167b0fbd141f2d7e.png', 'L2', '0', '装饰你的家');
-INSERT INTO `nideshop_category` VALUES ('1012001', '功能箱包', '', '箱子里装着你的生活', '1008000', '1', '1', '1', 'http://yanxuan.nosdn.127.net/3050a2b3052d766c4b460d4b766353a3.png', '', '', 'http://yanxuan.nosdn.127.net/0645dcda6172118f9295630c2a6f234f.png', 'L2', '0', '范思哲、Coach等品牌制造商出品');
-INSERT INTO `nideshop_category` VALUES ('1012002', '雨具', '', '玻璃纤维伞骨，稳定抗风', '1012000', '4', '4', '1', 'http://yanxuan.nosdn.127.net/4e929a21baebdb1200361d8097e35e45.png', '', '', 'http://yanxuan.nosdn.127.net/589da0f02917b8393197a43175764381.png', 'L2', '0', 'WPC制作商出品');
-INSERT INTO `nideshop_category` VALUES ('1012003', '文具', '', '极简设计，环保材质', '1012000', '1', '1', '1', 'http://yanxuan.nosdn.127.net/e1743239e41ca9af76875aedc73be7f0.png', '', '', 'http://yanxuan.nosdn.127.net/e074795f61a83292d0f20eb7d124e2ac.png', 'L2', '0', '找回书写的力量');
-INSERT INTO `nideshop_category` VALUES ('1013000', '靴', '', 'UGG制造商出品', '1008000', '5', '5', '1', 'http://yanxuan.nosdn.127.net/868c2a976719cd508e9ddf807167a446.png', '', '', 'http://yanxuan.nosdn.127.net/59485f1aa100e4210e16175f3412fa41.png', 'L2', '0', '经典的温暖');
+INSERT INTO `nideshop_category` VALUES ('1008014', '糖巧', '', '优选健康原料，甜食也吃得放心', '1005002', '3', '3', '1', 'http://yanxuan.nosdn.127.net/db48a1db4daab74233656caaea4a06f3.png', '', '', 'http://yanxuan.nosdn.127.net/c12cf29b574c7e9d1fcff6a57a12eea2.png', 'L2', '0', '糖心蜜意，甜而不腻', null);
+INSERT INTO `nideshop_category` VALUES ('1008015', '糕点', '', '无人工添加香精、防腐剂', '1005002', '1', '1', '1', 'http://yanxuan.nosdn.127.net/93168242df456b5f7bf3c89653b3db76.png', '', '', 'http://yanxuan.nosdn.127.net/66ea1d6ad602a8e441af7cada93bdc7a.png', 'L2', '0', '四季糕点，用心烘焙', null);
+INSERT INTO `nideshop_category` VALUES ('1008016', '灯具', '', '极简主义，贴近生活的设计', '1005000', '8', '6', '1', 'http://yanxuan.nosdn.127.net/c48e0d9dcfac01499a437774a915842b.png', '', '', 'http://yanxuan.nosdn.127.net/f702dc399d14d4e1509d5ed6e57acd19.png', 'L2', '0', '一盏灯，温暖一个家', null);
+INSERT INTO `nideshop_category` VALUES ('1008017', '收纳', '', '智慧收纳，抗菌防霉，便利拆卸，小空间的大智慧', '1012000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/fdc048e1bf4f04d1c20b32eda5d1dc6e.png', '', '', 'http://yanxuan.nosdn.127.net/2a62f6c53f4ff089fa6a210c7a0c2e63.png', 'L2', '0', '选自古驰竹柄原料供应商', null);
+INSERT INTO `nideshop_category` VALUES ('1008018', '单肩包', '', '匠心制版，立体有型', '1008000', '3', '3', '1', 'http://yanxuan.nosdn.127.net/2f71c7710f0bf857e787e1adb449c8a2.png', '', '', 'http://yanxuan.nosdn.127.net/55f34f23ed31f31e1313ff33602f90cc.png', 'L2', '0', '单肩装上惬意心情', null);
+INSERT INTO `nideshop_category` VALUES ('1009000', '日用清洁', '', '天然材料，温和去除污垢', '1013001', '6', '6', '1', 'http://yanxuan.nosdn.127.net/e071686c212e93aa2fcafd0062a9c613.png', '', '', 'http://yanxuan.nosdn.127.net/729638bb13997f9c4c435b41ce6ed910.png', 'L2', '0', '洁净才能带来清爽心情', null);
+INSERT INTO `nideshop_category` VALUES ('1010001', '内衣', '', '自然染料，亲肤舒适', '1010000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/20279e1753e4eedc6e347857acda9681.png', '', '', 'http://yanxuan.nosdn.127.net/02fede55aba1bc6c9d7f7c01682f9e2d.png', 'L2', '0', '给你贴身的关怀', null);
+INSERT INTO `nideshop_category` VALUES ('1010002', '内裤', '', '透气洁净，环保染制', '1010000', '1', '1', '1', 'http://yanxuan.nosdn.127.net/364269344ed69adafe1b70ab7998fc50.png', '', '', 'http://yanxuan.nosdn.127.net/0a7fe0a08c195ca2cf55d12cd3c30f09.png', 'L2', '0', '来自李维斯、爱慕等制造商', null);
+INSERT INTO `nideshop_category` VALUES ('1010003', '地垫', '', '手工编织，时尚环保', '1005000', '5', '4', '1', 'http://yanxuan.nosdn.127.net/83d4c87f28c993af1aa8d3e4d30a2fa2.png', '', '', 'http://yanxuan.nosdn.127.net/1611ef6458e244d1909218becfe87c4d.png', 'L2', '0', '家里的第“五”面墙', null);
+INSERT INTO `nideshop_category` VALUES ('1010004', '双肩包', '', '精巧设计，严选全程监制', '1008000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/5197c44b610d786796f955334b55c7a5.png', '', '', 'http://yanxuan.nosdn.127.net/506d19510c967ba137283035a93738a1.png', 'L2', '0', '背上的时髦', null);
+INSERT INTO `nideshop_category` VALUES ('1011001', '妈咪', '', '孕育生命的你更值得被爱', '1011000', '2', '2', '1', 'http://yanxuan.nosdn.127.net/720aebaa529df9391b95a078dfb2fd5c.png', '', '', 'http://yanxuan.nosdn.127.net/844e2f4dce94f71283840c141d4ca71b.png', 'L2', '0', '犬印、Harvest Hills制造商', null);
+INSERT INTO `nideshop_category` VALUES ('1011002', '海外', '', '海外供应商直供，零关税、零风险、即时达', '1012000', '5', '5', '1', 'http://yanxuan.nosdn.127.net/da884ff3b9e9d5276986c99e85722461.png', '', '', 'http://yanxuan.nosdn.127.net/fd1de05d274222f1e56d057d2f2c20c6.png', 'L2', '0', '来自海外制造商的好物', null);
+INSERT INTO `nideshop_category` VALUES ('1011003', '床垫', '', '助你拥有舒眠好梦', '1005000', '3', '3', '1', 'http://yanxuan.nosdn.127.net/316afeb3948b295dfe073e4c51f77a42.png', '', '', 'http://yanxuan.nosdn.127.net/d6e0e84961032fc70fd52a8d4d0fb514.png', 'L2', '0', '承托你的好时光', null);
+INSERT INTO `nideshop_category` VALUES ('1011004', '家饰', '', '点缀美好生活，品质在于细节', '1005000', '9', '7', '1', 'http://yanxuan.nosdn.127.net/ab0df9445d985bf6719ac415313a8e88.png', '', '', 'http://yanxuan.nosdn.127.net/79275db76b5865e6167b0fbd141f2d7e.png', 'L2', '0', '装饰你的家', null);
+INSERT INTO `nideshop_category` VALUES ('1012001', '功能箱包', '', '箱子里装着你的生活', '1008000', '1', '1', '1', 'http://yanxuan.nosdn.127.net/3050a2b3052d766c4b460d4b766353a3.png', '', '', 'http://yanxuan.nosdn.127.net/0645dcda6172118f9295630c2a6f234f.png', 'L2', '0', '范思哲、Coach等品牌制造商出品', null);
+INSERT INTO `nideshop_category` VALUES ('1012002', '雨具', '', '玻璃纤维伞骨，稳定抗风', '1012000', '4', '4', '1', 'http://yanxuan.nosdn.127.net/4e929a21baebdb1200361d8097e35e45.png', '', '', 'http://yanxuan.nosdn.127.net/589da0f02917b8393197a43175764381.png', 'L2', '0', 'WPC制作商出品', null);
+INSERT INTO `nideshop_category` VALUES ('1012003', '文具', '', '极简设计，环保材质', '1012000', '1', '1', '1', 'http://yanxuan.nosdn.127.net/e1743239e41ca9af76875aedc73be7f0.png', '', '', 'http://yanxuan.nosdn.127.net/e074795f61a83292d0f20eb7d124e2ac.png', 'L2', '0', '找回书写的力量', null);
+INSERT INTO `nideshop_category` VALUES ('1013000', '靴', '', 'UGG制造商出品', '1008000', '5', '5', '1', 'http://yanxuan.nosdn.127.net/868c2a976719cd508e9ddf807167a446.png', '', '', 'http://yanxuan.nosdn.127.net/59485f1aa100e4210e16175f3412fa41.png', 'L2', '0', '经典的温暖', null);
 
 -- ----------------------------
 -- Table structure for nideshop_channel
@@ -2676,7 +2677,7 @@ CREATE TABLE `nideshop_sms_log` (
   `send_status` bigint(20) DEFAULT NULL,
   `sms_text` varchar(255) DEFAULT NULL COMMENT '1成功 0失败',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of nideshop_sms_log
@@ -2771,7 +2772,7 @@ DROP TABLE IF EXISTS `nideshop_user`;
 CREATE TABLE `nideshop_user` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(60) NOT NULL DEFAULT '',
-  `password` varchar(32) DEFAULT '',
+  `password` varchar(255) DEFAULT '',
   `gender` tinyint(1) DEFAULT NULL,
   `birthday` datetime DEFAULT NULL,
   `register_time` datetime DEFAULT NULL,
@@ -2780,19 +2781,29 @@ CREATE TABLE `nideshop_user` (
   `user_level_id` tinyint(3) DEFAULT NULL,
   `nickname` varchar(60) DEFAULT '',
   `mobile` varchar(20) DEFAULT '',
+  `email` varchar(255) DEFAULT NULL,
   `register_ip` varchar(45) DEFAULT '',
   `avatar` varchar(255) DEFAULT '',
   `weixin_openid` varchar(50) DEFAULT '',
+  `status` smallint(6) DEFAULT NULL COMMENT '用户状态',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_name` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of nideshop_user
 -- ----------------------------
-INSERT INTO `nideshop_user` VALUES ('15', '小明', 'oILjs0JEDIZzaWVc_sJW2k3fhp1k', '1', '2017-08-14 00:00:00', '2017-08-24 00:00:00', '2017-09-28 11:26:30', '36.7.136.174', '2', '天王盖地', '', '192.168.31.233', 'https://yanxuan.nosdn.127.net/80841d741d7fa3073e0ae27bf487339f.jpg?imageView&amp;quality=90&amp;thumbnail=64x64', 'o9nEe0dE37H7pFnCdSGgcX3TrFpc');
-INSERT INTO `nideshop_user` VALUES ('24', '丁虎', null, '1', '2019-01-29 00:00:00', '2019-01-29 11:58:37', null, null, '1', null, '18080064362', null, null, null);
-INSERT INTO `nideshop_user` VALUES ('25', '林帆', null, '2', '2019-01-29 00:00:00', '2019-01-29 15:33:22', null, null, '2', null, '13027955863', null, null, null);
+INSERT INTO `nideshop_user` VALUES ('15', '小明', 'oILjs0JEDIZzaWVc_sJW2k3fhp1k', '1', '2017-08-14 00:00:00', '2017-08-24 00:00:00', '2017-09-28 11:26:30', '36.7.136.174', '2', '天王盖地', '', null, '192.168.31.233', 'https://yanxuan.nosdn.127.net/80841d741d7fa3073e0ae27bf487339f.jpg?imageView&amp;quality=90&amp;thumbnail=64x64', 'o9nEe0dE37H7pFnCdSGgcX3TrFpc', null);
+INSERT INTO `nideshop_user` VALUES ('24', '丁虎', null, '1', '2019-01-29 00:00:00', '2019-01-29 11:58:37', null, null, '1', null, '18080064362', null, null, null, null, null);
+INSERT INTO `nideshop_user` VALUES ('25', 'linfan', null, '2', '2019-01-29 00:00:00', '2019-01-29 15:33:22', null, null, '2', null, '13027955863', null, null, null, null, null);
+INSERT INTO `nideshop_user` VALUES ('26', 'dinghu', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', null, null, '2019-01-30 14:36:00', null, '', null, '', '18080064363', null, '', '', '', '1');
+INSERT INTO `nideshop_user` VALUES ('27', 'dinghu2', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', null, null, '2019-01-30 15:27:10', null, '', null, '', '18080064364', null, '', '', '', null);
+INSERT INTO `nideshop_user` VALUES ('28', 'dinghu66', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', null, null, '2019-01-30 15:28:11', null, '', null, '', '18080064365', null, '', '', '', null);
+INSERT INTO `nideshop_user` VALUES ('29', 'dinghu7', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', null, null, '2019-01-30 15:34:17', null, '', null, '', '18080064366', null, '', '', '', null);
+INSERT INTO `nideshop_user` VALUES ('30', 'dinghu9', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', null, null, '2019-01-30 15:37:03', null, '', null, '', '18080064369', null, '', '', '', null);
+INSERT INTO `nideshop_user` VALUES ('31', 'dinghu7887', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', null, null, '2019-01-30 15:39:47', null, '', null, '', '18080064360', null, '', '', '', null);
+INSERT INTO `nideshop_user` VALUES ('32', 'dinghu888888', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', null, null, '2019-01-30 15:43:13', null, '', null, '', '18180064362', null, '', '', '', null);
+INSERT INTO `nideshop_user` VALUES ('33', '林帆', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', null, null, '2019-01-30 17:32:31', null, '', null, '', '18380064364', null, '', '', '', '1');
 
 -- ----------------------------
 -- Table structure for nideshop_user_coupon
@@ -3672,7 +3683,7 @@ CREATE TABLE `sys_region` (
   KEY `agency_id` (`agency_id`) USING BTREE,
   KEY `parent_id` (`parent_id`) USING BTREE,
   KEY `region_type` (`type`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=46182 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20637 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_region
@@ -24326,7 +24337,7 @@ CREATE TABLE `sys_role` (
   `create_time` datetime DEFAULT NULL COMMENT '鍒涘缓鏃堕棿',
   `dept_id` bigint(20) DEFAULT NULL COMMENT '閮ㄩ棬ID',
   PRIMARY KEY (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='瑙掕壊';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='瑙掕壊';
 
 -- ----------------------------
 -- Records of sys_role
@@ -24419,7 +24430,7 @@ CREATE TABLE `sys_user_role` (
   `user_id` bigint(20) DEFAULT NULL COMMENT '鐢ㄦ埛ID',
   `role_id` bigint(20) DEFAULT NULL COMMENT '瑙掕壊ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COMMENT='鐢ㄦ埛涓庤?鑹插?搴斿叧绯';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='鐢ㄦ埛涓庤?鑹插?搴斿叧绯';
 
 -- ----------------------------
 -- Records of sys_user_role
