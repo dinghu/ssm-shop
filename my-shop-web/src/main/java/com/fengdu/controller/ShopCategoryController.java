@@ -1,6 +1,6 @@
 package com.fengdu.controller;
 
-import com.fengdu.pojo.ShopCategory;
+//import com.fengdu.pojo.ShopCategory;
 import com.fengdu.service.ShopCategoryService;
 import com.fengdu.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
