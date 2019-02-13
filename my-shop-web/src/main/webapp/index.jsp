@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %>
+
+<!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -31,9 +35,8 @@
 <body>
 
 <!-- Start Header Area -->
-<div class='miaov_head'>
-    <iframe MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 SCROLLING=no src=”header.html” height=“auto” width="100%"></iframe>
-</div>
+<!-- 顶栏 -->
+<jsp:include page="header.jsp"></jsp:include>
 <!-- end Header Area -->
 
 <!-- main wrapper start -->

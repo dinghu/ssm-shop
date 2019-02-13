@@ -34,8 +34,8 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.fengdu.dao" targetProject="src/main/java"/>
 
         <!-- 配置表信息 -->
-        <table schema="nideshop_goods" tableName="nideshop_goods"
-               domainObjectName="Goods" enableCountByExample="false"
+        <table schema="nideshop_advise" tableName="nideshop_advise"
+               domainObjectName="Advise" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
         </table>

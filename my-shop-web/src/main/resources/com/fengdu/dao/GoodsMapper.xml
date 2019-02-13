@@ -3,9 +3,15 @@
 <mapper namespace="com.fengdu.dao.GoodsMapper">
     <select id="queryList" resultType="com.fengdu.pojo.Goods">
         select * from nideshop_goods where 1 = 1
+        <!--<if test="categoryId != null">-->
+            <!--and category_id = #{categoryId}-->
+        <!--</if>-->
         <if test="offset != null and limit != null">
             limit #{offset}, #{limit}
         </if>
+        <!--<if test="orderBy != null">-->
+            <!--order by #{orderBy}-->
+        <!--</if>-->
     </select>
 
     <select id="queryListByCategory" resultType="com.fengdu.pojo.Goods">
