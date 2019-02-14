@@ -56,7 +56,7 @@ var vm = new Vue({
     data: {
         showList: true,
         title: null,
-        banner: {status: 1, image_url: '', mediaType: 0},
+        banner: {},
         ruleValidate: {
             title: [
                 {required: true, message: '广告名称不能为空', trigger: 'blur'}

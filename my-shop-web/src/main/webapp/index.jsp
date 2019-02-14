@@ -42,43 +42,43 @@
 <!-- main wrapper start -->
 <main>
     <!-- hero slider area start -->
-    <section class="hero-slider-area">
-        <div class="hero-slider-active slider-arrow-style">
-            <div class="single-slider hero-bg hero-bg__1 d-flex align-items-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="content-inner">
-                                <div class="slider-content">
-                                    <h1>tasty healthy<br>organi <br>we sell what's<br>good for you </h1>
-                                    <p>We supply highly quality, premium organic products</p>
-                                    <a class="btn" href="shop.html">shop now</a>
-                                </div>
-                                <div class="slider-img">
-                                    <img alt="" src="assets/img/slider/slide_2.jpg">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section class="hero-slider-area" id="id_banner_area">
+        <div class="hero-slider-active slider-arrow-style" id="id_banner"><!--只能支持3个 不知奥怎么做-->
+            <div class="single-slider hero-bg hero-bg__1 d-flex align-items-center" id="id_banner_1">
+                <%--<div class="container">--%>
+                    <%--<div class="row">--%>
+                        <%--<div class="col-12">--%>
+                            <%--<div class="content-inner">--%>
+                                <%--<div class="slider-content">--%>
+                                    <%--<h1>tasty healthy<br>organi <br>we sell what's<br>good for you </h1>--%>
+                                    <%--<p>We supply highly quality, premium organic products</p>--%>
+                                    <%--<a class="btn" href="shop.html">shop now</a>--%>
+                                <%--</div>--%>
+                                <%--<div class="slider-img">--%>
+                                    <%--<img alt="" src="assets/img/slider/slide_2.jpg">--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
             </div>
-            <div class="single-slider hero-bg hero-bg__1 d-flex align-items-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="content-inner">
-                                <div class="slider-content">
-                                    <h1>Great offers<br>on fruits <br>and vegetables </h1>
-                                    <p>We supply highly quality, premium organic products</p>
-                                    <a class="btn" href="shop.html">shop now</a>
-                                </div>
-                                <div class="slider-img">
-                                    <img alt="" src="assets/img/slider/slide_1.jpg">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="single-slider hero-bg hero-bg__1 d-flex align-items-center" id="id_banner_2">
+                <%--<div class="container">--%>
+                    <%--<div class="row">--%>
+                        <%--<div class="col-12">--%>
+                            <%--<div class="content-inner">--%>
+                                <%--<div class="slider-content">--%>
+                                    <%--<h1>Great offers<br>on fruits <br>and vegetables </h1>--%>
+                                    <%--<p>We supply highly quality, premium organic products</p>--%>
+                                    <%--<a class="btn" href="shop.html">shop now</a>--%>
+                                <%--</div>--%>
+                                <%--<div class="slider-img">--%>
+                                    <%--<img alt="" src="assets/img/slider/slide_1.jpg">--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
             </div>
         </div>
     </section>
@@ -2027,11 +2027,11 @@
 <script src="assets/js/jquery-1.10.2.min.js" type="text/javascript"></script>
 <!--=== All Vendor Js ===-->
 <script src="assets/js/vendor.js"></script>
+<!--=== index Js ===-->
+<script src="assets/js/index.js"></script>
 <!--=== All Plugins Js ===-->
 <script src="assets/js/plugins.js"></script>
 <!--=== Active Js ===-->
 <script src="assets/js/active.js"></script>
-<!--=== index Js ===-->
-<script src="assets/js/index.js"></script>
 </body>
 </html>

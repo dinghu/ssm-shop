@@ -4,6 +4,9 @@ $(function () {
     var ourProductDiv = $("#id-our-product");
     var productTabbar = $("#id_product_tab");
     var chooseUsDiv = $("#choose-us");
+    var bannerDiv = $("#id_banner");
+    var bannerDiv1 = $("#id_banner_1");
+    var bannerDiv2 = $("#id_banner_2");
 
     //获取流行分类
     var getPopularcategories = function () {
@@ -144,7 +147,35 @@ $(function () {
                 var rep = $.parseJSON(response);
                 var advantages = rep.advantages;
                 var adviseList = rep.adviseList;
+                var bannerList = rep.bannerList;
+                //banner
+                for (var i in  bannerList) {
+                    var title = bannerList[i].name;
+                    var content = bannerList[i].content;
+                    var imageUrl = bannerList[i].imageUrl;
 
+                    var bannerHtml = "                <div class=\"container\">\n" +
+                        "                    <div class=\"row\">\n" +
+                        "                        <div class=\"col-12\">\n" +
+                        "                            <div class=\"content-inner\">\n" +
+                        "                                <div class=\"slider-content\">\n" + "<h1>" + title + "</h1>\n" +
+                        "                                    <p>" + content + "</p>\n" +
+                        "                                    <a class=\"btn\" href=\"shop.html\">shop now</a>\n" +
+                        "                                </div>\n" +
+                        "                                <div class=\"slider-img\">\n" +
+                        "                                    <img alt=\"\" src=\"" + imageUrl + "\">\n" +
+                        "                                </div>\n" +
+                        "                            </div>\n" +
+                        "                        </div>\n" +
+                        "                    </div>\n" +
+                        "                </div>\n";
+                    if (0 == i) {
+                        bannerDiv1.append(bannerHtml);
+                    }
+                    if (1 == i) {
+                        bannerDiv2.append(bannerHtml);
+                    }
+                }
                 //我们的优势
                 for (var i in  advantages) {
                     var title = advantages[i].title;
@@ -163,7 +194,7 @@ $(function () {
                         "                                                        type=\"button\">\n" +
                         "                                                    <i class=\"ion-ribbon-b\"></i>\n" +
                         "                                                    " + title +
-                        "                                                </button>\n" +"                                            </h5>\n" +"                                        </div>\n" +
+                        "                                                </button>\n" + "                                            </h5>\n" + "                                        </div>\n" +
                         "\n" + "                                        <div aria-labelledby=\"" + id_card_header + "\" class=\"" + card_body_show_style +
                         "\" data-parent=\"#choose-us\"\n" +
                         "                                             id=\"" +
@@ -177,7 +208,6 @@ $(function () {
                         "                                    </div>";
                     chooseUsDiv.append(chooseUsItem);
                 }
-
                 //大家说什么
                 for (var i in  adviseList) {
                     var title = adviseList[i].title;

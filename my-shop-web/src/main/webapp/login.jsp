@@ -41,26 +41,6 @@
 
 <!-- main wrapper start -->
 <main>
-    <!-- breadcrumb area start -->
-    <div class="breadcrumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb-wrap text-center">
-                        <nav aria-label="breadcrumb">
-                            <h2>shop</h2>
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">login-register</li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- breadcrumb area end -->
-
     <!-- login register wrapper start -->
     <div class="login-register-wrapper pt-60 pb-60">
         <div class="container">

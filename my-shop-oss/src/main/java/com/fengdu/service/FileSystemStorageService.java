@@ -1,15 +1,17 @@
 package com.fengdu.service;
 
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.nio.file.*;
-import java.util.stream.Stream;
-
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 @Service
 public class FileSystemStorageService implements StorageService {
@@ -33,18 +35,18 @@ public class FileSystemStorageService implements StorageService {
         }
     }
 
-    @Override
-    public Stream<Path> loadAll() {
-        try {
-            return Files.walk(this.rootLocation, 1)
-                    .filter(path -> !path.equals(this.rootLocation))
-                    .map(path -> this.rootLocation.relativize(path));
-        }
-        catch (IOException e) {
-            throw new RuntimeException ("Failed to read stored files", e);
-        }
-
-    }
+//    @Override
+//    public Stream<Path> loadAll() {
+//        try {
+//            return Files.walk(this.rootLocation, 1)
+//                    .filter(path -> !path.equals(this.rootLocation))
+//                    .map(path -> this.rootLocation.relativize(path));
+//        }
+//        catch (IOException e) {
+//            throw new RuntimeException ("Failed to read stored files", e);
+//        }
+//
+//    }
 
     @Override
     public Path load(String filename) {

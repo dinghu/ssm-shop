@@ -3,6 +3,7 @@ package com.fengdu.controller.sys;
 import com.alibaba.fastjson.JSON;
 import com.fengdu.entity.SysOssEntity;
 import com.fengdu.oss.CloudStorageConfig;
+import com.fengdu.oss.LocalStorageService;
 import com.fengdu.oss.OSSFactory;
 import com.fengdu.service.SysConfigService;
 import com.fengdu.service.SysOssService;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,6 +44,8 @@ public class SysOssController {
     private SysConfigService sysConfigService;
 
     private final static String KEY = ConfigConstant.CLOUD_STORAGE_CONFIG_KEY;
+
+    private final static boolean isUseCloud = false;
 
     /**
      * 列表
@@ -104,12 +108,18 @@ public class SysOssController {
      */
     @RequestMapping("/upload")
     @RequiresPermissions("sys:oss:all")
-    public R upload(@RequestParam("file") MultipartFile file) throws Exception {
+    public R upload(HttpServletRequest request, @RequestParam("file") MultipartFile file) throws Exception {
         if (file.isEmpty()) {
             throw new RRException("上传文件不能为空");
         }
+        String url;
         //上传文件
-        String url = OSSFactory.build().upload(file);
+        if (isUseCloud) {
+            url = OSSFactory.build().upload(file);
+        } else {
+            url = LocalStorageService.upload(request, file);
+        }
+
 
         //保存文件信息
         SysOssEntity ossEntity = new SysOssEntity();

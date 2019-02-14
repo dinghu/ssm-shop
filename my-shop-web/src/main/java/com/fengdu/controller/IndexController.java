@@ -2,14 +2,8 @@ package com.fengdu.controller;
 
 import com.fengdu.dao.AdvantageMapper;
 import com.fengdu.dto.OurGoodsDto;
-import com.fengdu.pojo.Advantage;
-import com.fengdu.pojo.Advise;
-import com.fengdu.pojo.Goods;
-import com.fengdu.pojo.ShopCategory;
-import com.fengdu.service.AdvantageService;
-import com.fengdu.service.AdviseService;
-import com.fengdu.service.GoodsService;
-import com.fengdu.service.ShopCategoryService;
+import com.fengdu.pojo.*;
+import com.fengdu.service.*;
 import com.fengdu.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/shouye")
@@ -30,6 +26,8 @@ public class IndexController {
     AdvantageService advantageService;
     @Autowired
     AdviseService adviseService;
+    @Autowired
+    AdService adService;
 
     @RequestMapping("/getOurProducts")
     @ResponseBody
@@ -65,11 +63,15 @@ public class IndexController {
         List<Advantage> advantageList = advantageService.queryList(3);
         List<Advise> adviseList = adviseService.queryList(3);
         List<Goods> bestSellers = goodsService.queryList(0, 3);
+        Map<String, Object> params = new HashMap<>();
+        params.put("ad_position_id", 2);
+        List<AdPojo> adPojoList = adService.queryList(params);
         R r = R.ok();
         r.put("ourProducts", ourGoodsDtos);
         r.put("advantages", advantageList);
         r.put("adviseList", adviseList);
         r.put("bestSellers", bestSellers);
+        r.put("bannerList", adPojoList);
         return r;
     }
 }
