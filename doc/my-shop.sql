@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2019-02-13 17:58:49
+Date: 2019-02-14 17:11:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -55,15 +55,18 @@ CREATE TABLE `nideshop_ad` (
   `content` varchar(255) DEFAULT '',
   `end_time` datetime DEFAULT NULL,
   `enabled` tinyint(3) unsigned DEFAULT '1',
+  `create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `position_id` (`ad_position_id`),
   KEY `enabled` (`enabled`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of nideshop_ad
 -- ----------------------------
-INSERT INTO `nideshop_ad` VALUES ('1', '1', '1', '合作 谁是你的菜', '', 'http://yanxuan.nosdn.127.net/65091eebc48899298171c2eb6696fe27.jpg', '合作 谁是你的菜', '2017-09-07 21:48:34', '0');
+INSERT INTO `nideshop_ad` VALUES ('1', '1', '1', '合作 谁是你的菜', '', 'http://yanxuan.nosdn.127.net/65091eebc48899298171c2eb6696fe27.jpg', '合作 谁是你的菜', '2017-09-07 21:48:34', '0', '2019-02-14 15:22:15');
+INSERT INTO `nideshop_ad` VALUES ('4', '2', '0', 'Great offers<br>on fruits <br>and vegetables ', 'https://pro.jd.com/mall/active/xn8CajmkinUosvemKG5NoL9EGK5/index.html', 'https://img14.360buyimg.com/n0/jfs/t15475/130/662795772/127936/87aac2e7/5a388a9eNa0fdd4c7.jpg', 'We supply highly quality, premium organic products', null, '1', '2019-02-14 15:22:18');
+INSERT INTO `nideshop_ad` VALUES ('5', '2', '0', 'tasty healthy<br>organi <br>we sell what\'s<br>good for you ', 'https://pro.jd.com/mall/active/xn8CajmkinUosvemKG5NoL9EGK5/index.html', 'https://img14.360buyimg.com/n0/jfs/t23839/6/2329458134/547797/e0c3ca7d/5b7cb504Ne746d2e6.jpg', 'We supply highly quality, premium organic products', null, '1', '2019-02-14 15:36:39');
 
 -- ----------------------------
 -- Table structure for nideshop_address
@@ -142,12 +145,13 @@ CREATE TABLE `nideshop_ad_position` (
   `height` smallint(5) unsigned NOT NULL DEFAULT '0',
   `desc` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of nideshop_ad_position
 -- ----------------------------
-INSERT INTO `nideshop_ad_position` VALUES ('1', '移动端首页轮播广告', '750', '200', '');
+INSERT INTO `nideshop_ad_position` VALUES ('1', '移动端首页轮播广告', '750', '200', 'App首页轮播图');
+INSERT INTO `nideshop_ad_position` VALUES ('2', 'pc端首页轮播图', '800', '1440', 'pc端首页轮播图');
 
 -- ----------------------------
 -- Table structure for nideshop_attribute
@@ -184,6 +188,26 @@ CREATE TABLE `nideshop_attribute_category` (
 -- ----------------------------
 INSERT INTO `nideshop_attribute_category` VALUES ('1036003', '衣服', '0');
 INSERT INTO `nideshop_attribute_category` VALUES ('1036004', '手机', '0');
+
+-- ----------------------------
+-- Table structure for nideshop_banner
+-- ----------------------------
+DROP TABLE IF EXISTS `nideshop_banner`;
+CREATE TABLE `nideshop_banner` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `status` int(11) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `image_url` varchar(255) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of nideshop_banner
+-- ----------------------------
+INSERT INTO `nideshop_banner` VALUES ('1', '2222', '33333', '1', 'https://sale.jd.com/act/PnSo43me5TqwbZ.html?jd_pop=285ee779-0261-4645-922f-e19f250266b5&abt=1', 'https://m.360buyimg.com/babel/jfs/t1/14559/26/6449/97632/5c5413edE5894ac51/60986521e12a7b64.jpg', '2019-02-14 11:37:01');
 
 -- ----------------------------
 -- Table structure for nideshop_brand
@@ -2829,7 +2853,7 @@ CREATE TABLE `nideshop_user` (
   `status` smallint(6) DEFAULT NULL COMMENT '用户状态',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_name` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of nideshop_user
@@ -2845,6 +2869,7 @@ INSERT INTO `nideshop_user` VALUES ('30', 'dinghu9', 'a665a45920422f9d417e4867ef
 INSERT INTO `nideshop_user` VALUES ('31', 'dinghu7887', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', null, null, '2019-01-30 15:39:47', null, '', null, '', '18080064360', null, '', '', '', null);
 INSERT INTO `nideshop_user` VALUES ('32', 'dinghu888888', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', null, null, '2019-01-30 15:43:13', null, '', null, '', '18180064362', null, '', '', '', null);
 INSERT INTO `nideshop_user` VALUES ('33', '林帆', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', null, null, '2019-01-30 17:32:31', null, '', null, '', '18380064364', null, '', '', '', '1');
+INSERT INTO `nideshop_user` VALUES ('34', 'huchengdong', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', null, null, '2019-02-14 15:45:10', null, '', null, '', '18080064368', null, '', '', '', null);
 
 -- ----------------------------
 -- Table structure for nideshop_user_coupon
@@ -3266,7 +3291,7 @@ CREATE TABLE `sys_log` (
   `ip` varchar(64) DEFAULT NULL COMMENT 'IP地址',
   `create_date` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8 COMMENT='系统日志';
+) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8 COMMENT='系统日志';
 
 -- ----------------------------
 -- Records of sys_log
@@ -3304,6 +3329,31 @@ INSERT INTO `sys_log` VALUES ('90', '\"admin\"', '登录', 'com.fengdu.controlle
 INSERT INTO `sys_log` VALUES ('91', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-13 17:47:54');
 INSERT INTO `sys_log` VALUES ('92', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-13 17:48:06');
 INSERT INTO `sys_log` VALUES ('93', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-13 17:48:09');
+INSERT INTO `sys_log` VALUES ('94', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 09:19:55');
+INSERT INTO `sys_log` VALUES ('95', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 09:45:05');
+INSERT INTO `sys_log` VALUES ('96', 'admin', '保存菜单', 'com.fengdu.controller.SysMenuController.save()', '{\"checked\":false,\"disableCheckbox\":false,\"disabled\":false,\"expand\":false,\"leaf\":false,\"name\":\"网页端首页轮播图管理\",\"orderNum\":0,\"parentId\":243,\"parentName\":\"推广管理\",\"selected\":false,\"status\":0,\"type\":1,\"url\":\"shop/pcbanner.html\"}', '127.0.0.1', '2019-02-14 09:49:48');
+INSERT INTO `sys_log` VALUES ('97', 'admin', '修改菜单', 'com.fengdu.controller.SysMenuController.update()', '{\"checked\":false,\"disableCheckbox\":false,\"disabled\":false,\"expand\":false,\"icon\":\"fa fa-file-code-o\",\"leaf\":false,\"menuId\":559,\"name\":\"网页端首页轮播图管理\",\"orderNum\":0,\"parentId\":243,\"parentName\":\"推广管理\",\"selected\":false,\"status\":0,\"type\":1,\"url\":\"shop/pcbanner.html\"}', '127.0.0.1', '2019-02-14 09:54:11');
+INSERT INTO `sys_log` VALUES ('98', 'admin', '修改菜单', 'com.fengdu.controller.SysMenuController.update()', '{\"checked\":false,\"disableCheckbox\":false,\"disabled\":false,\"expand\":false,\"icon\":\"fa fa-file-code-o\",\"leaf\":false,\"menuId\":559,\"name\":\"pc首页轮播图管理\",\"orderNum\":0,\"parentId\":243,\"parentName\":\"推广管理\",\"selected\":false,\"status\":0,\"type\":1,\"url\":\"shop/pcbanner.html\"}', '127.0.0.1', '2019-02-14 09:54:50');
+INSERT INTO `sys_log` VALUES ('99', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 10:35:05');
+INSERT INTO `sys_log` VALUES ('100', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 10:39:12');
+INSERT INTO `sys_log` VALUES ('101', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 10:49:54');
+INSERT INTO `sys_log` VALUES ('102', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 10:55:06');
+INSERT INTO `sys_log` VALUES ('103', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 10:56:54');
+INSERT INTO `sys_log` VALUES ('104', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 11:24:30');
+INSERT INTO `sys_log` VALUES ('105', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 11:26:02');
+INSERT INTO `sys_log` VALUES ('106', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 11:29:17');
+INSERT INTO `sys_log` VALUES ('107', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 11:30:41');
+INSERT INTO `sys_log` VALUES ('108', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 11:32:05');
+INSERT INTO `sys_log` VALUES ('109', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 11:33:24');
+INSERT INTO `sys_log` VALUES ('110', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 11:34:12');
+INSERT INTO `sys_log` VALUES ('111', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 11:35:42');
+INSERT INTO `sys_log` VALUES ('112', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 11:46:15');
+INSERT INTO `sys_log` VALUES ('113', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 11:53:27');
+INSERT INTO `sys_log` VALUES ('114', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 14:04:36');
+INSERT INTO `sys_log` VALUES ('115', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 14:44:20');
+INSERT INTO `sys_log` VALUES ('116', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 14:47:10');
+INSERT INTO `sys_log` VALUES ('117', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 14:58:05');
+INSERT INTO `sys_log` VALUES ('118', '\"admin\"', '登录', 'com.fengdu.controller.SysLoginController.login()', '\"admin\"', '127.0.0.1', '2019-02-14 15:03:56');
 
 -- ----------------------------
 -- Table structure for sys_macro
@@ -3345,7 +3395,7 @@ CREATE TABLE `sys_menu` (
   `order_num` int(11) DEFAULT NULL COMMENT '排序',
   `status` int(1) DEFAULT NULL,
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=559 DEFAULT CHARSET=utf8 COMMENT='菜单管理';
+) ENGINE=InnoDB AUTO_INCREMENT=560 DEFAULT CHARSET=utf8 COMMENT='菜单管理';
 
 -- ----------------------------
 -- Records of sys_menu
@@ -3698,6 +3748,7 @@ INSERT INTO `sys_menu` VALUES ('555', '314', '会员统计', 'statistics/statist
 INSERT INTO `sys_menu` VALUES ('556', '314', '订单统计', 'statistics/order.html', null, '1', 'fa fa-file-code-o', '6', '0');
 INSERT INTO `sys_menu` VALUES ('557', '314', '库存统计', 'statistics/wms.html', null, '1', 'fa fa-file-code-o', '6', '0');
 INSERT INTO `sys_menu` VALUES ('558', '504', '小程序管理', 'wxxcx/xcx.html', null, '1', 'fa fa-file-code-o', '6', '0');
+INSERT INTO `sys_menu` VALUES ('559', '243', 'pc首页轮播图管理', 'shop/pcbanner.html', null, '1', 'fa fa-file-code-o', '0', '0');
 
 -- ----------------------------
 -- Table structure for sys_oss
@@ -3708,11 +3759,14 @@ CREATE TABLE `sys_oss` (
   `url` varchar(200) DEFAULT NULL COMMENT 'URL地址',
   `create_date` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文件上传';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='文件上传';
 
 -- ----------------------------
 -- Records of sys_oss
 -- ----------------------------
+INSERT INTO `sys_oss` VALUES ('1', 'D:\\dev-java\\my-shop\\my-shop-manager\\target\\my-shop-manager\\upload/image/1550126841173slide_2.jpg', '2019-02-14 14:47:21');
+INSERT INTO `sys_oss` VALUES ('2', 'http://localhost:8080/my_shop_manager_war_exploded\\upload\\image\\1550127494452slide_2.jpg', '2019-02-14 14:58:14');
+INSERT INTO `sys_oss` VALUES ('3', 'http://localhost:8080/my_shop_manager_war_exploded/upload/image/1550127847625slide_1.jpg', '2019-02-14 15:04:08');
 
 -- ----------------------------
 -- Table structure for sys_region
