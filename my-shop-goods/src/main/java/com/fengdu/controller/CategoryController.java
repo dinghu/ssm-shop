@@ -129,7 +129,7 @@ public class CategoryController {
     @RequestMapping("/getCategorySelect")
     public R getCategorySelect() {
         Map<String, Object> map = new HashMap<>();
-        map.put("parentId", "0");
+//        map.put("parentId", "0");
         List<CategoryEntity> list = categoryService.queryList(map);
         return R.ok().put("list", list);
     }

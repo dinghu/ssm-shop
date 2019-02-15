@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
@@ -46,38 +46,38 @@
         <div class="hero-slider-active slider-arrow-style" id="id_banner"><!--只能支持3个 不知奥怎么做-->
             <div class="single-slider hero-bg hero-bg__1 d-flex align-items-center" id="id_banner_1">
                 <%--<div class="container">--%>
-                    <%--<div class="row">--%>
-                        <%--<div class="col-12">--%>
-                            <%--<div class="content-inner">--%>
-                                <%--<div class="slider-content">--%>
-                                    <%--<h1>tasty healthy<br>organi <br>we sell what's<br>good for you </h1>--%>
-                                    <%--<p>We supply highly quality, premium organic products</p>--%>
-                                    <%--<a class="btn" href="shop.html">shop now</a>--%>
-                                <%--</div>--%>
-                                <%--<div class="slider-img">--%>
-                                    <%--<img alt="" src="assets/img/slider/slide_2.jpg">--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
+                <%--<div class="row">--%>
+                <%--<div class="col-12">--%>
+                <%--<div class="content-inner">--%>
+                <%--<div class="slider-content">--%>
+                <%--<h1>tasty healthy<br>organi <br>we sell what's<br>good for you </h1>--%>
+                <%--<p>We supply highly quality, premium organic products</p>--%>
+                <%--<a class="btn" href="shop.html">shop now</a>--%>
+                <%--</div>--%>
+                <%--<div class="slider-img">--%>
+                <%--<img alt="" src="assets/img/slider/slide_2.jpg">--%>
+                <%--</div>--%>
+                <%--</div>--%>
+                <%--</div>--%>
+                <%--</div>--%>
                 <%--</div>--%>
             </div>
             <div class="single-slider hero-bg hero-bg__1 d-flex align-items-center" id="id_banner_2">
                 <%--<div class="container">--%>
-                    <%--<div class="row">--%>
-                        <%--<div class="col-12">--%>
-                            <%--<div class="content-inner">--%>
-                                <%--<div class="slider-content">--%>
-                                    <%--<h1>Great offers<br>on fruits <br>and vegetables </h1>--%>
-                                    <%--<p>We supply highly quality, premium organic products</p>--%>
-                                    <%--<a class="btn" href="shop.html">shop now</a>--%>
-                                <%--</div>--%>
-                                <%--<div class="slider-img">--%>
-                                    <%--<img alt="" src="assets/img/slider/slide_1.jpg">--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
+                <%--<div class="row">--%>
+                <%--<div class="col-12">--%>
+                <%--<div class="content-inner">--%>
+                <%--<div class="slider-content">--%>
+                <%--<h1>Great offers<br>on fruits <br>and vegetables </h1>--%>
+                <%--<p>We supply highly quality, premium organic products</p>--%>
+                <%--<a class="btn" href="shop.html">shop now</a>--%>
+                <%--</div>--%>
+                <%--<div class="slider-img">--%>
+                <%--<img alt="" src="assets/img/slider/slide_1.jpg">--%>
+                <%--</div>--%>
+                <%--</div>--%>
+                <%--</div>--%>
+                <%--</div>--%>
                 <%--</div>--%>
             </div>
         </div>
@@ -1372,8 +1372,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row product-carousel-active-3" data-row="3">
-                            <div class="col">
+                        <div class="row product-carousel-active-3" data-row="3" id="id_best_seller">
+                            <div class="col" id="id_best_seller1">
                                 <div class="single-item mb-30">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
@@ -1401,145 +1401,61 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="single-item mb-30">
-                                    <div class="product-thumb">
-                                        <a href="product-details.html">
-                                            <img alt="" src="assets/img/product/product-7.jpg">
-                                        </a>
-                                        <div class="quick-view-link">
-                                            <a data-target="#quick_view" data-toggle="modal" href="#"> <span
-                                                    data-toggle="tooltip" title="Quick view"><i
-                                                    class="ion-ios-eye-outline"></i></span> </a>
-                                        </div>
-                                    </div>
-                                    <div class="product-description">
-                                        <div class="tag-cate">
-                                            <a href="product-details.html">juice</a>
-                                        </div>
-                                        <div class="product-name">
-                                            <h4 class="h5">
-                                                <a href="product-details.html">Tincidunt malesuada</a>
-                                            </h4>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="regular-price">$130.00</span>
-                                            <span class="old-price"><del>$140.00</del></span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="col" id="id_best_seller2">
+                                <%--<div class="single-item mb-30">--%>
+                                <%--<div class="product-thumb">--%>
+                                <%--<a href="product-details.html">--%>
+                                <%--<img alt="" src="assets/img/product/product-7.jpg">--%>
+                                <%--</a>--%>
+                                <%--<div class="quick-view-link">--%>
+                                <%--<a data-target="#quick_view" data-toggle="modal" href="#"> <span--%>
+                                <%--data-toggle="tooltip" title="Quick view"><i--%>
+                                <%--class="ion-ios-eye-outline"></i></span> </a>--%>
+                                <%--</div>--%>
+                                <%--</div>--%>
+                                <%--<div class="product-description">--%>
+                                <%--<div class="tag-cate">--%>
+                                <%--<a href="product-details.html">juice</a>--%>
+                                <%--</div>--%>
+                                <%--<div class="product-name">--%>
+                                <%--<h4 class="h5">--%>
+                                <%--<a href="product-details.html">Tincidunt malesuada</a>--%>
+                                <%--</h4>--%>
+                                <%--</div>--%>
+                                <%--<div class="price-box">--%>
+                                <%--<span class="regular-price">$130.00</span>--%>
+                                <%--<span class="old-price"><del>$140.00</del></span>--%>
+                                <%--</div>--%>
+                                <%--</div>--%>
+                                <%--</div>--%>
                             </div>
-                            <div class="col">
-                                <div class="single-item mb-30">
-                                    <div class="product-thumb">
-                                        <a href="product-details.html">
-                                            <img alt="" src="assets/img/product/product-3.jpg">
-                                        </a>
-                                        <div class="quick-view-link">
-                                            <a data-target="#quick_view" data-toggle="modal" href="#"> <span
-                                                    data-toggle="tooltip" title="Quick view"><i
-                                                    class="ion-ios-eye-outline"></i></span> </a>
-                                        </div>
-                                    </div>
-                                    <div class="product-description">
-                                        <div class="tag-cate">
-                                            <a href="product-details.html">fruits</a>
-                                        </div>
-                                        <div class="product-name">
-                                            <h4 class="h5">
-                                                <a href="product-details.html">100% organic food</a>
-                                            </h4>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="regular-price">$99.00</span>
-                                            <span class="old-price"><del></del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="single-item mb-30">
-                                    <div class="product-thumb">
-                                        <a href="product-details.html">
-                                            <img alt="" src="assets/img/product/product-5.jpg">
-                                        </a>
-                                        <div class="quick-view-link">
-                                            <a data-target="#quick_view" data-toggle="modal" href="#"> <span
-                                                    data-toggle="tooltip" title="Quick view"><i
-                                                    class="ion-ios-eye-outline"></i></span> </a>
-                                        </div>
-                                    </div>
-                                    <div class="product-description">
-                                        <div class="tag-cate">
-                                            <a href="product-details.html">vegetables</a>
-                                        </div>
-                                        <div class="product-name">
-                                            <h4 class="h5">
-                                                <a href="product-details.html">Condimentum food</a>
-                                            </h4>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="regular-price">$160.00</span>
-                                            <span class="old-price"><del>$180.00</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="single-item mb-30">
-                                    <div class="product-thumb">
-                                        <a href="product-details.html">
-                                            <img alt="" src="assets/img/product/product-10.jpg">
-                                        </a>
-                                        <div class="quick-view-link">
-                                            <a data-target="#quick_view" data-toggle="modal" href="#"> <span
-                                                    data-toggle="tooltip" title="Quick view"><i
-                                                    class="ion-ios-eye-outline"></i></span> </a>
-                                        </div>
-                                    </div>
-                                    <div class="product-description">
-                                        <div class="tag-cate">
-                                            <a href="product-details.html">vegetables</a>
-                                        </div>
-                                        <div class="product-name">
-                                            <h4 class="h5">
-                                                <a href="product-details.html">Tincidunt malesuada</a>
-                                            </h4>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="regular-price">$130.00</span>
-                                            <span class="old-price"><del>$140.00</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="single-item mb-30">
-                                    <div class="product-thumb">
-                                        <a href="product-details.html">
-                                            <img alt="" src="assets/img/product/product-12.jpg">
-                                        </a>
-                                        <div class="quick-view-link">
-                                            <a data-target="#quick_view" data-toggle="modal" href="#"> <span
-                                                    data-toggle="tooltip" title="Quick view"><i
-                                                    class="ion-ios-eye-outline"></i></span> </a>
-                                        </div>
-                                    </div>
-                                    <div class="product-description">
-                                        <div class="tag-cate">
-                                            <a href="product-details.html">meats</a>
-                                        </div>
-                                        <div class="product-name">
-                                            <h4 class="h5">
-                                                <a href="product-details.html">100% organic food</a>
-                                            </h4>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="regular-price">$99.00</span>
-                                            <span class="old-price"><del></del></span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="col" id="id_best_seller3">
+                                <%--<div class="single-item mb-30">--%>
+                                <%--<div class="product-thumb">--%>
+                                <%--<a href="product-details.html">--%>
+                                <%--<img alt="" src="assets/img/product/product-3.jpg">--%>
+                                <%--</a>--%>
+                                <%--<div class="quick-view-link">--%>
+                                <%--<a data-target="#quick_view" data-toggle="modal" href="#"> <span--%>
+                                <%--data-toggle="tooltip" title="Quick view"><i--%>
+                                <%--class="ion-ios-eye-outline"></i></span> </a>--%>
+                                <%--</div>--%>
+                                <%--</div>--%>
+                                <%--<div class="product-description">--%>
+                                <%--<div class="tag-cate">--%>
+                                <%--<a href="product-details.html">fruits</a>--%>
+                                <%--</div>--%>
+                                <%--<div class="product-name">--%>
+                                <%--<h4 class="h5">--%>
+                                <%--<a href="product-details.html">100% organic food</a>--%>
+                                <%--</h4>--%>
+                                <%--</div>--%>
+                                <%--<div class="price-box">--%>
+                                <%--<span class="regular-price">$99.00</span>--%>
+                                <%--<span class="old-price"><del></del></span>--%>
+                                <%--</div>--%>
+                                <%--</div>--%>
+                                <%--</div>--%>
                             </div>
                         </div>
                     </div>

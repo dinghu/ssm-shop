@@ -7,6 +7,11 @@ $(function () {
     var bannerDiv = $("#id_banner");
     var bannerDiv1 = $("#id_banner_1");
     var bannerDiv2 = $("#id_banner_2");
+    var bestSellerDiv = $("#id_best_seller");
+    var bestSellerDiv1 = $("#id_best_seller1");
+    var bestSellerDiv2 = $("#id_best_seller2");
+    var bestSellerDiv3 = $("#id_best_seller3");
+
 
     //获取流行分类
     var getPopularcategories = function () {
@@ -104,7 +109,7 @@ $(function () {
                             "                        <span><i class=\"ion-android-star\"></i></span>\n" +
                             "                        <span><i class=\"ion-android-star\"></i></span>\n" +
                             "                        </div>\n" +
-                            "                        <div class=\"product-name\">\n" +
+                            "                        <div class=\"product-name\" style='overflow: hidden'>\n" +
                             "                            <h4 class=\"h5\">\n" +
                             "                            <a href=\"product-details.html\">" + product.name + "</a>\n" +
                             "                        </h4>\n" +
@@ -135,7 +140,6 @@ $(function () {
             }
         });
     }
-
     //获取首页
     var getAll = function () {
         $.ajax({
@@ -148,6 +152,8 @@ $(function () {
                 var advantages = rep.advantages;
                 var adviseList = rep.adviseList;
                 var bannerList = rep.bannerList;
+                var bestSellers = rep.bestSellers;
+
                 //banner
                 for (var i in  bannerList) {
                     var title = bannerList[i].name;
@@ -213,6 +219,47 @@ $(function () {
                     var title = adviseList[i].title;
                     var content = adviseList[i].content;
 
+                }
+                //bestSellers
+                for (var i in  bestSellers) {
+                    var name = bestSellers[i].name;
+                    var primaryPicUrl = bestSellers[i].primaryPicUrl;
+                    var marketPrice = bestSellers[i].marketPrice;
+                    var retailPrice = bestSellers[i].retailPrice;
+                    var bestSellerItemHtml = '<div class="single-item mb-30">\n' +
+                        '                                    <div class="product-thumb">\n' +
+                        '                                        <a href="product-details.html">\n' +
+                        '                                            <img alt="" src="' + primaryPicUrl + '">\n' +
+                        '                                        </a>\n' +
+                        '                                        <div class="quick-view-link">\n' +
+                        '                                            <a data-target="#quick_view" data-toggle="modal" href="#"> <span\n' +
+                        '                                                    data-toggle="tooltip" title="Quick view"><i\n' +
+                        '                                                    class="ion-ios-eye-outline"></i></span> </a>\n' +
+                        '                                        </div>\n' +
+                        '                                    </div>\n' +
+                        '                                    <div class="product-description">\n' +
+                        '                                        <div class="tag-cate">\n' +
+                        '                                            <a href="product-details.html">fruits</a>\n' +
+                        '                                        </div>\n' +
+                        '                                        <div class="product-name">\n' +
+                        '                                            <h4 class="h5">\n' +
+                        '                                                <a href="product-details.html">' + name + '</a>\n' +
+                        '                                            </h4>\n' +
+                        '                                        </div>\n' +
+                        '                                        <div class="price-box">\n' +
+                        '                                            <span class="regular-price">' + retailPrice + '</span>\n' +
+                        '                                            <span class="old-price"><del>' + marketPrice + '</del></span>\n' +
+                        '                                        </div>\n' +
+                        '                                    </div>\n' +
+                        '                                </div>';
+
+                    if (0 == i) {
+                        bestSellerDiv1.html(bestSellerItemHtml)
+                    } else if (1 == i) {
+                        bestSellerDiv2.append(bestSellerItemHtml)
+                    } else if (2 == i) {
+                        bestSellerDiv3.append(bestSellerItemHtml)
+                    }
                 }
             }
         });
