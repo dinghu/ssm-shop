@@ -9,16 +9,16 @@
     <div v-show="showList">
         <Row :gutter="16">
             <i-col span="4">
-                <i-input v-model="q.name" @on-enter="query" placeholder="名称"/>
+                <i-input v-model="q.title" @on-enter="query" placeholder="名称"/>
             </i-col>
             <i-button @click="query">查询</i-button>
-            #if($shiro.hasPermission("ad:save"))
+            <!--#if($shiro.hasPermission("ad:save"))-->
             <i-button type="info" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</i-button>
             #end
-            #if($shiro.hasPermission("ad:update"))
+            <!--#if($shiro.hasPermission("ad:update"))-->
             <i-button type="warning" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</i-button>
             #end
-            #if($shiro.hasPermission("ad:delete"))
+            <!--#if($shiro.hasPermission("ad:delete"))-->
             <i-button type="error" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</i-button>
             #end
         </Row>
@@ -28,38 +28,20 @@
 
     <Card v-show="!showList">
         <p slot="title">{{title}}</p>
-        <i-form ref="formValidate" :model="ad" :rules="ruleValidate" :label-width="80">
-            <Form-item label="广告位置" prop="adPositionId">
-                <i-select v-model="ad.adPositionId" filterable>
-                    <i-option v-for="adPosition in adPositions" :value="adPosition.id" :key="adPosition.id">{{adPosition.name}}</i-option>
-                </i-select>
+        <i-form ref="formValidate" :model="banner" :rules="ruleValidate" :label-width="80">
+            <Form-item label="标题" prop="title">
+                <i-input v-model="banner.name" placeholder="广告名称"/>
             </Form-item>
-            <Form-item label="形式" prop="mediaType">
-                <Radio-group v-model="ad.mediaType">
-                    <Radio label="0">
-                        <span>0</span>
-                    </Radio>
-                    <Radio label="1">
-                        <span>1</span>
-                    </Radio>
-                    <Radio label="2">
-                        <span>2</span>
-                    </Radio>
-                    <Radio label="3">
-                        <span>3</span>
-                    </Radio>
-                </Radio-group>
-            </Form-item>
-            <Form-item label="广告名称" prop="name">
-                <i-input v-model="ad.name" placeholder="广告名称"/>
+            <Form-item label="内容" prop="content">
+                <i-input type="textarea" v-model="banner.content" placeholder="内容"/>
             </Form-item>
             <Form-item label="链接" prop="link">
-                <i-input v-model="ad.link" placeholder="链接"/>
+                <i-input v-model="banner.link" placeholder="链接"/>
             </Form-item>
             <Row>
                 <i-col span="16">
                     <Form-item label="图片" prop="imageUrl">
-                        <i-input v-model="ad.imageUrl" placeholder="图片"/>
+                        <i-input v-model="banner.imageUrl" placeholder="图片" readonly/>
                     </Form-item>
                 </i-col>
                 <i-col span="3">
@@ -79,14 +61,11 @@
                     </Form-item>
                 </i-col>
             </Row>
-            <Form-item label="内容" prop="content">
-                <i-input type="textarea" v-model="ad.content" placeholder="内容"/>
+            <Form-item label="创建时间" prop="createTime">
+                <Date-picker v-model="banner.createTime" placeholder="结束时间"></Date-picker>
             </Form-item>
-            <Form-item label="结束时间" prop="endTime">
-                <Date-picker v-model="ad.endTime" placeholder="结束时间"></Date-picker>
-            </Form-item>
-            <Form-item label="状态" prop="enabled">
-                <Radio-group v-model="ad.enabled">
+            <Form-item label="状态" prop="status">
+                <Radio-group v-model="banner.enabled">
                     <Radio label="0">
                         <span>禁用</span>
                     </Radio>
@@ -105,6 +84,6 @@
     </Card>
 </div>
 
-<script src="${rc.contextPath}/js/shop/ad.js?_${date.systemTime}"></script>
+<script src="${rc.contextPath}/js/shop/banner.js"></script>
 </body>
 </html>

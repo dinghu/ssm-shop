@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %>
+
+<!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -31,266 +35,12 @@
 <body>
 
 <!-- Start Header Area -->
-<header class="header-area">
-    <!-- header top start -->
-    <div class="header-top">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-3">
-                    <div class="logo">
-                        <a href="index.html">
-                            <img src="assets/img/logo/logo.png" alt="Brand Logo">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="header-settings-area">
-                        <div class="header-top-left">
-                            <nav>
-                                <ul class="d-flex justify-content-center">
-
-                                    <li>
-                                        <div class="dropdown header-top-dropdown">
-                                            <span>Language:</span>
-                                            <a class="dropdown-toggle" id="language" data-toggle="dropdown"
-                                               aria-haspopup="true" aria-expanded="false">
-                                                English
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="language">
-                                                <a class="dropdown-item" href="#">English</a>
-                                                <a class="dropdown-item" href="#">Français</a>
-                                                <a class="dropdown-item" href="#">Germany</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="header-top-right">
-                            <div class="header-search-box">
-                                <form>
-                                    <input type="text" placeholder="Search Here">
-                                    <button><i class="ion-ios-search-strong"></i></button>
-                                </form>
-                            </div>
-                            <div class="mini-cart-wrap">
-                                <button><i class="ion-bag"></i>
-                                    <span class="notification">2</span>
-                                </button>
-                                <ul class="cart-list">
-                                    <li>
-                                        <div class="cart-img">
-                                            <a href="product-details.html"><img src="assets/img/cart/cart-1.jpg"
-                                                                                alt=""></a>
-                                        </div>
-                                        <div class="cart-info">
-                                            <h4><a href="product-details.html">simple product</a></h4>
-                                            <span class="cart-qty">Qty: 1</span>
-                                            <span>$60.00</span>
-                                        </div>
-                                        <div class="del-icon">
-                                            <i class="fa fa-times"></i>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="cart-img">
-                                            <a href="product-details.html"><img src="assets/img/cart/cart-2.jpg"
-                                                                                alt=""></a>
-                                        </div>
-                                        <div class="cart-info">
-                                            <h4><a href="product-details.html">virtual product</a></h4>
-                                            <span class="cart-qty">Qty: 2</span>
-                                            <span>$100.00</span>
-                                        </div>
-                                        <div class="del-icon">
-                                            <i class="fa fa-times"></i>
-                                        </div>
-                                    </li>
-                                    <li class="mini-cart-price">
-                                        <span class="subtotal">subtotal : </span>
-                                        <span class="subtotal-price ml-auto">$110.00</span>
-                                    </li>
-                                    <li class="checkout-btn">
-                                        <a href="#">View Cart</a>
-                                    </li>
-                                    <li class="checkout-btn">
-                                        <a href="#">checkout</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- header top end -->
-
-    <!-- main menu start -->
-    <div class="main-menu-area sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="main-menu">
-                        <div class="sticky-logo">
-                            <a href="index.html">
-                                <img src="assets/img/logo/logo_sticky.png" alt="brand logo">
-                            </a>
-                        </div>
-                        <!-- main menu navbar start -->
-                        <nav id="mobile-menu">
-                            <ul>
-                                <li class="active"><a href="#">Home <i class="fa fa-angle-down"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a href="index.html">Home version 01</a></li>
-                                        <li><a href="index-2.html">Home version 02</a></li>
-                                        <li><a href="index-3.html">Home version 03</a></li>
-                                        <li><a href="index-4.html">Home version 04</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">pages <i class="fa fa-angle-down"></i></a>
-                                    <ul class="megamenu dropdown">
-                                        <li class="mega-title"><a href="#">column 01</a>
-                                            <ul>
-                                                <li><a href="shop.html">shop grid left
-                                                    sidebar</a></li>
-                                                <li><a href="shop-grid-right-sidebar.html">shop grid right
-                                                    sidebar</a></li>
-                                                <li><a href="shop-list-left-sidebar.html">shop list left sidebar</a>
-                                                </li>
-                                                <li><a href="shop-list-right-sidebar.html">shop list right sidebar</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="mega-title"><a href="#">column 02</a>
-                                            <ul>
-                                                <li><a href="product-details.html">product details</a></li>
-                                                <li><a href="product-details-affiliate.html">product
-                                                    details
-                                                    affiliate</a></li>
-                                                <li><a href="product-details-variable.html">product details
-                                                    variable</a></li>
-                                                <li><a href="product-details-group.html">product details
-                                                    group</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="mega-title"><a href="#">column 03</a>
-                                            <ul>
-                                                <li><a href="cart.html">cart</a></li>
-                                                <li><a href="checkout.html">checkout</a></li>
-                                                <li><a href="compare.html">compare</a></li>
-                                                <li><a href="wishlist.html">wishlist</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="mega-title"><a href="#">column 04</a>
-                                            <ul>
-                                                <li><a href="my-account.html">my-account</a></li>
-                                                <li><a href="login.html">login-register</a></li>
-                                                <li><a href="about-us.html">about us</a></li>
-                                                <li><a href="contact-us.html">contact us</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">shop <i class="fa fa-angle-down"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">shop grid layout <i class="fa fa-angle-right"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="shop.html">shop grid left
-                                                    sidebar</a></li>
-                                                <li><a href="shop-grid-right-sidebar.html">shop grid right
-                                                    sidebar</a></li>
-                                                <li><a href="shop-grid-full-3-col.html">shop grid full 3 col</a></li>
-                                                <li><a href="shop-grid-full-4-col.html">shop grid full 4 col</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">shop list layout <i class="fa fa-angle-right"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="shop-list-left-sidebar.html">shop list left
-                                                    sidebar</a></li>
-                                                <li><a href="shop-list-right-sidebar.html">shop list right
-                                                    sidebar</a></li>
-                                                <li><a href="shop-list-full-width.html">shop list full width</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">products details <i class="fa fa-angle-right"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a href="product-details.html">product details</a></li>
-                                                <li><a href="product-details-affiliate.html">product
-                                                    details
-                                                    affiliate</a></li>
-                                                <li><a href="product-details-variable.html">product details
-                                                    variable</a></li>
-                                                <li><a href="product-details-group.html">product details
-                                                    group</a></li>
-                                                <li><a href="product-details-box.html">product details box
-                                                    slider</a></li>
-                                                <li><a href="product-details-sticky-left.html">product details
-                                                    sticky left</a></li>
-                                                <li><a href="product-details-sticky-right.html">product details
-                                                    sticky right</a></li>
-                                                <li><a href="product-details-vertical.html">product details vertical
-                                                    slider</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Blog <i class="fa fa-angle-down"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                        <li><a href="blog-left-sidebar-2-col.html">blog left sidebar 2 col</a></li>
-                                        <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
-                                        <li><a href="blog-right-sidebar-2-col.html">blog right sidebar 2 col</a></li>
-                                        <li><a href="blog-grid-full-width.html">blog grid full width</a></li>
-                                        <li><a href="blog-list-full-width.html">blog list full width</a></li>
-                                        <li><a href="blog-details.html">blog details</a></li>
-                                        <li><a href="blog-details-left-sidebar.html">blog details left sidebar</a></li>
-                                        <li><a href="blog-details-audio.html">blog details audio</a></li>
-                                        <li><a href="blog-details-video.html">blog details video</a></li>
-                                        <li><a href="blog-details-image.html">blog details image</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="about-us.html">about us</a></li>
-                                <li><a href="contact-us.html">Contact</a></li>
-                            </ul>
-                        </nav>
-                        <!-- main menu navbar end -->
-                    </div>
-                </div>
-                <div class="col-12 d-block d-lg-none">
-                    <div class="mobile-menu"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- main menu end -->
-
-</header>
+<!-- 顶栏 -->
+<jsp:include page="header.jsp"></jsp:include>
 <!-- end Header Area -->
 
 <!-- main wrapper start -->
 <main>
-    <!-- breadcrumb area start -->
-    <div class="breadcrumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb-wrap text-center">
-                        <nav aria-label="breadcrumb">
-                            <h2>shop</h2>
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">login-register</li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- breadcrumb area end -->
-
     <!-- login register wrapper start -->
     <div class="login-register-wrapper pt-60 pb-60">
         <div class="container">
@@ -706,7 +456,7 @@
                         localStorage.setItem("avatar", rep.user.avatar);
                         // localStorage.setItem("simpleDesc", response.data.userInfo.simpleDesc);
                         $("#login-error").text("");
-                        window.location.href = "index.html";
+                        window.location.href = "index.jsp";
                     } else {
                         $("#login-error").text(rep.message);
                     }

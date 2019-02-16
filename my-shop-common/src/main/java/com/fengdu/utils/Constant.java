@@ -97,7 +97,11 @@ public class Constant {
         /**
          * 腾讯云
          */
-        QCLOUD(3);
+        QCLOUD(3),
+        /**
+         * 上传到本地服务器
+         */
+        LOCAL(4);
 
         private int value;
 

@@ -1,10 +1,10 @@
-package com.fengdu.service;
+package com.fengdu.dao;
 
 import com.fengdu.pojo.ShopCategory;
 
 import java.util.List;
 
-public interface ShopCategoryService {
+public interface ShopCategoryMapper {
     List<ShopCategory> getPopularCategory();
     List<ShopCategory> getRecommendCategory();
 }

@@ -61,12 +61,12 @@
     </select>
 
     <select id="queryTotal" resultType="int">
-		select count(*) from nideshop_ad
-		WHERE 1=1
+        select count(*) from nideshop_ad
+        WHERE 1=1
         <if test="name != null and name.trim() != ''">
             AND name LIKE concat('%',#{name},'%')
         </if>
-	</select>
+    </select>
 
     <insert id="save" parameterType="com.fengdu.entity.AdEntity" useGeneratedKeys="true" keyProperty="id">
 		insert into nideshop_ad(

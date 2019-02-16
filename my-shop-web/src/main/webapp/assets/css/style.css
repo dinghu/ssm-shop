@@ -422,7 +422,8 @@ fieldset legend {
 
 .section-title h2 {
     color: #333333;
-    font-size: 36px;
+    font-size: 26px;
+    /*font-size: 36px;*/
     line-height: 1.2;
     position: relative;
     display: inline-block;
@@ -430,7 +431,7 @@ fieldset legend {
     margin-top: -8px;
     letter-spacing: 1px;
     text-transform: capitalize;
-    font-family: "Berkshire Swash", cursive;
+    /*font-family: "Berkshire Swash", cursive;*/
 }
 
 @media only screen and (max-width: 575.98px) {
