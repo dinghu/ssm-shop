@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fengdu.dao.AdvantageMapper">
+    <select id="queryList" resultType="com.fengdu.pojo.Advantage">
+        select * from nideshop_advantage where 1 = 1 order by update_time desc
+        <if test="limit != null">
+            limit 0, #{limit};
+        </if>
+    </select>
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fengdu.dao.AdPojoMapper">
+    <select id="queryList" resultType="com.fengdu.pojo.AdPojo">
+        select * from nideshop_ad where enabled = 1
+        <if test="ad_position_id != null">
+            and ad_position_id = #{ad_position_id}
+        </if>
+        order by create_time desc;
+    </select>
+
+    <select id="queryTotal" resultType="int">
+        select count(*) from nideshop_ad WHERE enabled = 1
+    </select>
+
+    <select id="findByPage" resultType="com.fengdu.pojo.AdPojo">
+        select * from nideshop_ad
+        <include refid="CommonMapper.parseFilterRules"/>
+        <if test="pageQuery != null">
+            order by ${pageQuery.orderBy} ${pageQuery.orderType} limit #{pageQuery.start} , #{pageQuery.pageSize}
+        </if>
+
+    </select>
+
+</mapper>
