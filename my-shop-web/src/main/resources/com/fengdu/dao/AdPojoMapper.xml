@@ -13,4 +13,13 @@
         select count(*) from nideshop_ad WHERE enabled = 1
     </select>
 
+    <select id="findByPage" resultType="com.fengdu.pojo.AdPojo">
+        select * from nideshop_ad
+        <include refid="CommonMapper.parseFilterRules"/>
+        <if test="pageQuery != null">
+            order by ${pageQuery.orderBy} ${pageQuery.orderType} limit #{pageQuery.start} , #{pageQuery.pageSize}
+        </if>
+
+    </select>
+
 </mapper>
