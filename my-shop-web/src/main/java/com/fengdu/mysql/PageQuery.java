@@ -4,9 +4,6 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * 分页工具
- * 
- * @author zhihongp
- * 
  */
 public class PageQuery {
 
