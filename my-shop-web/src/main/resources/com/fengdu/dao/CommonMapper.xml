@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Common">
+<mapper namespace="FilterMapper">
 
     <sql id="conditions">
         <if test='filterRules != null'>
@@ -67,16 +67,15 @@
         </trim>
     </sql>
 
-
     <sql id="parseFilterRules">
         <trim prefix="where" prefixOverrides="and">
-            <include refid="Common.conditions"/>
+            <include refid="FilterMapper.conditions"/>
         </trim>
     </sql>
 
     <sql id="parseFilterRulesWithoutWhere">
         <trim prefix="" prefixOverrides="">
-            <include refid="Common.conditions"/>
+            <include refid="FilterMapper.conditions"/>
         </trim>
     </sql>
 </mapper>

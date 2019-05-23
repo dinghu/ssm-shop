@@ -15,7 +15,7 @@
 
     <select id="findByPage" resultType="com.fengdu.pojo.AdPojo">
         select * from nideshop_ad
-        <include refid="CommonMapper.parseFilterRules"/>
+        <include refid="FilterMapper.parseFilterRules"/>
         <if test="pageQuery != null">
             order by ${pageQuery.orderBy} ${pageQuery.orderType} limit #{pageQuery.start} , #{pageQuery.pageSize}
         </if>
