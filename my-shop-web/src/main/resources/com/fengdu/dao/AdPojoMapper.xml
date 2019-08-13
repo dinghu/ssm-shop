@@ -19,7 +19,6 @@
         <if test="pageQuery != null">
             order by ${pageQuery.orderBy} ${pageQuery.orderType} limit #{pageQuery.start} , #{pageQuery.pageSize}
         </if>
-
     </select>
 
 </mapper>
