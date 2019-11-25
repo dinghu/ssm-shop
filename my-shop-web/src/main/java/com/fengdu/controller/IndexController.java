@@ -1,6 +1,6 @@
 package com.fengdu.controller;
 
-import com.fengdu.dto.OurGoodsDto;
+import com.fengdu.dto.OurCommoditiesDto;
 import com.fengdu.pojo.*;
 import com.fengdu.service.*;
 import com.fengdu.utils.R;
@@ -31,10 +31,10 @@ public class IndexController {
     @RequestMapping("/getOurProducts")
     @ResponseBody
     public R getOurGoods() {
-        ArrayList<OurGoodsDto> ourGoodsDtos = new ArrayList<>();
+        ArrayList<OurCommoditiesDto> ourGoodsDtos = new ArrayList<>();
         List<ShopCategoryPojo> shopCategoryList = shopCategoryService.getRecommendCategory();
         for (ShopCategoryPojo shopCategory : shopCategoryList) {
-            OurGoodsDto ourGoodsDto = new OurGoodsDto();
+            OurCommoditiesDto ourGoodsDto = new OurCommoditiesDto();
             ourGoodsDto.category = shopCategory;
             List<CommodityPojo> goodsList = goodsService.queryListByCategory(shopCategory.getId(), 0, 4);
             ourGoodsDto.products = goodsList;
@@ -49,10 +49,10 @@ public class IndexController {
     @ResponseBody
     public R getAll() {
         //我们的产品
-        ArrayList<OurGoodsDto> ourGoodsDtos = new ArrayList<>();
+        ArrayList<OurCommoditiesDto> ourGoodsDtos = new ArrayList<>();
         List<ShopCategoryPojo> shopCategoryList = shopCategoryService.getRecommendCategory();
         for (ShopCategoryPojo shopCategory : shopCategoryList) {
-            OurGoodsDto ourGoodsDto = new OurGoodsDto();
+            OurCommoditiesDto ourGoodsDto = new OurCommoditiesDto();
             ourGoodsDto.category = shopCategory;
             List<CommodityPojo> goodsList = goodsService.queryListByCategory(shopCategory.getId(), 0, 4);
             ourGoodsDto.products = goodsList;
