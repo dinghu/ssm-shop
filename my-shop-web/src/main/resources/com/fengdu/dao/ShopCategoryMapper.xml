@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fengdu.dao.ShopCategoryMapper">
-    <select id="getPopularCategory" resultType="com.fengdu.pojo.ShopCategory">
+    <select id="getPopularCategory" resultType="com.fengdu.pojo.ShopCategoryPojo">
         SELECT * FROM  nideshop_category WHERE is_popular = '1' ORDER BY nideshop_category.level desc limit 0,4
     </select>
 
-    <select id="getRecommendCategory" resultType="com.fengdu.pojo.ShopCategory">
+    <select id="getRecommendCategory" resultType="com.fengdu.pojo.ShopCategoryPojo">
         SELECT * FROM  nideshop_category ORDER BY nideshop_category.sort_order desc limit 0,5
     </select>
 
-    <select id="queryList" resultType="com.fengdu.pojo.ShopCategory">
+    <select id="queryList" resultType="com.fengdu.pojo.ShopCategoryPojo">
         select * from nideshop_category where 1 = 1
         <if test="offset != null and limit != null">
             limit #{offset}, #{limit}

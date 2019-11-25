@@ -1,6 +1,6 @@
 package com.fengdu.controller;
 
-import com.fengdu.pojo.ShopCategory;
+import com.fengdu.pojo.ShopCategoryPojo;
 import com.fengdu.service.ShopCategoryService;
 import com.fengdu.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class ShopCategoryController {
     @RequestMapping(value = "/getPopularCategory", method = RequestMethod.GET)
     @ResponseBody
     public R getPopularCategory() {
-        List<ShopCategory> shopCategoryList = shopCategoryService.getPopularCategory();
+        List<ShopCategoryPojo> shopCategoryList = shopCategoryService.getPopularCategory();
         R r = R.ok();
         r.put("popularCategory", shopCategoryList);
         return r;

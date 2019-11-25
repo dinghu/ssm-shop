@@ -3,7 +3,7 @@ package com.fengdu.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Advantage implements Serializable {
+public class AdvantagePojo implements Serializable {
     private Integer id;
 
     private String title;

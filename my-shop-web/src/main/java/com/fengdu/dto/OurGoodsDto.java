@@ -1,12 +1,12 @@
 package com.fengdu.dto;
 
-import com.fengdu.pojo.Goods;
-import com.fengdu.pojo.ShopCategory;
+import com.fengdu.pojo.CommodityPojo;
+import com.fengdu.pojo.ShopCategoryPojo;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class OurGoodsDto {
-    public List<Goods> products = new ArrayList<>();
-    public ShopCategory category;
+    public List<CommodityPojo> products = new ArrayList<>();
+    public ShopCategoryPojo category;
 }

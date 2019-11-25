@@ -3,7 +3,7 @@ package com.fengdu.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class AdPojo implements Serializable {
+public class BannerPojo implements Serializable {
     private Short id;
 
     private Short adPositionId;

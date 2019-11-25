@@ -1,8 +1,8 @@
 package com.fengdu.service.impl;
 
-import com.fengdu.dao.AdPojoMapper;
-import com.fengdu.pojo.AdPojo;
-import com.fengdu.service.AdService;
+import com.fengdu.dao.BannerMapper;
+import com.fengdu.pojo.BannerPojo;
+import com.fengdu.service.BannerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class AdServiceImpl implements AdService {
+public class BannerServiceImpl implements BannerService {
     @Autowired
-    AdPojoMapper adPojoMapper;
+    BannerMapper adPojoMapper;
 
     @Override
-    public List<AdPojo> queryList(Map<String, Object> map) {
+    public List<BannerPojo> queryList(Map<String, Object> map) {
         return adPojoMapper.queryList(map);
     }
 }

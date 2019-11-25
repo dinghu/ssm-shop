@@ -1,10 +1,10 @@
 package com.fengdu.dao;
 
-import com.fengdu.pojo.Advantage;
+import com.fengdu.pojo.AdvantagePojo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface AdvantageMapper {
-    List<Advantage> queryList(@Param("limit")int limit);
+    List<AdvantagePojo> queryList(@Param("limit")int limit);
 }

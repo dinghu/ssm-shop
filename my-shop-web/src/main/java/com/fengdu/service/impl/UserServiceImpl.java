@@ -1,6 +1,6 @@
 package com.fengdu.service.impl;
 
-import com.fengdu.dao.UserPojoMapper;
+import com.fengdu.dao.UserMapper;
 import com.fengdu.pojo.UserPojo;
 import com.fengdu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    UserPojoMapper userPojoMapper;
+    UserMapper userPojoMapper;
 
     @Override
     public void save(UserPojo userPojo) {

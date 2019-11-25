@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Goods implements Serializable {
+public class CommodityPojo implements Serializable {
     private Integer id;
 
     private Integer categoryId;

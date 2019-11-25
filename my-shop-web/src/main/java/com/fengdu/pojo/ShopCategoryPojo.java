@@ -2,7 +2,7 @@ package com.fengdu.pojo;
 
 import java.io.Serializable;
 
-public class ShopCategory implements Serializable {
+public class ShopCategoryPojo implements Serializable {
     private Integer id;
 
     private String name;
