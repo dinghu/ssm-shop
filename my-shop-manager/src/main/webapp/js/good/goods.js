@@ -113,7 +113,8 @@ var vm = new Vue({
         },
         brands: [],//品牌
         macros: [],//商品单位
-        attributeCategories: []//属性类别
+        attributeCategories: [],//属性类别
+        channels:[]//商品渠道
     },
     methods: {
         query: function () {
@@ -139,9 +140,11 @@ var vm = new Vue({
             vm.brands = [];
             vm.macros = [];
             vm.attributeCategories = [];
+            vm.channels = [];
             // vm.attribute = [];
             vm.getBrands();
             vm.getMacro();
+            vm.getChannels();
             vm.getAttributeCategories();
             // vm.getAttributes('');
         },
@@ -156,6 +159,7 @@ var vm = new Vue({
             vm.getInfo(id);
             vm.getBrands();
             vm.getMacro();
+            vm.getChannels();
             vm.getAttributeCategories();
             vm.getGoodsGallery(id);
         },
@@ -185,6 +189,13 @@ var vm = new Vue({
                 vm.attributeCategories = r.list;
             });
         },
+        // 获取商品渠道
+        getChannels: function () {
+            $.get("../channel/queryAll", function (r) {
+                vm.channels = r.list;
+            });
+        },
+
         saveOrUpdate: function (event) {
             var url = vm.goods.id == null ? "../goods/save" : "../goods/update";
             vm.goods.goodsDesc = $('#goodsDesc').editable('getHTML');

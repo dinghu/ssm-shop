@@ -45,6 +45,8 @@ public class GoodsEntity implements Serializable {
     private Integer isDelete;
     //属性类别
     private Integer attributeCategory;
+    //渠道来源
+    private Integer channel;
     //专柜价格
     private BigDecimal counterPrice;
     //附加价格
@@ -104,6 +106,14 @@ public class GoodsEntity implements Serializable {
     private String attributeCategoryName;
     //品牌
     private String brandName;
+
+    public Integer getChannel() {
+        return channel;
+    }
+
+    public void setChannel(Integer channel) {
+        this.channel = channel;
+    }
 
     public Long getCreateUserDeptId() {
         return createUserDeptId;
