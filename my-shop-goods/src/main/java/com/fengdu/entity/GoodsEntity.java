@@ -61,6 +61,8 @@ public class GoodsEntity implements Serializable {
     private String listPicUrl;
     //零售价格
     private BigDecimal retailPrice;
+    //零售价格
+    private BigDecimal couponPrice;
     //销售量
     private Integer sellVolume;
     //主sku　product_id
@@ -113,6 +115,14 @@ public class GoodsEntity implements Serializable {
 
     public void setChannel(Integer channel) {
         this.channel = channel;
+    }
+
+    public BigDecimal getCouponPrice() {
+        return couponPrice;
+    }
+
+    public void setCouponPrice(BigDecimal couponPrice) {
+        this.couponPrice = couponPrice;
     }
 
     public Long getCreateUserDeptId() {

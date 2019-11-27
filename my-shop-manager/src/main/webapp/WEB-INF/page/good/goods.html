@@ -4,7 +4,7 @@
     <title></title>
     #parse("sys/header.html")
     <style>
-        .upload-list{
+        .upload-list {
             display: inline-block;
             width: 60px;
             height: 60px;
@@ -15,26 +15,30 @@
             overflow: hidden;
             background: #fff;
             position: relative;
-            box-shadow: 0 1px 1px rgba(0,0,0,.2);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
             margin-right: 4px;
         }
-        .upload-list img{
+
+        .upload-list img {
             width: 100%;
             height: 100%;
         }
-        .upload-list-cover{
+
+        .upload-list-cover {
             display: none;
             position: absolute;
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0,0,0,.6);
+            background: rgba(0, 0, 0, .6);
         }
-        .upload-list:hover .upload-list-cover{
+
+        .upload-list:hover .upload-list-cover {
             display: block;
         }
-        .upload-list-cover i{
+
+        .upload-list-cover i {
             color: #fff;
             font-size: 20px;
             cursor: pointer;
@@ -125,6 +129,12 @@
                         <Input-number :min="0" :step="1" v-model="goods.retailPrice" placeholder="零售价格"
                                       style="width: 188px;"/>
                     </Form-item>
+
+                    <Form-item label="优惠券" prop="couponPrice">
+                        <Input-number  v-model="goods.couponPrice" placeholder="优惠券"
+                                      style="width: 188px;"/>
+                    </Form-item>
+
                     <Form-item label="市场价" prop="marketPrice">
                         <Input-number :min="0" :step="1" v-model="goods.marketPrice" placeholder="市场价"
                                       style="width: 188px;"/>
