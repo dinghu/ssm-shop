@@ -1,12 +1,8 @@
-package com.fengdu.controller;
+package com.fengdu.api;
 
 import com.fengdu.controller.BaseController;
 import com.fengdu.entity.GoodsEntity;
-import com.fengdu.pojo.CommodityPojo;
-import com.fengdu.pojo.ShopCategoryPojo;
-import com.fengdu.service.CommodityService;
 import com.fengdu.service.GoodsService;
-import com.fengdu.service.ShopCategoryService;
 import com.fengdu.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

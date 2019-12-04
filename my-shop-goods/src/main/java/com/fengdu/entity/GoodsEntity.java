@@ -96,6 +96,26 @@ public class GoodsEntity implements Serializable {
      */
     private Long updateUserId;
 
+    private String outLink;
+
+    private Integer couponGetCounter;
+
+    public Integer getCouponGetCounter() {
+        return couponGetCounter;
+    }
+
+    public void setCouponGetCounter(Integer couponGetCounter) {
+        this.couponGetCounter = couponGetCounter;
+    }
+
+    public String getOutLink() {
+        return outLink;
+    }
+
+    public void setOutLink(String outLink) {
+        this.outLink = outLink;
+    }
+
     List<GoodsAttributeEntity> attributeEntityList = new ArrayList<>();
 
     List<GoodsGalleryEntity> goodsImgList = new ArrayList<>();

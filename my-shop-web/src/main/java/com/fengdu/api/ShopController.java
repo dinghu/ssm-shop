@@ -1,4 +1,4 @@
-package com.fengdu.controller;
+package com.fengdu.api;
 
 import com.fengdu.pojo.ShopCategoryPojo;
 import com.fengdu.service.ShopCategoryService;
@@ -12,17 +12,26 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/shopCategory")
-public class ShopCategoryController {
+@RequestMapping("/api/shop")
+public class ShopController {
     @Autowired
     ShopCategoryService shopCategoryService;
 
-    @RequestMapping(value = "/getPopularCategory", method = RequestMethod.GET)
+    @RequestMapping("/getCategories")
+    @ResponseBody
+    public R getCategories() {
+        List<ShopCategoryPojo> categoryPojoList = shopCategoryService.queryList(null, null);
+        R r = R.ok();
+        r.put("data", categoryPojoList);
+        return r;
+    }
+
+    @RequestMapping(value = "/getPopularCategories", method = RequestMethod.GET)
     @ResponseBody
     public R getPopularCategory() {
         List<ShopCategoryPojo> shopCategoryList = shopCategoryService.getPopularCategory();
         R r = R.ok();
-        r.put("popularCategory", shopCategoryList);
+        r.put("data", shopCategoryList);
         return r;
     }
 }

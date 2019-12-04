@@ -7,4 +7,5 @@ import java.util.List;
 public interface ShopCategoryMapper {
     List<ShopCategoryPojo> getPopularCategory();
     List<ShopCategoryPojo> getRecommendCategory();
+    List<ShopCategoryPojo> queryList(Integer offset, Integer limit);
 }

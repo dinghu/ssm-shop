@@ -12,6 +12,7 @@ import java.util.List;
 public class ShopCategoryServiceImpl implements ShopCategoryService {
     @Autowired
     ShopCategoryMapper shopCategoryMapper;
+
     @Override
     public List<ShopCategoryPojo> getPopularCategory() {
         return shopCategoryMapper.getPopularCategory();
@@ -20,5 +21,10 @@ public class ShopCategoryServiceImpl implements ShopCategoryService {
     @Override
     public List<ShopCategoryPojo> getRecommendCategory() {
         return shopCategoryMapper.getRecommendCategory();
+    }
+
+    @Override
+    public List<ShopCategoryPojo> queryList(Integer offset, Integer limit) {
+        return shopCategoryMapper.queryList(offset, limit);
     }
 }
