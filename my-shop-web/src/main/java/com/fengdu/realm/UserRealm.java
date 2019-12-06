@@ -2,7 +2,7 @@ package com.fengdu.realm;
 
 import com.fengdu.Global;
 import com.fengdu.constant.MyshopConstants;
-import com.fengdu.dao.UserLevelPojoMapper;
+import com.fengdu.dao.UserLevelMapper;
 import com.fengdu.pojo.UserLevelPojo;
 import com.fengdu.pojo.UserPojo;
 import com.fengdu.service.UserService;
@@ -25,7 +25,7 @@ public class UserRealm extends AuthorizingRealm {
     @Autowired
     private UserService userService;
     @Autowired
-    private UserLevelPojoMapper userLevelPojoMapper;
+    private UserLevelMapper userLevelPojoMapper;
     @Autowired
     private RedisUtils redisUtils;
 

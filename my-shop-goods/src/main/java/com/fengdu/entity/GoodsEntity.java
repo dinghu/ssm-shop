@@ -45,6 +45,8 @@ public class GoodsEntity implements Serializable {
     private Integer isDelete;
     //属性类别
     private Integer attributeCategory;
+    //渠道来源
+    private Integer channel;
     //专柜价格
     private BigDecimal counterPrice;
     //附加价格
@@ -59,6 +61,8 @@ public class GoodsEntity implements Serializable {
     private String listPicUrl;
     //零售价格
     private BigDecimal retailPrice;
+    //零售价格
+    private BigDecimal couponPrice;
     //销售量
     private Integer sellVolume;
     //主sku　product_id
@@ -92,6 +96,26 @@ public class GoodsEntity implements Serializable {
      */
     private Long updateUserId;
 
+    private String outLink;
+
+    private Integer couponGetCounter;
+
+    public Integer getCouponGetCounter() {
+        return couponGetCounter;
+    }
+
+    public void setCouponGetCounter(Integer couponGetCounter) {
+        this.couponGetCounter = couponGetCounter;
+    }
+
+    public String getOutLink() {
+        return outLink;
+    }
+
+    public void setOutLink(String outLink) {
+        this.outLink = outLink;
+    }
+
     List<GoodsAttributeEntity> attributeEntityList = new ArrayList<>();
 
     List<GoodsGalleryEntity> goodsImgList = new ArrayList<>();
@@ -104,6 +128,22 @@ public class GoodsEntity implements Serializable {
     private String attributeCategoryName;
     //品牌
     private String brandName;
+
+    public Integer getChannel() {
+        return channel;
+    }
+
+    public void setChannel(Integer channel) {
+        this.channel = channel;
+    }
+
+    public BigDecimal getCouponPrice() {
+        return couponPrice;
+    }
+
+    public void setCouponPrice(BigDecimal couponPrice) {
+        this.couponPrice = couponPrice;
+    }
 
     public Long getCreateUserDeptId() {
         return createUserDeptId;

@@ -81,15 +81,12 @@ public class SysRoleController extends AbstractController {
     @RequiresPermissions("sys:role:info")
     public R info(@PathVariable("roleId") Long roleId) {
         SysRoleEntity role = sysRoleService.queryObject(roleId);
-
         //查询角色对应的菜单
         List<Long> menuIdList = sysRoleMenuService.queryMenuIdList(roleId);
         role.setMenuIdList(menuIdList);
-
         //查询角色对应的部门
         List<Long> deptIdList = sysRoleDeptService.queryDeptIdList(roleId);
         role.setDeptIdList(deptIdList);
-
         return R.ok().put("role", role);
     }
 
@@ -116,10 +113,8 @@ public class SysRoleController extends AbstractController {
     @RequiresPermissions("sys:role:update")
     public R update(@RequestBody SysRoleEntity role) {
         ValidatorUtils.validateEntity(role);
-
         role.setCreateUserId(getUserId());
         sysRoleService.update(role);
-
         return R.ok();
     }
 

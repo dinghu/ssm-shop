@@ -26,6 +26,7 @@
         <result property="primaryPicUrl" column="primary_pic_url"/>
         <result property="listPicUrl" column="list_pic_url"/>
         <result property="retailPrice" column="retail_price"/>
+        <result property="couponPrice" column="coupon_price"/>
         <result property="sellVolume" column="sell_volume"/>
         <result property="primaryProductId" column="primary_product_id"/>
         <result property="unitPrice" column="unit_price"/>
@@ -39,6 +40,8 @@
         <result property="createUserId" column="create_user_id"/>
         <result property="createUserDeptId" column="create_user_dept_id"/>
         <result property="updateUserId" column="update_user_id"/>
+        <result property="outLink" column="out_link"/>
+        <result property="couponGetCounter" column="coupon_get_counter"/>
     </resultMap>
 
     <select id="queryObject" resultType="com.fengdu.entity.GoodsEntity">
@@ -68,6 +71,7 @@
         nideshop_goods.goods_unit,
         nideshop_goods.primary_pic_url,
         nideshop_goods.list_pic_url,
+        nideshop_goods.coupon_price,
         nideshop_goods.retail_price,
         nideshop_goods.sell_volume,
         nideshop_goods.primary_product_id,
@@ -82,6 +86,8 @@
         nideshop_goods.create_user_id,
         nideshop_goods.create_user_dept_id,
         nideshop_goods.update_user_id,
+        nideshop_goods.out_link,
+        nideshop_goods.coupon_get_counter,
         nideshop_category.name category_name,
         nideshop_attribute_category.name attribute_category_name,
         nideshop_brand.name brand_name
@@ -95,6 +101,9 @@
         ${filterSql}
         <if test="name != null and name != ''">
             AND nideshop_goods.name LIKE concat('%',#{name},'%')
+        </if>
+        <if test="categoryId != null">
+            AND nideshop_goods.category_id = #{categoryId}
         </if>
         AND nideshop_goods.is_Delete = #{isDelete}
         <choose>
@@ -144,6 +153,7 @@
         `goods_unit`,
         `primary_pic_url`,
         `list_pic_url`,
+        `coupon_price`,
         `retail_price`,
         `sell_volume`,
         `primary_product_id`,
@@ -157,7 +167,9 @@
         `market_price`,
         `create_user_id`,
         `create_user_dept_id`,
-        `update_user_id`
+        `update_user_id`,
+        `out_link`,
+        `coupon_get_counter`
         )
         values
         (
@@ -182,6 +194,7 @@
         #{goodsUnit},
         #{primaryPicUrl},
         #{listPicUrl},
+        #{couponPrice},
         #{retailPrice},
         #{sellVolume},
         #{primaryProductId},
@@ -195,7 +208,9 @@
         #{marketPrice},
         #{createUserId},
         #{createUserDeptId},
-        #{updateUserId}
+        #{updateUserId},
+         #{outLink},
+          #{couponGetCounter}
         )
     </insert>
 
@@ -222,6 +237,7 @@
             <if test="goodsUnit != null">`goods_unit` = #{goodsUnit},</if>
             <if test="primaryPicUrl != null">`primary_pic_url` = #{primaryPicUrl},</if>
             <if test="listPicUrl != null">`list_pic_url` = #{listPicUrl},</if>
+            <if test="couponPrice != null">`coupon_price` = #{couponPrice},</if>
             <if test="retailPrice != null">`retail_price` = #{retailPrice},</if>
             <if test="sellVolume != null">`sell_volume` = #{sellVolume},</if>
             <if test="primaryProductId != null">`primary_product_id` = #{primaryProductId},</if>
@@ -236,6 +252,8 @@
             <if test="createUserId != null">`create_user_id` = #{createUserId},</if>
             <if test="createUserId != null">`create_user_dept_id` = #{createUserDeptId},</if>
             <if test="updateUserId != null">`update_user_id` = #{updateUserId},</if>
+            <if test="outLink != null">`out_link` = #{outLink},</if>
+            <if test="couponGetCounter != null">`coupon_get_counter` = #{couponGetCounter},</if>
         </set>
         where id = #{id}
     </update>

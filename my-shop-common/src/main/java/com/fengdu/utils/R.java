@@ -15,6 +15,7 @@ public class R extends HashMap<String, Object> {
 
     public R() {
         put("code", 0);
+        put("message", "操作成功");
     }
 
     public static R error() {

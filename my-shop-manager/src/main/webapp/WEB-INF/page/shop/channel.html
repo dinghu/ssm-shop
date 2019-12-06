@@ -29,13 +29,25 @@
     <Card v-show="!showList">
         <p slot="title">{{title}}</p>
         <i-form ref="formValidate" :model="channel" :rules="ruleValidate" :label-width="80">
-            <Form-item label="名称" prop="name" style="width: 288px;">
-                <i-select v-model="channel.name">
-                    <i-option v-for="category in categoryList" :value="category.name"
-                              :key="category.name">{{category.name}}
-                    </i-option>
-                </i-select>
+            <!--<Form-item label="名称" prop="name" style="width: 288px;">-->
+                <!--<i-select v-model="channel.name">-->
+                    <!--<i-option v-for="category in categoryList" :value="category.name"-->
+                              <!--:key="category.name">{{category.name}}-->
+                    <!--</i-option>-->
+                <!--</i-select>-->
+            <!--</Form-item>-->
+
+            <!--<Form-item label="名称" prop="name" style="width: 288px;">-->
+                <!--<i-select v-model="channel.name">-->
+                    <!--<i-option v-for="category in categoryList" :value="category.name"-->
+                              <!--:key="category.name">{{category.name}}-->
+                    <!--</i-option>-->
+                <!--</i-select>-->
+            <!--</Form-item>-->
+            <Form-item label="名称" prop="title">
+                <i-input v-model="channel.name" placeholder="请输入渠道名称"/>
             </Form-item>
+
             <Form-item label="url" prop="url">
                 <i-input v-model="channel.url" placeholder="url"/>
             </Form-item>

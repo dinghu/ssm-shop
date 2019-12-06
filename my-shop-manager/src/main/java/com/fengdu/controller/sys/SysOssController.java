@@ -57,9 +57,7 @@ public class SysOssController {
         Query query = new Query(params);
         List<SysOssEntity> sysOssList = sysOssService.queryList(query);
         int total = sysOssService.queryTotal(query);
-
         PageUtils pageUtil = new PageUtils(sysOssList, total, query.getLimit(), query.getPage());
-
         return R.ok().put("page", pageUtil);
     }
 
@@ -71,7 +69,6 @@ public class SysOssController {
     @RequiresPermissions("sys:oss:all")
     public R config() {
         CloudStorageConfig config = sysConfigService.getConfigObject(KEY, CloudStorageConfig.class);
-
         return R.ok().put("config", config);
     }
 
@@ -84,7 +81,6 @@ public class SysOssController {
     public R saveConfig(@RequestBody CloudStorageConfig config) {
         //校验类型
         ValidatorUtils.validateEntity(config);
-
         if (config.getType() == Constant.CloudService.QINIU.getValue()) {
             //校验七牛数据
             ValidatorUtils.validateEntity(config, QiniuGroup.class);
@@ -95,10 +91,7 @@ public class SysOssController {
             //校验腾讯云数据
             ValidatorUtils.validateEntity(config, QcloudGroup.class);
         }
-
-
         sysConfigService.updateValueByKey(KEY, JSON.toJSONString(config));
-
         return R.ok();
     }
 
@@ -119,20 +112,16 @@ public class SysOssController {
         } else {
             url = LocalStorageService.upload(request, file);
         }
-
-
         //保存文件信息
         SysOssEntity ossEntity = new SysOssEntity();
         ossEntity.setUrl(url);
         ossEntity.setCreateDate(new Date());
         sysOssService.save(ossEntity);
-
         R r = new R();
         r.put("url", url);
         r.put("link", url);
         return r;
     }
-
 
     /**
      * 删除
@@ -141,7 +130,6 @@ public class SysOssController {
     @RequiresPermissions("sys:oss:all")
     public R delete(@RequestBody Long[] ids) {
         sysOssService.deleteBatch(ids);
-
         return R.ok();
     }
 
@@ -152,7 +140,6 @@ public class SysOssController {
     public List<String> queryAll(@RequestParam Map<String, Object> params) {
         //查询列表数据
         List<SysOssEntity> sysOssList = sysOssService.queryList(params);
-
         List<String> list = new ArrayList<>();
         if (null != sysOssList && sysOssList.size() > 0) {
             for (SysOssEntity item : sysOssList) {

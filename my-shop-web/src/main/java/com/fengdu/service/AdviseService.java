@@ -1,9 +1,9 @@
 package com.fengdu.service;
 
-import com.fengdu.pojo.Advise;
+import com.fengdu.pojo.AdvisePojo;
 
 import java.util.List;
 
 public interface AdviseService  {
-    List<Advise> queryList(int limit);
+    List<AdvisePojo> queryList(int limit);
 }

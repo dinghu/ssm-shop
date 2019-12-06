@@ -21,7 +21,7 @@
 
   <context-param>
 		<param-name>webAppRootKey</param-name>
-		<param-value>webapp.root</param-value>
+		<param-value>my-shop-web</param-value>
 	</context-param>
 	
      <!-- 开一条watchdog线程每3秒扫描一下配置文件的变化; -->  

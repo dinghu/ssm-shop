@@ -45,7 +45,7 @@ public class DataFilterAspect {
             SysUserEntity user = ShiroUtils.getUserEntity();
 
             //如果不是超级管理员，则只能查询本部门及子部门数据
-            if (user.getUserId() != Constant.SUPER_ADMIN) {
+            if (user != null && user.getUserId() != Constant.SUPER_ADMIN) {
                 Map map = (Map) params;
                 map.put("filterSql", getFilterSQL(user, point));
             }
@@ -68,12 +68,12 @@ public class DataFilterAspect {
 
         StringBuilder filterSql = new StringBuilder();
         filterSql.append(" and ( ");
-        if (StringUtils.isNotEmpty(deptAlias) || StringUtils.isNotBlank(userAlias)){
-        //    filterSql.append(" 1 = 1 ");
+        if (StringUtils.isNotEmpty(deptAlias) || StringUtils.isNotBlank(userAlias)) {
+            //    filterSql.append(" 1 = 1 ");
             if (StringUtils.isNotEmpty(deptAlias)) {
                 //取出登录用户部门权限
                 String alias = getAliasByUser(user.getUserId());
-            //    filterSql.append(" and ");
+                //    filterSql.append(" and ");
                 filterSql.append(deptAlias);
                 filterSql.append(" in ");
                 filterSql.append(" ( ");
@@ -95,7 +95,7 @@ public class DataFilterAspect {
                 filterSql.append(user.getUserId());
                 filterSql.append(" ");
             }
-        }  else {
+        } else {
             return "";
         }
         filterSql.append(" ) ");

@@ -1,7 +1,6 @@
 package com.fengdu.controller;
 
-import com.fengdu.dao.AdvantageMapper;
-import com.fengdu.dto.OurGoodsDto;
+import com.fengdu.dto.OurCommoditiesDto;
 import com.fengdu.pojo.*;
 import com.fengdu.service.*;
 import com.fengdu.utils.R;
@@ -19,7 +18,7 @@ import java.util.Map;
 @RequestMapping("/shouye")
 public class IndexController {
     @Autowired
-    GoodsService goodsService;
+    CommodityService goodsService;
     @Autowired
     ShopCategoryService shopCategoryService;
     @Autowired
@@ -27,17 +26,17 @@ public class IndexController {
     @Autowired
     AdviseService adviseService;
     @Autowired
-    AdService adService;
+    BannerService adService;
 
     @RequestMapping("/getOurProducts")
     @ResponseBody
     public R getOurGoods() {
-        ArrayList<OurGoodsDto> ourGoodsDtos = new ArrayList<>();
-        List<ShopCategory> shopCategoryList = shopCategoryService.getRecommendCategory();
-        for (ShopCategory shopCategory : shopCategoryList) {
-            OurGoodsDto ourGoodsDto = new OurGoodsDto();
+        ArrayList<OurCommoditiesDto> ourGoodsDtos = new ArrayList<>();
+        List<ShopCategoryPojo> shopCategoryList = shopCategoryService.getRecommendCategory();
+        for (ShopCategoryPojo shopCategory : shopCategoryList) {
+            OurCommoditiesDto ourGoodsDto = new OurCommoditiesDto();
             ourGoodsDto.category = shopCategory;
-            List<Goods> goodsList = goodsService.queryListByCategory(shopCategory.getId(), 0, 4);
+            List<CommodityPojo> goodsList = goodsService.queryListByCategory(shopCategory.getId(), 0, 4);
             ourGoodsDto.products = goodsList;
             ourGoodsDtos.add(ourGoodsDto);
         }
@@ -50,22 +49,22 @@ public class IndexController {
     @ResponseBody
     public R getAll() {
         //我们的产品
-        ArrayList<OurGoodsDto> ourGoodsDtos = new ArrayList<>();
-        List<ShopCategory> shopCategoryList = shopCategoryService.getRecommendCategory();
-        for (ShopCategory shopCategory : shopCategoryList) {
-            OurGoodsDto ourGoodsDto = new OurGoodsDto();
+        ArrayList<OurCommoditiesDto> ourGoodsDtos = new ArrayList<>();
+        List<ShopCategoryPojo> shopCategoryList = shopCategoryService.getRecommendCategory();
+        for (ShopCategoryPojo shopCategory : shopCategoryList) {
+            OurCommoditiesDto ourGoodsDto = new OurCommoditiesDto();
             ourGoodsDto.category = shopCategory;
-            List<Goods> goodsList = goodsService.queryListByCategory(shopCategory.getId(), 0, 4);
+            List<CommodityPojo> goodsList = goodsService.queryListByCategory(shopCategory.getId(), 0, 4);
             ourGoodsDto.products = goodsList;
             ourGoodsDtos.add(ourGoodsDto);
         }
         //Why Choose Us
-        List<Advantage> advantageList = advantageService.queryList(3);
-        List<Advise> adviseList = adviseService.queryList(3);
-        List<Goods> bestSellers = goodsService.queryList(0, 3);
+        List<AdvantagePojo> advantageList = advantageService.queryList(3);
+        List<AdvisePojo> adviseList = adviseService.queryList(3);
+        List<CommodityPojo> bestSellers = goodsService.queryList(0, 3);
         Map<String, Object> params = new HashMap<>();
         params.put("ad_position_id", 2);
-        List<AdPojo> adPojoList = adService.queryList(params);
+        List<BannerPojo> adPojoList = adService.queryList(params);
         R r = R.ok();
         r.put("ourProducts", ourGoodsDtos);
         r.put("advantages", advantageList);

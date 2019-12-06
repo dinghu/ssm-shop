@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fengdu.dao.AdPojoMapper">
-    <select id="queryList" resultType="com.fengdu.pojo.AdPojo">
+<mapper namespace="com.fengdu.dao.BannerMapper">
+    <select id="queryList" resultType="com.fengdu.pojo.BannerPojo">
         select * from nideshop_ad where enabled = 1
         <if test="ad_position_id != null">
             and ad_position_id = #{ad_position_id}
@@ -13,13 +13,12 @@
         select count(*) from nideshop_ad WHERE enabled = 1
     </select>
 
-    <select id="findByPage" resultType="com.fengdu.pojo.AdPojo">
+    <select id="findByPage" resultType="com.fengdu.pojo.BannerPojo">
         select * from nideshop_ad
-        <include refid="CommonMapper.parseFilterRules"/>
+        <!--<include refid="FilterMapper.parseFilterRules"/>-->
         <if test="pageQuery != null">
             order by ${pageQuery.orderBy} ${pageQuery.orderType} limit #{pageQuery.start} , #{pageQuery.pageSize}
         </if>
-
     </select>
 
 </mapper>

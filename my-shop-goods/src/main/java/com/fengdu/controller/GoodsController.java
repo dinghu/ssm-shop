@@ -84,7 +84,6 @@ public class GoodsController {
     @RequiresPermissions("goods:delete")
     public R delete(@RequestBody Integer[] ids) {
         goodsService.deleteBatch(ids);
-
         return R.ok();
     }
 
