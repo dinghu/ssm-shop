@@ -27,8 +27,8 @@ public class CommodityController extends BaseController {
     public R getCommodities(HttpServletRequest req) {
         Integer categoryId = getIntegerParameter("categoryId", 0);
         Integer pageNo = getIntegerParameter("pageNo", 1);
-        int offset = 0;
-        int limit = offset + pageNo * 30;
+        int limit = 30;
+        int offset = pageNo * limit;
         Map param = new HashMap();
         param.put("isDelete", 0);
         if (categoryId != 0) {
