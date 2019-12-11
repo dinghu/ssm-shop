@@ -100,7 +100,8 @@
         <!--  数据过滤  -->
         ${filterSql}
         <if test="name != null and name != ''">
-            AND nideshop_goods.name LIKE concat('%',#{name},'%')
+            AND (nideshop_goods.name LIKE concat('%',#{name},'%') OR nideshop_goods.keywords like concat('%',#{name},'%') OR
+            nideshop_goods.goods_desc like concat('%',#{name},'%'))
         </if>
         <if test="categoryId != null">
             AND nideshop_goods.category_id = #{categoryId}
@@ -124,7 +125,8 @@
         <!--  数据过滤  -->
         ${filterSql}
         <if test="name != null and name != ''">
-            AND name LIKE concat('%',#{name},'%')
+            AND (name LIKE concat('%',#{name},'%') OR nideshop_goods.keywords like concat('%',#{name},'%') OR
+            nideshop_goods.goods_desc like concat('%',#{name},'%'))
         </if>
         AND nideshop_goods.is_Delete = #{isDelete}
     </select>
