@@ -18,6 +18,15 @@ public class R extends HashMap<String, Object> {
         put("message", "操作成功");
     }
 
+    public void setError(String message) {
+        put("message", message);
+    }
+
+    public void setError(int code, String message) {
+        put("code", code);
+        put("message", message);
+    }
+
     public static R error() {
         return error(500, "未知异常，请联系管理员");
     }
@@ -46,6 +55,15 @@ public class R extends HashMap<String, Object> {
     }
 
     public static R ok() {
+        return new R();
+    }
+
+    public void setOk() {
+        put("code", 0);
+        put("message", "操作成功");
+    }
+
+    public static R result() {
         return new R();
     }
 

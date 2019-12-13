@@ -145,4 +145,16 @@
         </foreach>
     </delete>
 
+
+    <select id="queryByAccount" resultType="com.fengdu.entity.UserEntity">
+        SELECT * FROM  nideshop_user WHERE username = #{account} OR mobile = #{account}
+    </select>
+
+    <select id="queryByUserName" resultType="com.fengdu.entity.UserEntity">
+        SELECT * FROM  nideshop_user WHERE username = #{username}
+    </select>
+
+    <select id="queryByByPhone" resultType="com.fengdu.entity.UserEntity">
+        SELECT * FROM  nideshop_user WHERE  mobile = #{phone}
+    </select>
 </mapper>

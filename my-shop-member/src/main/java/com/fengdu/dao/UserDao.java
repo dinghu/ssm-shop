@@ -11,5 +11,9 @@ import com.fengdu.entity.UserEntity;
  * @date 2017-08-16 15:02:28
  */
 public interface UserDao extends BaseDao<UserEntity> {
+    UserEntity queryByAccount(String account);
 
+    UserEntity queryByUserName(String username);
+
+    UserEntity queryByByPhone(String phone);
 }
