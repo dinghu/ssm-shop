@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.URLDecoder;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +37,7 @@ public class ConfigerController extends BaseController {
     @RequestMapping("/getIndex/mobile")
     @ResponseBody
     public R getIndex(HttpServletRequest req) {
-
+        String keywords = getStringParameter("keywords", null);
         Map<String, Object> params = new HashMap<>();
         params.put("ad_position_id", 2);//移动端图标
         List<AdEntity> bannerEntities = adService.queryList(params);
@@ -45,6 +46,23 @@ public class ConfigerController extends BaseController {
         paramRecommend.put("isDelete", 0);
         paramRecommend.put("offset", 0);
         paramRecommend.put("limit", 30);
+        if (!TextUtils.isEmpty(keywords)) {
+            try {
+                keywords = URLDecoder.decode(keywords, "utf-8");
+                String[] keywordsArrays = keywords.split(",");
+                if (keywordsArrays.length == 1) {
+                    paramRecommend.put("name", keywords);
+                } else {
+                    if (keywordsArrays.length >= 2) {
+                        paramRecommend.put("keywords", Arrays.asList(keywordsArrays));
+                    }
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         List<GoodsEntity> recommendCommodities = goodsService.queryList(paramRecommend);
 
         Map paramConfig = new HashMap();

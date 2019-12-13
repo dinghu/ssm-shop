@@ -6,7 +6,8 @@ $(function () {
             {label: 'id', name: 'id', index: 'id', key: true, hidden: true},
             {label: '商品类型', name: 'categoryName', index: 'category_id', width: 80},
             {label: '名称', name: 'name', index: 'name', width: 160},
-            {label: '品牌', name: 'brandName', index: 'brand_id', width: 120},
+
+            {label: '渠道', name: 'channelName', index: 'channel', width: 80},
             {
                 label: '上架', name: 'isOnSale', index: 'is_on_sale', width: 50,
                 formatter: function (value) {
@@ -15,23 +16,26 @@ $(function () {
             },
             {
                 label: '录入日期', name: 'addTime', index: 'add_time', width: 80, formatter: function (value) {
-                return transDate(value, 'yyyy-MM-dd');
-            }
+                    return transDate(value, 'yyyy-MM-dd');
+                }
             },
             {label: '属性类别', name: 'attributeCategoryName', index: 'attribute_category', width: 80},
             {label: '零售价格', name: 'retailPrice', index: 'retail_price', width: 80},
             {label: '商品库存', name: 'goodsNumber', index: 'goods_number', width: 80},
             {label: '销售量', name: 'sellVolume', index: 'sell_volume', width: 80},
             {label: '市场价', name: 'marketPrice', index: 'market_price', width: 80},
+            {label: '品牌', name: 'brandName', index: 'brand_id', width: 80},
             {
                 label: '热销', name: 'isHot', index: 'is_hot', width: 80, formatter: function (value) {
-                return transIsNot(value);
-            }
+                    return transIsNot(value);
+                }
             }],
         viewrecords: true,
-        height: 385,
-        rowNum: 10,
-        rowList: [10, 30, 50],
+        // height: 385,
+        // rowNum: 10,
+        height: 700,
+        rowNum: 20,
+        rowList: [20, 30, 50],
         rownumbers: true,
         rownumWidth: 25,
         autowidth: true,
@@ -101,6 +105,7 @@ var vm = new Vue({
             isAppExclusive: 0,
             isLimited: 0,
             isHot: 0,
+            channel: 0,
             categoryName: ''
         },
         ruleValidate: {
@@ -114,7 +119,7 @@ var vm = new Vue({
         brands: [],//品牌
         macros: [],//商品单位
         attributeCategories: [],//属性类别
-        channels:[]//商品渠道
+        channels: []//商品渠道
     },
     methods: {
         query: function () {
@@ -133,6 +138,7 @@ var vm = new Vue({
                 isAppExclusive: 0,
                 isLimited: 0,
                 isHot: 0,
+                channel: 0,
                 categoryName: ''
             };
             $('#goodsDesc').editable('setHTML', '');

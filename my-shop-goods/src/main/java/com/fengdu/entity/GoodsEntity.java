@@ -47,6 +47,8 @@ public class GoodsEntity implements Serializable {
     private Integer attributeCategory;
     //渠道来源
     private Integer channel;
+    //渠道来源
+    private String channelName;
     //专柜价格
     private BigDecimal counterPrice;
     //附加价格
@@ -128,6 +130,14 @@ public class GoodsEntity implements Serializable {
     private String attributeCategoryName;
     //品牌
     private String brandName;
+
+    public String getChannelName() {
+        return channelName;
+    }
+
+    public void setChannelName(String channelName) {
+        this.channelName = channelName;
+    }
 
     public Integer getChannel() {
         return channel;

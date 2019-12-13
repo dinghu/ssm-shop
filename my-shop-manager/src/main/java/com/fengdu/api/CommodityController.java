@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.URLDecoder;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,10 +43,19 @@ public class CommodityController extends BaseController {
         param.put("limit", limit);
         if (!TextUtils.isEmpty(keywords)) {
             try {
-                param.put("name", URLDecoder.decode(keywords, "utf-8"));
+                keywords = URLDecoder.decode(keywords, "utf-8");
+                String[] keywordsArrays = keywords.split(",");
+                if (keywordsArrays.length >= 1) {
+                    param.put("name", keywords);
+                }
+                if (keywordsArrays.length >= 2) {
+                    param.put("keywords", Arrays.asList(keywordsArrays));
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+
         }
 
         List<GoodsEntity> commodities = goodsService.queryList(param);

@@ -3,9 +3,11 @@
 
 <mapper namespace="com.fengdu.dao.GoodsDao">
 
+
     <resultMap type="com.fengdu.entity.GoodsEntity" id="goodsMap">
         <result property="id" column="id"/>
         <result property="categoryId" column="category_id"/>
+        <result property="channel" column="channel_id"/>
         <result property="goodsSn" column="goods_sn"/>
         <result property="name" column="name"/>
         <result property="brandId" column="brand_id"/>
@@ -44,7 +46,7 @@
         <result property="couponGetCounter" column="coupon_get_counter"/>
     </resultMap>
 
-    <select id="queryObject" resultType="com.fengdu.entity.GoodsEntity">
+    <select id="queryObject" resultMap="goodsMap">
 		select * from nideshop_goods where id = #{value}
 	</select>
 
@@ -90,19 +92,55 @@
         nideshop_goods.coupon_get_counter,
         nideshop_category.name category_name,
         nideshop_attribute_category.name attribute_category_name,
-        nideshop_brand.name brand_name
+        nideshop_brand.name brand_name,
+        nideshop_channel.id channel,
+        nideshop_channel.name channelName
         from nideshop_goods
         LEFT JOIN nideshop_category
         ON nideshop_goods.category_id = nideshop_category.id
         LEFT JOIN nideshop_attribute_category ON nideshop_goods.attribute_category = nideshop_attribute_category.id
         LEFT JOIN nideshop_brand ON nideshop_brand.id = nideshop_goods.brand_id
+        LEFT JOIN nideshop_channel ON nideshop_channel.id = nideshop_goods.channel_id
         WHERE 1=1
         <!--  数据过滤  -->
         ${filterSql}
         <if test="name != null and name != ''">
-            AND (nideshop_goods.name LIKE concat('%',#{name},'%') OR nideshop_goods.keywords like concat('%',#{name},'%') OR
+            AND (nideshop_goods.name LIKE concat('%',#{name},'%') OR nideshop_goods.keywords like
+            concat('%',#{name},'%') OR
             nideshop_goods.goods_desc like concat('%',#{name},'%'))
         </if>
+        <if test="keywords != null">
+            <foreach collection="keywords" item="key" open="AND (" close=")" separator="OR">
+                <!-- 每次遍历要拼接的串 -->
+                nideshop_goods.name LIKE concat('%',#{key},'%')
+            </foreach>
+        </if>
+
+
+        <!--<if test="name1 != null and name1 != ''">-->
+        <!--AND (nideshop_goods.name LIKE concat('%',#{name1},'%') OR nideshop_goods.keywords like-->
+        <!--concat('%',#{name1},'%') OR-->
+        <!--nideshop_goods.goods_desc like concat('%',#{name1},'%'))-->
+        <!--</if>-->
+
+        <!--<if test="name2 != null and name2 != ''">-->
+        <!--AND (nideshop_goods.name LIKE concat('%',#{name2},'%') OR nideshop_goods.keywords like-->
+        <!--concat('%',#{name2},'%') OR-->
+        <!--nideshop_goods.goods_desc like concat('%',#{name2},'%'))-->
+        <!--</if>-->
+
+        <!--<if test="name3 != null and name3 != ''">-->
+        <!--AND (nideshop_goods.name LIKE concat('%',#{name3},'%') OR nideshop_goods.keywords like-->
+        <!--concat('%',#{name3},'%') OR-->
+        <!--nideshop_goods.goods_desc like concat('%',#{name3},'%'))-->
+        <!--</if>-->
+
+        <!--<if test="name4 != null and name4 != ''">-->
+        <!--AND (nideshop_goods.name LIKE concat('%',#{name4},'%') OR nideshop_goods.keywords like-->
+        <!--concat('%',#{name4},'%') OR-->
+        <!--nideshop_goods.goods_desc like concat('%',#{name4},'%'))-->
+        <!--</if>-->
+
         <if test="categoryId != null">
             AND nideshop_goods.category_id = #{categoryId}
         </if>
@@ -170,6 +208,7 @@
         `create_user_id`,
         `create_user_dept_id`,
         `update_user_id`,
+        `channel_id`,
         `out_link`,
         `coupon_get_counter`
         )
@@ -211,8 +250,9 @@
         #{createUserId},
         #{createUserDeptId},
         #{updateUserId},
-         #{outLink},
-          #{couponGetCounter}
+        #{channel},
+        #{outLink},
+        #{couponGetCounter}
         )
     </insert>
 
@@ -254,6 +294,7 @@
             <if test="createUserId != null">`create_user_id` = #{createUserId},</if>
             <if test="createUserId != null">`create_user_dept_id` = #{createUserDeptId},</if>
             <if test="updateUserId != null">`update_user_id` = #{updateUserId},</if>
+            <if test="channel != null">`channel_id` = #{channel},</if>
             <if test="outLink != null">`out_link` = #{outLink},</if>
             <if test="couponGetCounter != null">`coupon_get_counter` = #{couponGetCounter},</if>
         </set>

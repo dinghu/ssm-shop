@@ -102,12 +102,15 @@
                         </i-select>
                     </Form-item>
 
+                    <!--<Form-item label="会员等级" prop="userLevelId" style="width: 268px;">-->
+                        <!--<i-select v-model="user.userLevelId" filterable>-->
+                            <!--<i-option v-for="userLevel in userLevels" :value="userLevel.id" :key="userLevel.id">{{userLevel.name}}</i-option>-->
+                        <!--</i-select>-->
+                    <!--</Form-item>-->
                     <!--商品渠道-->
                     <Form-item label="渠道" prop="channel" style="width: 268px;">
-                        <i-select v-model="goods.channel" filterable label-in-value>
-                            <i-option v-for="channel in channels" :value="channel.id"
-                                      :key="channel.id">{{channel.name}}
-                            </i-option>
+                        <i-select v-model="goods.channel" filterable >
+                            <i-option v-for="channelLLL in channels" :value="channelLLL.id" :key="channelLLL.id">{{channelLLL.name}}</i-option>
                         </i-select>
                     </Form-item>
 
