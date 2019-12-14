@@ -19,11 +19,26 @@
 		select * from nideshop_collect where id = #{value}
 	</select>
 
+    <select id="queryListbyUid" resultType="com.fengdu.entity.GoodsCollectEntity">
+        select a.id as colletId , c.*,b.id as userId
+        from nideshop_collect a
+        left join nideshop_user b on a.user_id = b.id
+        left join nideshop_goods c on a.value_id = c.id
+        where a.user_id = #{userId} and a.type_id = #{type}
+        order by a.add_time desc
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
     <select id="queryList" resultType="com.fengdu.entity.CollectEntity">
         select a.* , b.username as user_name,c.name as value_name
         from nideshop_collect a
         left join nideshop_user b on a.user_id = b.id
         left join nideshop_goods c on a.value_id = c.id
+        <if test="userId != null and userId != ''">
+            where a.user_id = #{userId}
+        </if>
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
                 order by ${sidx} ${order}

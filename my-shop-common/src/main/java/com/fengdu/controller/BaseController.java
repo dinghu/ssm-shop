@@ -1,11 +1,16 @@
 package com.fengdu.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.fengdu.utils.TokenUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.http.util.TextUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
+
+import static com.fengdu.constant.MyshopConstants.AUTH_TOKEN_HEADER_NAME;
 
 public class BaseController {
 
@@ -13,6 +18,28 @@ public class BaseController {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
                 .getRequest();
         return request;
+    }
+
+    protected String getJwtToken() {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        String token = request.getHeader(AUTH_TOKEN_HEADER_NAME);
+        return token;
+    }
+
+
+    public String getUserIdFromRequest() {
+        String token = getJwtToken();
+        if (TextUtils.isEmpty(token)) {
+            return null;
+        }
+        try {
+            String userInfostr = TokenUtils.getSubject(token);
+            JSONObject userInfoJson = JSONObject.parseObject(userInfostr);
+            String uid = userInfoJson.getString("id");
+            return uid;
+        } catch (Exception e) {
+            throw new RuntimeException("登录信息失效异常，请重新登录");
+        }
     }
 
     protected String getStringParameter(String name) {

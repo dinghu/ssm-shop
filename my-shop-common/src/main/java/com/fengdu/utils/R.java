@@ -35,6 +35,10 @@ public class R extends HashMap<String, Object> {
         return error(500, msg);
     }
 
+    public static R paramsError() {
+        return error(500, "参数错误");
+    }
+
     public static R error(int code, String msg) {
         R r = new R();
         r.put("code", code);

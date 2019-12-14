@@ -2,6 +2,10 @@ package com.fengdu.dao;
 
 import com.fengdu.dao.BaseDao;
 import com.fengdu.entity.CollectEntity;
+import com.fengdu.entity.GoodsCollectEntity;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 
@@ -11,5 +15,5 @@ import com.fengdu.entity.CollectEntity;
  * @date 2017-08-13 10:41:06
  */
 public interface CollectDao extends BaseDao<CollectEntity> {
-	
+    List<GoodsCollectEntity> queryListbyUid(Map<String, Object> map);
 }

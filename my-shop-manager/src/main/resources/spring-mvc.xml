@@ -51,6 +51,16 @@
             <mvc:exclude-mapping path="/**/**.js"/>
             <bean class="com.fengdu.interceptor.LogInterceptor"/><!--  -->
         </mvc:interceptor>
+
+        <mvc:interceptor>
+            <!-- 默认所有的请求都进行拦截 -->
+            <mvc:mapping path="/api/**"/>
+            <mvc:exclude-mapping path="/api/config/**"/>
+            <mvc:exclude-mapping path="/api/commodity/**"/>
+            <mvc:exclude-mapping path="/api/user/login"/>
+            <mvc:exclude-mapping path="/api/user/regist"/>
+            <bean class="com.fengdu.intercepter.AuthInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!-- Velocity视图解析器    默认视图  -->

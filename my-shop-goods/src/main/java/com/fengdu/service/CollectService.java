@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.fengdu.entity.CollectEntity;
+import com.fengdu.entity.GoodsCollectEntity;
 
 /**
  * 
@@ -27,4 +28,6 @@ public interface CollectService {
 	void delete(Integer id);
 	
 	void deleteBatch(Integer[] ids);
+
+	List<GoodsCollectEntity> queryListbyUid(Map<String, Object> map);
 }
