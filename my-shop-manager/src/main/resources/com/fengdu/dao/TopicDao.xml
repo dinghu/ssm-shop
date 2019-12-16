@@ -16,6 +16,7 @@
         <result property="scenePicUrl" column="scene_pic_url"/>
         <result property="topicTemplateId" column="topic_template_id"/>
         <result property="topicTagId" column="topic_tag_id"/>
+        <result property="linkUrl" column="link_url"/>
     </resultMap>
 
     <select id="queryObject" resultType="com.fengdu.entity.TopicEntity">
@@ -31,6 +32,7 @@
 			`read_count`,
 			`scene_pic_url`,
 			`topic_template_id`,
+			`link_url`,
 			`topic_tag_id`
 		from nideshop_topic
 		where id = #{id}
@@ -49,11 +51,15 @@
         `read_count`,
         `scene_pic_url`,
         `topic_template_id`,
+        `link_url`,
         `topic_tag_id`
         from nideshop_topic
         WHERE 1=1
         <if test="title != null and title.trim() != ''">
             AND title LIKE concat('%',#{title},'%')
+        </if>
+        <if test="topicCategoryId != null">
+            AND topic_category_id = ,#{topicCategoryId}
         </if>
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
@@ -88,6 +94,7 @@
 			`read_count`,
 			`scene_pic_url`,
 			`topic_template_id`,
+			`link_url`,
 			`topic_tag_id`)
 		values(
 			#{title},
@@ -100,6 +107,7 @@
 			#{readCount},
 			#{scenePicUrl},
 			#{topicTemplateId},
+			#{linkUrl},
 			#{topicTagId})
 	</insert>
 
@@ -117,6 +125,7 @@
             <if test="scenePicUrl != null">`scene_pic_url` = #{scenePicUrl},</if>
             <if test="topicTemplateId != null">`topic_template_id` = #{topicTemplateId},</if>
             <if test="topicTagId != null">`topic_tag_id` = #{topicTagId}</if>
+            <if test="linkUrl != null">`link_url` = #{linkUrl}</if>
         </set>
         where id = #{id}
     </update>

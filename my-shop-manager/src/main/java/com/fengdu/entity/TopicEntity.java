@@ -38,6 +38,16 @@ public class TopicEntity implements Serializable {
     private Integer topicTemplateId;
     //活动标签Id
     private Integer topicTagId;
+    //链接
+    private String linkUrl;
+
+    public String getLinkUrl() {
+        return linkUrl;
+    }
+
+    public void setLinkUrl(String linkUrl) {
+        this.linkUrl = linkUrl;
+    }
 
     /**
      * 设置：主键

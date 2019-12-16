@@ -115,32 +115,9 @@
                 nideshop_goods.name LIKE concat('%',#{key},'%')
             </foreach>
         </if>
-
-
-        <!--<if test="name1 != null and name1 != ''">-->
-        <!--AND (nideshop_goods.name LIKE concat('%',#{name1},'%') OR nideshop_goods.keywords like-->
-        <!--concat('%',#{name1},'%') OR-->
-        <!--nideshop_goods.goods_desc like concat('%',#{name1},'%'))-->
-        <!--</if>-->
-
-        <!--<if test="name2 != null and name2 != ''">-->
-        <!--AND (nideshop_goods.name LIKE concat('%',#{name2},'%') OR nideshop_goods.keywords like-->
-        <!--concat('%',#{name2},'%') OR-->
-        <!--nideshop_goods.goods_desc like concat('%',#{name2},'%'))-->
-        <!--</if>-->
-
-        <!--<if test="name3 != null and name3 != ''">-->
-        <!--AND (nideshop_goods.name LIKE concat('%',#{name3},'%') OR nideshop_goods.keywords like-->
-        <!--concat('%',#{name3},'%') OR-->
-        <!--nideshop_goods.goods_desc like concat('%',#{name3},'%'))-->
-        <!--</if>-->
-
-        <!--<if test="name4 != null and name4 != ''">-->
-        <!--AND (nideshop_goods.name LIKE concat('%',#{name4},'%') OR nideshop_goods.keywords like-->
-        <!--concat('%',#{name4},'%') OR-->
-        <!--nideshop_goods.goods_desc like concat('%',#{name4},'%'))-->
-        <!--</if>-->
-
+        <if test="isNine != null">
+            AND (nideshop_goods.retail_price <![CDATA[ <= ]]> 10 and nideshop_goods.retail_price <![CDATA[ > ]]> 0)
+        </if>
         <if test="categoryId != null">
             AND nideshop_goods.category_id = #{categoryId}
         </if>

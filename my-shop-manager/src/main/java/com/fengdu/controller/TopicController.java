@@ -26,9 +26,9 @@ import com.fengdu.utils.R;
  */
 @RestController
 @RequestMapping("topic")
-public class TopicController {
+public class TopicController extends BaseController{
     @Autowired
-    private TopicService topicService;
+    protected TopicService topicService;
 
     /**
      * 查看列表

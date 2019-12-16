@@ -32,6 +32,8 @@ public class CommodityController extends BaseController {
         Integer pageNo = getIntegerParameter("pageNo", 1);
         Integer pageSize = getIntegerParameter("pageSize", 10);
         String keywords = getStringParameter("keywords", null);
+        Integer isNine = getIntegerParameter("isNine", 0);
+        String sort = getStringParameter("sort", null);
         int limit = pageSize.intValue();
         int offset = (pageNo - 1) * limit;
         Map param = new HashMap();
@@ -41,6 +43,18 @@ public class CommodityController extends BaseController {
         }
         param.put("offset", offset);
         param.put("limit", limit);
+        if (isNine == 1) {
+            param.put("isNine", 1);
+        }
+        if (!TextUtils.isEmpty(sort)) {
+            if ("price".equals(sort)) {
+                param.put("sidx", "retail_price");
+                param.put("order", "asc");
+            } else if ("discount".equals(sort)) {
+                param.put("sidx", "coupon_price");
+                param.put("order", "desc");
+            }
+        }
         if (!TextUtils.isEmpty(keywords)) {
             try {
                 keywords = URLDecoder.decode(keywords, "utf-8");
