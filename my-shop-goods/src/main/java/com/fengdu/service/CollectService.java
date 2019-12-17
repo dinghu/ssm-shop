@@ -30,4 +30,8 @@ public interface CollectService {
 	void deleteBatch(Integer[] ids);
 
 	List<GoodsCollectEntity> queryListbyUid(Map<String, Object> map);
+
+	CollectEntity queryObjectbyUidAndVid(Map<String, Object> map);
+
+	void deletebyUidAndVid(Map<String, Object> map);
 }

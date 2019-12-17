@@ -3,7 +3,9 @@ package com.fengdu.api;
 import com.fengdu.controller.CollectController;
 import com.fengdu.entity.CollectEntity;
 import com.fengdu.entity.GoodsCollectEntity;
+import com.fengdu.service.CollectService;
 import com.fengdu.utils.R;
+import org.apache.http.util.TextUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,6 +17,38 @@ import java.util.Map;
 @Controller
 @RequestMapping("/api/collet")
 public class ApiColletController extends CollectController {
+
+    @RequestMapping("/cancle")
+    public R delete(HttpServletRequest req) {
+        String userId = getUserIdFromRequest();
+        Integer valueId = getIntegerParameter("commodityId", -1);
+        if (TextUtils.isEmpty(userId) || -1 == valueId) {
+            return R.paramsError();
+        }
+        Map param = new HashMap();
+        param.put("userId", userId);
+        param.put("valueId", valueId);
+        collectService.deletebyUidAndVid(param);
+        return R.ok();
+    }
+
+    @RequestMapping("/isCollet")
+    public R isCollet(HttpServletRequest req) {
+        String userId = getUserIdFromRequest();
+        Integer valueId = getIntegerParameter("commodityId", -1);
+        if (-1 == valueId) {
+            return R.paramsError();
+        }
+        Map param = new HashMap();
+        param.put("userId", userId);
+        param.put("valueId", valueId);
+        CollectEntity collectEntity = collectService.queryObjectbyUidAndVid(param);
+        R rok = R.ok();
+        Map paramRet = new HashMap();
+        paramRet.put("isCollet", collectEntity != null);
+        rok.put("data", paramRet);
+        return rok;
+    }
 
     /**
      * 保存

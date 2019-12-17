@@ -19,6 +19,14 @@
 		select * from nideshop_collect where id = #{value}
 	</select>
 
+    <select id="queryObjectbyUidAndVid" resultType="com.fengdu.entity.CollectEntity">
+		select * from nideshop_collect where user_id = #{userId} and value_id =  #{valueId}
+	</select>
+
+    <delete id="deletebyUidAndVid">
+		 delete from  nideshop_collect where user_id = #{userId} and value_id =  #{valueId}
+	</delete>
+
     <select id="queryListbyUid" resultType="com.fengdu.entity.GoodsCollectEntity">
         select a.id as colletId , c.*,b.id as userId
         from nideshop_collect a

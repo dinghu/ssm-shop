@@ -45,7 +45,7 @@ public class ConfigerController extends BaseController {
         Map paramRecommend = new HashMap();
         paramRecommend.put("isDelete", 0);
         paramRecommend.put("offset", 0);
-        paramRecommend.put("limit", 30);
+        paramRecommend.put("limit", 40);
         if (!TextUtils.isEmpty(keywords)) {
             try {
                 keywords = URLDecoder.decode(keywords, "utf-8");

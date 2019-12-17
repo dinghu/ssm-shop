@@ -56,4 +56,14 @@ public class CollectServiceImpl implements CollectService {
     public List<GoodsCollectEntity> queryListbyUid(Map<String, Object> map) {
         return collectDao.queryListbyUid(map);
     }
+
+    @Override
+    public CollectEntity queryObjectbyUidAndVid(Map<String, Object> map) {
+        return collectDao.queryObjectbyUidAndVid(map);
+    }
+
+    @Override
+    public void deletebyUidAndVid(Map<String, Object> map) {
+        collectDao.deletebyUidAndVid(map);
+    }
 }

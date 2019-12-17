@@ -49,7 +49,7 @@
     <select id="queryObject" resultMap="goodsMap">
 		select * from nideshop_goods where id = #{value}
 	</select>
-
+    <!--LEFT JOIN nideshop_brand ON nideshop_brand.id = nideshop_goods.brand_id    nideshop_brand.name brand_name,-->
     <select id="queryList" resultType="com.fengdu.entity.GoodsEntity">
         select
         nideshop_goods.id,
@@ -92,16 +92,13 @@
         nideshop_goods.coupon_get_counter,
         nideshop_category.name category_name,
         nideshop_attribute_category.name attribute_category_name,
-        nideshop_brand.name brand_name,
         nideshop_channel.id channel,
         nideshop_channel.name channelName
         from nideshop_goods
-        LEFT JOIN nideshop_category
-        ON nideshop_goods.category_id = nideshop_category.id
+        LEFT JOIN nideshop_category ON nideshop_goods.category_id = nideshop_category.id
         LEFT JOIN nideshop_attribute_category ON nideshop_goods.attribute_category = nideshop_attribute_category.id
-        LEFT JOIN nideshop_brand ON nideshop_brand.id = nideshop_goods.brand_id
         LEFT JOIN nideshop_channel ON nideshop_channel.id = nideshop_goods.channel_id
-        WHERE 1=1
+        WHERE 1=1 AND nideshop_goods.id > 0
         <!--  数据过滤  -->
         ${filterSql}
         <if test="name != null and name != ''">

@@ -68,10 +68,7 @@ public class CommodityController extends BaseController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
         }
-
         List<GoodsEntity> commodities = goodsService.queryList(param);
         R r = R.ok();
         r.put("data", commodities);

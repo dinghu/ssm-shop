@@ -16,4 +16,6 @@ import java.util.Map;
  */
 public interface CollectDao extends BaseDao<CollectEntity> {
     List<GoodsCollectEntity> queryListbyUid(Map<String, Object> map);
+    CollectEntity queryObjectbyUidAndVid(Map<String, Object> map);
+    void deletebyUidAndVid(Map<String, Object> map);
 }
