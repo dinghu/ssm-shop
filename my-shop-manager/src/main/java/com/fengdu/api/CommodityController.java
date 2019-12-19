@@ -33,6 +33,7 @@ public class CommodityController extends BaseController {
         Integer pageSize = getIntegerParameter("pageSize", 10);
         String keywords = getStringParameter("keywords", null);
         Integer isNine = getIntegerParameter("isNine", 0);
+        Integer channel = getIntegerParameter("channel", null);
         String sort = getStringParameter("sort", null);
         int limit = pageSize.intValue();
         int offset = (pageNo - 1) * limit;
@@ -40,6 +41,9 @@ public class CommodityController extends BaseController {
         param.put("isDelete", 0);
         if (categoryId != 0) {
             param.put("categoryId", categoryId);
+        }
+        if (channel != null) {
+            param.put("channel", channel);
         }
         param.put("offset", offset);
         param.put("limit", limit);

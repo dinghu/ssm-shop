@@ -3,7 +3,6 @@ package com.fengdu.api;
 import com.fengdu.controller.CollectController;
 import com.fengdu.entity.CollectEntity;
 import com.fengdu.entity.GoodsCollectEntity;
-import com.fengdu.service.CollectService;
 import com.fengdu.utils.R;
 import org.apache.http.util.TextUtils;
 import org.springframework.stereotype.Controller;

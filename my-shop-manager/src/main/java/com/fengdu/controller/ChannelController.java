@@ -22,9 +22,9 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("channel")
-public class ChannelController {
+public class ChannelController extends BaseController{
     @Autowired
-    private ChannelService channelService;
+    protected ChannelService channelService;
 
     /**
      * 查看列表

@@ -23,17 +23,32 @@ public class Query extends LinkedHashMap<String, Object> {
         this.putAll(params);
 
         //分页参数
-        this.page = Integer.parseInt(params.get("page").toString());
-        this.limit = Integer.parseInt(params.get("limit").toString());
-        this.put("offset", (page - 1) * limit);
-        this.put("page", page);
-        this.put("limit", limit);
+        if (params.get("page") != null) {
+            this.page = Integer.parseInt(params.get("page").toString());
+        }
+
+        if (params.get("limit") != null) {
+            this.limit = Integer.parseInt(params.get("limit").toString());
+        }
+
+        if (params.get("page") != null && params.get("limit") != null) {
+            this.put("offset", (page - 1) * limit);
+            this.put("page", page);
+            this.put("limit", limit);
+        }
+
 
         //防止SQL注入（因为sidx、order是通过拼接SQL实现排序的，会有SQL注入风险）
-        String sidx = params.get("sidx").toString();
-        String order = params.get("order").toString();
-        this.put("sidx", SQLFilter.sqlInject(sidx));
-        this.put("order", SQLFilter.sqlInject(order));
+        if (params.get("sidx") != null) {
+            String sidx = params.get("sidx").toString();
+            this.put("sidx", SQLFilter.sqlInject(sidx));
+        }
+
+        if (params.get("order") != null) {
+            String order = params.get("order").toString();
+            this.put("order", SQLFilter.sqlInject(order));
+        }
+
     }
 
 

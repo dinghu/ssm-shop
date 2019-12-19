@@ -115,6 +115,9 @@
         <if test="isNine != null">
             AND (nideshop_goods.retail_price <![CDATA[ <= ]]> 10 and nideshop_goods.retail_price <![CDATA[ > ]]> 0)
         </if>
+        <if test="channel != null">
+            AND nideshop_goods.channel_id = #{channel}
+        </if>
         <if test="categoryId != null">
             AND nideshop_goods.category_id = #{categoryId}
         </if>
