@@ -663,7 +663,7 @@
                 contentType: false,
                 success: function (response) {
                     var rep = $.parseJSON(response);
-                    if (rep.code == 0) {
+                    if (rep.code == 200) {
                         registerInputUsername.val("");
                         registerInputPhone.val("");
                         registerInputPassword.val("");
@@ -700,7 +700,7 @@
                 },
                 success: function (response) {
                     var rep = $.parseJSON(response);
-                    if (rep.code == 0) {
+                    if (rep.code == 200) {
                         localStorage.setItem("userId", rep.user.id);
                         localStorage.setItem("username", rep.user.username);
                         localStorage.setItem("avatar", rep.user.avatar);

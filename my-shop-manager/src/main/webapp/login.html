@@ -29,7 +29,7 @@
                 </div>
                 <div class="m-b"></div>
                 <h4>欢迎使用 <strong>综合管理平台</strong></h4>
-                 <ul class="m-b">
+                <ul class="m-b">
                     <!--<li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 一个轻量级的Java快速开发平台，能快速开发项目</li>-->
                     <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Mybatis</li>
                     <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Shiro</li>
@@ -37,9 +37,9 @@
                     <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Vue+iView</li>
                     <!--<li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 官方QQ群：711281203(综合平台系统开发)</li>-->
                     <!--<li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> <a-->
-                            <!--href="https://gitee.com/Wiliam/my-shop" target="_blank" style="color: white;">Git：https://gitee.com/Wiliam/my-shop</a>-->
+                    <!--href="https://gitee.com/Wiliam/my-shop" target="_blank" style="color: white;">Git：https://gitee.com/Wiliam/my-shop</a>-->
                     <!--</li>-->
-                </ul> 
+                </ul>
             </div>
         </div>
         <div class="col-md-5">
@@ -53,11 +53,11 @@
                              placeholder="密码"/>
                 </div>
                 <div class="form-group has-feedback">
-                    <div style="display: inline-block;width: 100px;" >
+                    <div style="display: inline-block;width: 100px;">
                         <i-input v-model="captcha" @on-enter="login"
                                  placeholder="验证码"/>
                     </div>
-                    <div style="display: inline-block;width: 100px;" >
+                    <div style="display: inline-block;width: 100px;">
                         <img style="height: 32px;width: 96px;border-radius: 4px;" alt="如果看不清楚，请单击图片刷新！" title="点击刷新"
                              class="pointer" :src="src" @click="refreshCode">
                     </div>
@@ -119,16 +119,17 @@
                     data: data,
                     dataType: "json",
                     success: function (result) {
-                        if (result.code == 0) {//登录成功
+                        console.log(result)
+                        if (result.code == 200 || result.code == 200) {//登录成功
                             parent.location.href = 'index.html';
                         } else {
                             vm.refreshCode();
-                            iview.Message.error(result.msg);
+                            alert(result.msg);
                         }
-                    }
-                });
-            }
-        }
+    }
+    });
+    }
+    }
     });
 </script>
 </body>

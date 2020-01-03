@@ -78,7 +78,7 @@ public class UserRealm extends AuthorizingRealm {
         Session session = subject.getSession(true);
         session.setAttribute(Global.CURRENT_USER, user);
 
-        redisUtils.set(Global.CURRENT_USER, user, MyshopConstants.EXPIRE_TIME);
+//        redisUtils.set(Global.CURRENT_USER, user, MyshopConstants.EXPIRE_TIME);
 
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, password, getName());
         return info;

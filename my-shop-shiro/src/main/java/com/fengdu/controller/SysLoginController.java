@@ -74,7 +74,7 @@ public class SysLoginController {
             password = new Sha256Hash(password).toHex();
             UsernamePasswordToken token = new UsernamePasswordToken(username, password);
             subject.login(token);
-            redisUtils.set(Global.CURRENT_USER,token,MyshopConstants.EXPIRE_TIME);
+//            redisUtils.set(Global.CURRENT_USER,token,MyshopConstants.EXPIRE_TIME);
         } catch (UnknownAccountException e) {
             return R.error(e.getMessage());
         } catch (IncorrectCredentialsException e) {

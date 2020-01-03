@@ -15,16 +15,16 @@ public class R extends HashMap<String, Object> {
 
     public R() {
         put("code", 200);
-        put("message", "操作成功");
+        put("msg", "操作成功");
     }
 
     public void setError(String message) {
-        put("message", message);
+        put("msg", message);
     }
 
     public void setError(int code, String message) {
         put("code", code);
-        put("message", message);
+        put("msg", message);
     }
 
     public static R error() {
@@ -42,13 +42,13 @@ public class R extends HashMap<String, Object> {
     public static R error(int code, String msg) {
         R r = new R();
         r.put("code", code);
-        r.put("message", msg);
+        r.put("msg", msg);
         return r;
     }
 
     public static R ok(String msg) {
         R r = new R();
-        r.put("message", msg);
+        r.put("msg", msg);
         return r;
     }
 
@@ -64,7 +64,7 @@ public class R extends HashMap<String, Object> {
 
     public void setOk() {
         put("code", 0);
-        put("message", "操作成功");
+        put("msg", "操作成功");
     }
 
     public static R result() {
