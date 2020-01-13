@@ -1,8 +1,12 @@
 package com.fengdu.utils;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +53,45 @@ public class HttpClientUtil {
 	 */
 	public static String get(String url) {
 		return get(url, DEFAULT_CHARSET);
+	}
+
+	public static String sendChromGet(String url, String param) {
+		String result = "";
+		BufferedReader in = null;
+		try {
+			String urlNameString = url;
+			if (param != null) {
+				urlNameString = url + "?" + param;
+			}
+			URL realUrl = new URL(urlNameString);
+			URLConnection connection = realUrl.openConnection();
+//			connection.setRequestProperty("Accept-Charset", "UTF-8");
+			connection.setRequestProperty("accept", "application/json, text/javascript, */*;q=0.01"); //
+			connection.setRequestProperty("connection", "Keep-Alive");
+			connection.setRequestProperty("Accept-Language", "zh-CN,zh;q=0.9");
+			connection.setRequestProperty("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36");
+			connection.connect();
+			Map<String, List<String>> map = connection.getHeaderFields();
+			for (String key : map.keySet()) {
+				System.out.println(key + "--->" + map.get(key));
+			}
+			in = new BufferedReader(new InputStreamReader(connection.getInputStream(),"utf-8"));
+			String line;
+			while ((line = in.readLine()) != null) {
+				result += line;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (in != null) {
+					in.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return result;
 	}
 
 	/**

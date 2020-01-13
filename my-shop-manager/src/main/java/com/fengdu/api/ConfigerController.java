@@ -1,8 +1,10 @@
 package com.fengdu.api;
 
 import com.fengdu.controller.BaseController;
+import com.fengdu.dao.AppInfoEntityMapper;
 import com.fengdu.dao.ConfigEntityMapper;
 import com.fengdu.entity.AdEntity;
+import com.fengdu.entity.AppInfoEntity;
 import com.fengdu.entity.ConfigEntity;
 import com.fengdu.entity.GoodsEntity;
 import com.fengdu.service.AdService;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.net.URLDecoder;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -30,7 +33,43 @@ public class ConfigerController extends BaseController {
     AdService adService;
 
     @Autowired
+    AppInfoEntityMapper appInfoDao;
+
+    @Autowired
     ConfigEntityMapper configEntityMapper;
+
+    @RequestMapping(value = "/popoWin/redbag")
+    @ResponseBody
+    public R popoWin(HttpServletRequest request) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("ad_position_id", 3);//红包弹框广告位
+        List<AdEntity> adEntities = adService.queryList(params);
+        R rOk = R.ok();
+        rOk.put("data", adEntities);
+        return rOk;
+    }
+
+    @RequestMapping(value = "/check_update")
+    @ResponseBody
+    public R check_update(HttpServletRequest request, HttpServletResponse response) {
+        String version = request.getParameter("version");
+        R result = R.ok();
+        AppInfoEntity appInfoEntity = appInfoDao.selectByPrimaryKey(1);
+        if (appInfoEntity != null) {
+            String versionServe = appInfoEntity.getVersion();
+            String newfunc = appInfoEntity.getContent();
+            boolean forceUpdate = appInfoEntity.getForceUpdate() == 0;
+            String apkUrl = appInfoEntity.getDownloadUrl();
+            if (versionServe.compareTo(version) > 0) {
+                Map param = new HashMap();
+                param.put("new", apkUrl);
+                param.put("forceUpdate", forceUpdate);
+                param.put("newfunc", newfunc);
+                result.put("data", param);
+            }
+        }
+        return result;
+    }
 
     @RequestMapping("/getIndex/mobile")
     @ResponseBody

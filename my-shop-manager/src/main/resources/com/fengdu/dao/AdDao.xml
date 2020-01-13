@@ -48,7 +48,10 @@
             AND nideshop_ad.name LIKE concat('%',#{name},'%')
         </if>
         <if test="ad_position_id != null">
-            AND nideshop_ad.ad_position_id =  #{ad_position_id}
+            AND nideshop_ad.ad_position_id = #{ad_position_id}
+        </if>
+        <if test="enabled != null">
+            AND nideshop_ad.enabled = #{enabled}
         </if>
 
         <choose>
