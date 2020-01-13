@@ -77,6 +77,7 @@ public class ConfigerController extends BaseController {
         String keywords = getStringParameter("keywords", null);
         Map<String, Object> params = new HashMap<>();
         params.put("ad_position_id", 2);//移动端图标
+        params.put("enabled", 1);//移动端图标
         List<AdEntity> bannerEntities = adService.queryList(params);
 
         Map paramRecommend = new HashMap();
