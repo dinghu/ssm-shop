@@ -43,6 +43,7 @@ public class ConfigerController extends BaseController {
     public R popoWin(HttpServletRequest request) {
         Map<String, Object> params = new HashMap<>();
         params.put("ad_position_id", 3);//红包弹框广告位
+        params.put("enabled", 1);//红包弹框广告位
         List<AdEntity> adEntities = adService.queryList(params);
         R rOk = R.ok();
         rOk.put("data", adEntities);
@@ -58,7 +59,7 @@ public class ConfigerController extends BaseController {
         if (appInfoEntity != null) {
             String versionServe = appInfoEntity.getVersion();
             String newfunc = appInfoEntity.getContent();
-            boolean forceUpdate = appInfoEntity.getForceUpdate() == 0;
+            boolean forceUpdate = appInfoEntity.getForceUpdate() != 0;
             String apkUrl = appInfoEntity.getDownloadUrl();
             if (versionServe.compareTo(version) > 0) {
                 Map param = new HashMap();
