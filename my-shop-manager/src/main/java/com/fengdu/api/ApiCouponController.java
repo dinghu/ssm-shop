@@ -4,18 +4,26 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fengdu.controller.BaseController;
 import com.fengdu.entity.HistroyPriceResp;
+import com.fengdu.entity.HistroyPriceRespNew;
 import com.fengdu.entity.JingdongCouponResp;
 import com.fengdu.entity.TaobaoCouponResp;
 import com.fengdu.utils.HttpClientUtil;
 import com.fengdu.utils.R;
+import net.sf.json.regexp.RegexpUtils;
 import org.apache.http.util.TextUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.net.URI;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping("/api/coupon")
@@ -26,6 +34,34 @@ public class ApiCouponController extends BaseController {
             String histrotyUrl = "http://www.yhmai.cn/api/history?url=" + url;
             String ret = HttpClientUtil.sendChromGet(histrotyUrl, null);
             HistroyPriceResp histroyPriceResp = JSON.toJavaObject(JSONObject.parseObject(ret), HistroyPriceResp.class);
+            return histroyPriceResp;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    private HistroyPriceResp getHistroyPriceNew(String encodeUrl) {
+        try {
+            String decodeurl = URLDecoder.decode(encodeUrl, "utf-8");
+            String regEx = "€.+.€"; // 定义正则表达式
+            Pattern pattern = Pattern.compile(regEx);
+            Matcher matcher = pattern.matcher(decodeurl);
+            String taoPassword = null;
+            while (matcher.find()) {
+                taoPassword = matcher.group();
+                break;
+            }
+            String historyUrl = String.format("http://59.110.159.72/router?v=1&api=yhmai.query.history&url=%s&_t=%s",
+                    encodeUrl, System.currentTimeMillis() + "");
+            if (!TextUtils.isEmpty(taoPassword)) {
+                historyUrl = String.format("http://59.110.159.72/router?v=1&api=yhmai.taobao.query.tpwd&taoPassword=%s&_t=%s",
+                        URLEncoder.encode(taoPassword,"utf-8"), System.currentTimeMillis() + "");
+            }
+            String ret1 = HttpClientUtil.sendChromGet(historyUrl, null);
+            HistroyPriceRespNew histroyPriceRespNew = JSON.toJavaObject(JSONObject.parseObject(ret1), HistroyPriceRespNew.class);
+            HistroyPriceResp histroyPriceResp = histroyPriceRespNew.toJdHistroyPriceResp();
             return histroyPriceResp;
         } catch (Exception e) {
             e.printStackTrace();
@@ -83,7 +119,7 @@ public class ApiCouponController extends BaseController {
         }
         try {
 //            url = URLDecoder.decode(url, "utf-8");
-            HistroyPriceResp histroyPriceResp = getHistroyPrice(url);
+            HistroyPriceResp histroyPriceResp = getHistroyPriceNew(url);
 //            String title = histroyPriceResp.getData().getGoodTitle();
 //            byte[] bArr = title.getBytes("gbk");  //bArr[0]=fe,bArr[1]=ff;从bArr[2]开始为编码内容
 //            String str1 = new String(bArr, "utf-8");  //utf16和unicode编码一样
@@ -197,18 +233,30 @@ public class ApiCouponController extends BaseController {
     public static void main(String[] args) {
 
         try {
-            String histrotyUrl = "http://www.yhmai.cn/api/history?url=https://item.jd.com/1590386.html";
-            String ret = HttpClientUtil.sendChromGet(histrotyUrl, null);
-            HistroyPriceResp histroyPriceResp = JSON.toJavaObject(JSONObject.parseObject(ret), HistroyPriceResp.class);
-            String title = histroyPriceResp.getData().getGoodTitle();
-            byte[] bArr = title.getBytes("ISO-8859-1");  //bArr[0]=fe,bArr[1]=ff;从bArr[2]开始为编码内容
-            byte[] bArr2 = title.getBytes("GBK");  //bArr[0]=fe,bArr[1]=ff;从bArr[2]开始为编码内容
-            String str1 = new String(bArr, "UTF-8");  //utf16和unicode编码一样
-            String str2 = new String(bArr2, "UTF-8");  //utf16和unicode编码一样
-            histroyPriceResp.getData().setGoodTitle(str1);
-            R rOk = R.ok();
-            rOk.put("data", histroyPriceResp.getData());
 
+//            String histrotyUrl = "http://www.yhmai.cn/api/history?url=https://item.jd.com/1590386.html";
+//            String ret = HttpClientUtil.sendChromGet(histrotyUrl, null);
+//            HistroyPriceResp histroyPriceResp = JSON.toJavaObject(JSONObject.parseObject(ret), HistroyPriceResp.class);
+//            String title = histroyPriceResp.getData().getGoodTitle();
+//            byte[] bArr = title.getBytes("ISO-8859-1");  //bArr[0]=fe,bArr[1]=ff;从bArr[2]开始为编码内容
+//            byte[] bArr2 = title.getBytes("GBK");  //bArr[0]=fe,bArr[1]=ff;从bArr[2]开始为编码内容
+//            String str1 = new String(bArr, "UTF-8");  //utf16和unicode编码一样
+//            String str2 = new String(bArr2, "UTF-8");  //utf16和unicode编码一样
+//            histroyPriceResp.getData().setGoodTitle(str1);
+//            R rOk = R.ok();
+//            rOk.put("data", histroyPriceResp.getData());
+
+
+            String historyUrl = "http://59.110.159.72/router?v=1&api=yhmai.query.history&url=https://detail.tmall.com/item.htm?id=602695578857&_t=" + System.currentTimeMillis();
+            String ret1 = HttpClientUtil.sendChromGet(historyUrl, null);
+//            String goodInfoUrl = "http://59.110.159.72/router?v=1&api=yhmai.jingdong.query.good.info&url=https://item.jd.com/100008348542.html&_t="+System.currentTimeMillis();
+//            String ret2 = HttpClientUtil.sendChromGet(goodInfoUrl, null);
+//            System.out.print("ret1:"+ret1);
+//            System.out.print("ret2:"+ret2);
+
+            HistroyPriceRespNew histroyPriceRespNew = JSON.toJavaObject(JSONObject.parseObject(ret1), HistroyPriceRespNew.class);
+            HistroyPriceResp histroyPriceResp = histroyPriceRespNew.toJdHistroyPriceResp();
+            System.out.print("ret2:" + ret1);
         } catch (Exception e) {
             e.printStackTrace();
         }
