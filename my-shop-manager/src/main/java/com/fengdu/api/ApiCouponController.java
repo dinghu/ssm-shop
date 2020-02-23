@@ -45,7 +45,7 @@ public class ApiCouponController extends BaseController {
     private HistroyPriceResp getHistroyPriceNew(String encodeUrl) {
         try {
             String decodeurl = URLDecoder.decode(encodeUrl, "utf-8");
-            String regEx = "€.+.€"; // 定义正则表达式
+            String regEx = "\\w{11}"; // 定义正则表达式
             Pattern pattern = Pattern.compile(regEx);
             Matcher matcher = pattern.matcher(decodeurl);
             String taoPassword = null;
@@ -53,11 +53,21 @@ public class ApiCouponController extends BaseController {
                 taoPassword = matcher.group();
                 break;
             }
+            if (!TextUtils.isEmpty(taoPassword)) {
+                int intexPassword = decodeurl.indexOf(taoPassword);
+                if (intexPassword != -1) {
+                    int end = intexPassword + taoPassword.length() + 1;
+                    int start = intexPassword - 1;
+                    taoPassword = decodeurl.substring(start, end);
+                }
+            }
+
             String historyUrl = String.format("http://59.110.159.72/router?v=1&api=yhmai.query.history&url=%s&_t=%s",
                     encodeUrl, System.currentTimeMillis() + "");
             if (!TextUtils.isEmpty(taoPassword)) {
                 historyUrl = String.format("http://59.110.159.72/router?v=1&api=yhmai.taobao.query.tpwd&taoPassword=%s&_t=%s",
-                        URLEncoder.encode(taoPassword,"utf-8"), System.currentTimeMillis() + "");
+                        URLEncoder.encode(taoPassword, "utf-8"), System.currentTimeMillis() + "");
+                //{	"data":"https://a.m.taobao.com/i594508621394.htm?sourceType=item&ttid=255200@taobao_android_9.4.0&ut_sk=1.XiAxax4bLZADADZkd3TidmYh_21646297_1582297456920.GoodsTitleURL.1&un=939d82bc7e58b13a5aa10d17ec7f1e53&share_crt_v=1&spm=a211b4.23149863&sp_tk=4oK0N0c4UjFmVFVLVmrigrQ=&visa=13a09278fde22a2e&disablePopup=true&disableSJ=1",	"message":"SUCCESS",	"status":200}
             }
             String ret1 = HttpClientUtil.sendChromGet(historyUrl, null);
             HistroyPriceRespNew histroyPriceRespNew = JSON.toJavaObject(JSONObject.parseObject(ret1), HistroyPriceRespNew.class);
@@ -233,6 +243,22 @@ public class ApiCouponController extends BaseController {
     public static void main(String[] args) {
 
         try {
+
+            String decodeurl = "复置这行话¢vmyM1f3QrSi¢转移至淘宀┡ē【预售 李子柒柳州螺蛳粉广西特产正宗螺丝粉方便面米线酸辣粉3包】；或https://m.tb.cn/h.V2eRvSW?sm=4b7a0d 掂击链街，再选择瀏→覽→噐咑№亓";
+            String regEx = "\\w{11}"; // 定义正则表达式
+            Pattern pattern = Pattern.compile(regEx);
+            Matcher matcher = pattern.matcher(decodeurl);
+            String taoPassword = null;
+            while (matcher.find()) {
+                taoPassword = matcher.group();
+                int intexPassword = decodeurl.indexOf(taoPassword);
+                if (intexPassword != -1) {
+                    int end = intexPassword + taoPassword.length() + 1;
+                    int start = intexPassword - 1;
+                    taoPassword = decodeurl.substring(start, end);
+                }
+                break;
+            }
 
 //            String histrotyUrl = "http://www.yhmai.cn/api/history?url=https://item.jd.com/1590386.html";
 //            String ret = HttpClientUtil.sendChromGet(histrotyUrl, null);
