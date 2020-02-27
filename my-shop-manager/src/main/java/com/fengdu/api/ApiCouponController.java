@@ -7,20 +7,18 @@ import com.fengdu.entity.HistroyPriceResp;
 import com.fengdu.entity.HistroyPriceRespNew;
 import com.fengdu.entity.JingdongCouponResp;
 import com.fengdu.entity.TaobaoCouponResp;
+import com.fengdu.entity.resp.TaobaoInfoResp;
 import com.fengdu.utils.HttpClientUtil;
 import com.fengdu.utils.R;
-import net.sf.json.regexp.RegexpUtils;
+import com.fengdu.utils.UrlUtils;
 import org.apache.http.util.TextUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.net.URI;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -42,13 +40,15 @@ public class ApiCouponController extends BaseController {
         return null;
     }
 
-    private HistroyPriceResp getHistroyPriceNew(String encodeUrl) {
-        try {
-            String decodeurl = URLDecoder.decode(encodeUrl, "utf-8");
+    private HistroyPriceResp getHistroyPriceNew(String encodeUrl) throws Exception {
+
+
+        String decodeurl = URLDecoder.decode(encodeUrl, "utf-8");
+        String taoPassword = null;
+        if (!UrlUtils.isUrl(decodeurl)) {
             String regEx = "\\w{11}"; // 定义正则表达式
             Pattern pattern = Pattern.compile(regEx);
             Matcher matcher = pattern.matcher(decodeurl);
-            String taoPassword = null;
             while (matcher.find()) {
                 taoPassword = matcher.group();
                 break;
@@ -61,23 +61,36 @@ public class ApiCouponController extends BaseController {
                     taoPassword = decodeurl.substring(start, end);
                 }
             }
-
-            String historyUrl = String.format("http://59.110.159.72/router?v=1&api=yhmai.query.history&url=%s&_t=%s",
-                    encodeUrl, System.currentTimeMillis() + "");
-            if (!TextUtils.isEmpty(taoPassword)) {
-                historyUrl = String.format("http://59.110.159.72/router?v=1&api=yhmai.taobao.query.tpwd&taoPassword=%s&_t=%s",
-                        URLEncoder.encode(taoPassword, "utf-8"), System.currentTimeMillis() + "");
-                //{	"data":"https://a.m.taobao.com/i594508621394.htm?sourceType=item&ttid=255200@taobao_android_9.4.0&ut_sk=1.XiAxax4bLZADADZkd3TidmYh_21646297_1582297456920.GoodsTitleURL.1&un=939d82bc7e58b13a5aa10d17ec7f1e53&share_crt_v=1&spm=a211b4.23149863&sp_tk=4oK0N0c4UjFmVFVLVmrigrQ=&visa=13a09278fde22a2e&disablePopup=true&disableSJ=1",	"message":"SUCCESS",	"status":200}
+            if (TextUtils.isEmpty(taoPassword)) {
+                throw new RuntimeException("链接格式错误");
             }
-            String ret1 = HttpClientUtil.sendChromGet(historyUrl, null);
-            HistroyPriceRespNew histroyPriceRespNew = JSON.toJavaObject(JSONObject.parseObject(ret1), HistroyPriceRespNew.class);
-            HistroyPriceResp histroyPriceResp = histroyPriceRespNew.toJdHistroyPriceResp();
-            return histroyPriceResp;
-        } catch (Exception e) {
-            e.printStackTrace();
         }
 
-        return null;
+        String encodeUrltarget = encodeUrl;
+
+        if (!TextUtils.isEmpty(taoPassword)) {
+            String goodsUrl = String.format("http://59.110.159.72/router?v=1&api=yhmai.taobao.query.tpwd&taoPassword=%s&_t=%s",
+                    URLEncoder.encode(taoPassword, "utf-8"), System.currentTimeMillis() + "");
+            //{	"data":"https://a.m.taobao.com/i594508621394.htm?sourceType=item&ttid=255200@taobao_android_9.4.0&ut_sk=1.XiAxax4bLZADADZkd3TidmYh_21646297_1582297456920.GoodsTitleURL.1&un=939d82bc7e58b13a5aa10d17ec7f1e53&share_crt_v=1&spm=a211b4.23149863&sp_tk=4oK0N0c4UjFmVFVLVmrigrQ=&visa=13a09278fde22a2e&disablePopup=true&disableSJ=1",	"message":"SUCCESS",	"status":200}
+            String retGoodsInfo = HttpClientUtil.sendChromGet(goodsUrl, null);
+            TaobaoInfoResp taobaoInfoResp = JSON.toJavaObject(JSONObject.parseObject(retGoodsInfo), TaobaoInfoResp.class);
+            if (taobaoInfoResp != null && !TextUtils.isEmpty(taobaoInfoResp.getData())) {
+                encodeUrltarget = URLEncoder.encode(taobaoInfoResp.getData(), "utf-8");
+            } else {
+                throw new RuntimeException("未查找到历史价格信息");
+            }
+        }
+
+
+        String historyUrl = String.format("http://59.110.159.72/router?v=1&api=yhmai.query.history&url=%s&_t=%s",
+                encodeUrltarget, System.currentTimeMillis() + "");
+
+        String ret1 = HttpClientUtil.sendChromGet(historyUrl, null);
+        System.out.println(ret1);
+        HistroyPriceRespNew histroyPriceRespNew = JSON.toJavaObject(JSONObject.parseObject(ret1), HistroyPriceRespNew.class);
+        HistroyPriceResp histroyPriceResp = histroyPriceRespNew.toJdHistroyPriceResp();
+        return histroyPriceResp;
+
     }
 
     private JingdongCouponResp searchJingdongCoupon(String key, int coupon) {
@@ -139,10 +152,8 @@ public class ApiCouponController extends BaseController {
             return rOk;
         } catch (Exception e) {
             e.printStackTrace();
+            return R.error(e.getMessage());
         }
-
-        R rOk = R.ok();
-        return rOk;
     }
 
     @RequestMapping("/historyPrice/taobao")
