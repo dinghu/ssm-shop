@@ -74,6 +74,13 @@ public class CommodityController extends BaseController {
             }
         }
         List<GoodsEntity> commodities = goodsService.queryList(param);
+        if (commodities == null || commodities.isEmpty()) {
+            if (!TextUtils.isEmpty(keywords)) {
+                param.remove("keywords");
+                param.remove("name");
+                commodities = goodsService.queryList(param);
+            }
+        }
         R r = R.ok();
         r.put("data", commodities);
         return r;
