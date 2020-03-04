@@ -63,7 +63,7 @@ public class CommodityController extends BaseController {
             try {
                 keywords = URLDecoder.decode(keywords, "utf-8");
                 String[] keywordsArrays = keywords.split(",");
-                if (keywordsArrays.length >= 1) {
+                if (keywordsArrays.length == 1) {
                     param.put("name", keywords);
                 }
                 if (keywordsArrays.length >= 2) {
