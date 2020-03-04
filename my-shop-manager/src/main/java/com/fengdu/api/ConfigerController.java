@@ -102,7 +102,17 @@ public class ConfigerController extends BaseController {
             }
         }
 
+
         List<GoodsEntity> recommendCommodities = goodsService.queryList(paramRecommend);
+        if (recommendCommodities == null || recommendCommodities.isEmpty()) {
+            if (!TextUtils.isEmpty(keywords)) {
+                Map paramRecommend1 = new HashMap();
+                paramRecommend1.put("isDelete", 0);
+                paramRecommend1.put("offset", 0);
+                paramRecommend1.put("limit", 40);
+                recommendCommodities = goodsService.queryList(paramRecommend1);
+            }
+        }
 
         Map paramConfig = new HashMap();
         paramConfig.put("isVisible", 0);
