@@ -47,13 +47,13 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    @DataFilter(userAlias = "nideshop_goods.create_user_id", deptAlias = "nideshop_goods.create_user_dept_id")
+//    @DataFilter(userAlias = "nideshop_goods.create_user_id", deptAlias = "nideshop_goods.create_user_dept_id")
     public List<GoodsEntity> queryList(Map<String, Object> map) {
         return goodsDao.queryList(map);
     }
 
     @Override
-    @DataFilter(userAlias = "nideshop_goods.create_user_id", deptAlias = "nideshop_goods.create_user_dept_id")
+//    @DataFilter(userAlias = "nideshop_goods.create_user_id", deptAlias = "nideshop_goods.create_user_dept_id")
     public int queryTotal(Map<String, Object> map) {
         return goodsDao.queryTotal(map);
     }

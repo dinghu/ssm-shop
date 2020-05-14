@@ -65,10 +65,30 @@ public class HttpClientUtil {
 			}
 			URL realUrl = new URL(urlNameString);
 			URLConnection connection = realUrl.openConnection();
+//			:au/
+//			:path: /router?v=1&api=yhmai.query.history&url=http:%2F%2Fitem.jd.com%2F100004538398.html&_t=1589186513033
+//:scheme: https
+//			accept: application/json, text/plain, */*
+//accept-encoding: gzip, deflate, br
+//accept-language: zh-CN,zh;q=0.9
+//cache-control: no-cache
+//content-type: application/x-www-form-urlencoded
+//origin: https://www.yhmai.cn
+//pragma: no-cache
+//referer: https://www.yhmai.cn/
+//sec-fetch-mode: cors
+//sec-fetch-site: same-site
+//user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36
 //			connection.setRequestProperty("Accept-Charset", "UTF-8");
-			connection.setRequestProperty("accept", "application/json, text/javascript, */*;q=0.01"); //
-			connection.setRequestProperty("connection", "Keep-Alive");
+			connection.setRequestProperty("accept", "application/json, text/javascript, */*"); //
+			connection.setRequestProperty("sec-fetch-mode", "cors");
+			connection.setRequestProperty("referer", "https://www.yhmai.cn/");
+			connection.setRequestProperty("pragma", "no-cache");
+			connection.setRequestProperty("origin", "https://www.yhmai.cn");
+			connection.setRequestProperty("content-type", "content-type: application/x-www-form-urlencoded");
+			connection.setRequestProperty("sec-fetch-site", "same-site");
 			connection.setRequestProperty("Accept-Language", "zh-CN,zh;q=0.9");
+//			connection.setRequestProperty("accept-encoding", " gzip, deflate, br");
 			connection.setRequestProperty("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36");
 			connection.connect();
 			Map<String, List<String>> map = connection.getHeaderFields();

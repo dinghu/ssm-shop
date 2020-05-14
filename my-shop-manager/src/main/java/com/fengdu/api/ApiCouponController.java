@@ -29,7 +29,7 @@ public class ApiCouponController extends BaseController {
 
     private HistroyPriceResp getHistroyPrice(String url) {
         try {
-            String histrotyUrl = "http://www.yhmai.cn/api/history?url=" + url;
+            String histrotyUrl = "https://www.yhmai.cn/api/history?url=" + url;
             String ret = HttpClientUtil.sendChromGet(histrotyUrl, null);
             HistroyPriceResp histroyPriceResp = JSON.toJavaObject(JSONObject.parseObject(ret), HistroyPriceResp.class);
             return histroyPriceResp;
@@ -69,7 +69,7 @@ public class ApiCouponController extends BaseController {
         String encodeUrltarget = encodeUrl;
 
         if (!TextUtils.isEmpty(taoPassword)) {
-            String goodsUrl = String.format("http://59.110.159.72/router?v=1&api=yhmai.taobao.query.tpwd&taoPassword=%s&_t=%s",
+            String goodsUrl = String.format("https://api.yhmai.cn/router?v=1&api=yhmai.taobao.query.tpwd&taoPassword=%s&_t=%s",
                     URLEncoder.encode(taoPassword, "utf-8"), System.currentTimeMillis() + "");
             //{	"data":"https://a.m.taobao.com/i594508621394.htm?sourceType=item&ttid=255200@taobao_android_9.4.0&ut_sk=1.XiAxax4bLZADADZkd3TidmYh_21646297_1582297456920.GoodsTitleURL.1&un=939d82bc7e58b13a5aa10d17ec7f1e53&share_crt_v=1&spm=a211b4.23149863&sp_tk=4oK0N0c4UjFmVFVLVmrigrQ=&visa=13a09278fde22a2e&disablePopup=true&disableSJ=1",	"message":"SUCCESS",	"status":200}
             String retGoodsInfo = HttpClientUtil.sendChromGet(goodsUrl, null);
@@ -80,11 +80,11 @@ public class ApiCouponController extends BaseController {
                 throw new RuntimeException("未查找到历史价格信息");
             }
         }
+//        https://api.yhmai.cn/router?v=1&api=yhmai.query.history&url=http:%2F%2Fitem.jd.com%2F100004538398.html&_t=1589186513033
 
-
-        String historyUrl = String.format("http://59.110.159.72/router?v=1&api=yhmai.query.history&url=%s&_t=%s",
+        String historyUrl = String.format("https://api.yhmai.cn/router?v=1&api=yhmai.query.history&url=%s&_t=%s",
                 encodeUrltarget, System.currentTimeMillis() + "");
-
+//        historyUrl ="https://api.yhmai.cn/router?v=1&api=yhmai.query.history&url=http:%2F%2Fitem.jd.com%2F100004538398.html&_t=1589186513033";
         String ret1 = HttpClientUtil.sendChromGet(historyUrl, null);
         System.out.println(ret1);
         HistroyPriceRespNew histroyPriceRespNew = JSON.toJavaObject(JSONObject.parseObject(ret1), HistroyPriceRespNew.class);
@@ -284,9 +284,9 @@ public class ApiCouponController extends BaseController {
 //            rOk.put("data", histroyPriceResp.getData());
 
 
-            String historyUrl = "http://59.110.159.72/router?v=1&api=yhmai.query.history&url=https://detail.tmall.com/item.htm?id=602695578857&_t=" + System.currentTimeMillis();
+            String historyUrl = "http://api.yhmai.cn/router?v=1&api=yhmai.query.history&url=https://detail.tmall.com/item.htm?id=602695578857&_t=" + System.currentTimeMillis();
             String ret1 = HttpClientUtil.sendChromGet(historyUrl, null);
-//            String goodInfoUrl = "http://59.110.159.72/router?v=1&api=yhmai.jingdong.query.good.info&url=https://item.jd.com/100008348542.html&_t="+System.currentTimeMillis();
+//            String goodInfoUrl = "http://api.yhmai.cn/router?v=1&api=yhmai.jingdong.query.good.info&url=https://item.jd.com/100008348542.html&_t="+System.currentTimeMillis();
 //            String ret2 = HttpClientUtil.sendChromGet(goodInfoUrl, null);
 //            System.out.print("ret1:"+ret1);
 //            System.out.print("ret2:"+ret2);

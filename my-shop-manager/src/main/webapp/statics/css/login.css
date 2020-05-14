@@ -2,7 +2,8 @@ html{height: 100%;}
 body.signin {
     background: #18c8f6;
     height: auto;
-    background:url("../img/baroud-admin.jpg") no-repeat center fixed;
+    /*background:url("../img/login.jpg") no-repeat center fixed;*/
+    background:url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585118374336&di=fd9198c0b9cd2c4816d6d352a830c91f&imgtype=0&src=http%3A%2F%2F00.minipic.eastday.com%2F20170927%2F20170927110301_d41d8cd98f00b204e9800998ecf8427e_5.jpeg") no-repeat center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
